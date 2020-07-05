@@ -7,7 +7,10 @@ export const NavBar = () => (
       <Link to="/">Home</Link>
     </li>
     <li>
-      <Link to="/sign_in">Sign In</Link>
+      <Link to="/my-properties">My Properties</Link>
+    </li>
+    <li>
+      <Link to="/login">Sign In</Link>
     </li>
   </ul>
 );
