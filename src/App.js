@@ -1,32 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import './App.css';
-import { firebase } from './firebase';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-  } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { Home } from './pages/Home';
 import { SignIn } from './pages/SignIn';
 import { Error } from './pages/Error';
 import { NavBar } from './components/NavBar';
+import { AuthContext } from './context/auth-context';
 
 export const App = () => {
-  const [isAuthenticated, setAuthentication] = useState(false)
-  return(
+  const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
+
+  return (
     <Router>
-    <NavBar/>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/sign_in">
-            <SignIn />
-          </Route>
-          <Route>
-            <Error />
-          </Route>
-        </Switch>
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/sign_in" component={SignIn} />
+        <Route component={Error} />
+      </Switch>
     </Router>
-    )}
+  );
+};

@@ -1,3 +1,3 @@
 import React from 'react';
 
-export const SignIn = () => <h2>Sign In</h2>
+export const SignIn = () => <h2>Sign In</h2>;
