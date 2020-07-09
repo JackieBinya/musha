@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
+import { useForm } from "react-hook-form";
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers';
 import { signUpHelper } from '../helpers';
 
-export const SignUp = ({ history }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+//const schema = 
 
-  const handleSignUp = async (e) => {
-    e.preventDefault();
+export const SignUp = ({ history }) => {
+  const { register, handleSubmit, reset, errors } = useForm({
+    mode: 'onChange'
+  });
+
+  const handleSignUp = (data, e) => {
+    alert(data.email)
+    e.target.reset(); 
+    console.log(data)
+    /* e.preventDefault();
     try {
       await signUpHelper(email, password);
       setPassword('');
@@ -17,24 +25,31 @@ export const SignUp = ({ history }) => {
       if (error) {
         console.log(error);
       }
-    }
+    } */
   };
   return (
     <>
-      <form onSubmit={handleSignUp}>
+      <form onSubmit={handleSubmit(handleSignUp)}>
+        <label>Email:</label>
         <input
           type="email"
           name="email"
-          value={email}
           placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
+          ref={register}
         />
+        <label>Password:</label>
         <input
           type="password"
           name="password"
-          value={password}
           placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
+          ref={register}
+        />
+        <label>Confirm Password:</label>
+         <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          ref={register}
         />
         <button type="submit">Submit</button>
       </form>
