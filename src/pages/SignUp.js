@@ -1,56 +1,63 @@
 import React, { useState } from 'react';
-import { useForm } from "react-hook-form";
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers';
 import { signUpHelper } from '../helpers';
 
-//const schema = 
-
 export const SignUp = ({ history }) => {
-  const { register, handleSubmit, reset, errors } = useForm({
-    mode: 'onChange'
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const [isSignedUp, setIsSignedUp] = useState(false);
 
-  const handleSignUp = (data, e) => {
-    alert(data.email)
-    e.target.reset(); 
-    console.log(data)
-    /* e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       await signUpHelper(email, password);
+      setMessage('User is successfully signed up');
       setPassword('');
       setEmail('');
-      history.push('/my-properties');
+      setIsSignedUp(true);
+      setTimeout(() => history.push('/my-properties'), 5000);
     } catch (error) {
-      if (error) {
-        console.log(error);
+      setIsSignedUp(false);
+
+      if (error.code === 'auth/email-already-in-use') {
+        setMessage('Email is already taken!');
       }
-    } */
+
+      if (error.code === 'auth/invalid-email') {
+        setMessage('Email is invalid!');
+      }
+
+      if (error.code === 'auth/weak-password') {
+        setMessage('Password should be at least six characters long!');
+      }
+    }
   };
   return (
     <>
-      <form onSubmit={handleSubmit(handleSignUp)}>
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          ref={register}
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          ref={register}
-        />
-        <label>Confirm Password:</label>
-         <input
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          ref={register}
-        />
+      <form onSubmit={handleSubmit}>
+        <p className={`message-container ${isSignedUp ? 'success' : 'fail'}`}>
+          {message}
+        </p>
+
+        <div>
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
         <button type="submit">Submit</button>
       </form>
     </>
