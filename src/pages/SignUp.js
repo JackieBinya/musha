@@ -9,12 +9,11 @@ export const SignUp = ({ history }) => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await signUpHelper(email, password);
-      setMessage('User is successfully signed up');
+      setMessage('Congrats 🥳, your account has been successfully created!');
       setPassword('');
       setEmail('');
       setIsAuthenticated(true);
@@ -23,15 +22,15 @@ export const SignUp = ({ history }) => {
       setIsAuthenticated(false);
 
       if (error.code === 'auth/email-already-in-use') {
-        setMessage('Email is already taken!');
+        setMessage('🤖 email is already taken!');
       }
 
       if (error.code === 'auth/invalid-email') {
-        setMessage('Email is invalid!');
+        setMessage('🤖 email is invalid!');
       }
 
       if (error.code === 'auth/weak-password') {
-        setMessage('Password should be at least six characters long!');
+        setMessage('🤖 password should be at least six characters long!');
       }
     }
   };
