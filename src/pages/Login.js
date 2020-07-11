@@ -32,7 +32,7 @@ export const Login = ({ history }) => {
       if (error.code === 'auth/user-not-found') {
         setMessage('🤖 email does no exist!');
       }
-      if (error.code === ' auth/invalid-email') {
+      if (error.code === ' auth/wrong-password') {
         setMessage('🤖 incorrect password');
       }
     }
