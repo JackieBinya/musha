@@ -32,12 +32,26 @@ export const SignUp = ({ history }) => {
       }
     }
   };
+
+  const handleClick = () => setMessage('');
+
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <p className={`message-container ${isSignedUp ? 'success' : 'fail'}`}>
-          {message}
-        </p>
+      <form onSubmit={handleSubmit} className="auth-form">
+        <div
+          className={`message-wrapper ${message ? 'message' : ''} ${
+            isSignedUp ? 'success' : 'fail'
+          }`}
+        >
+          <p>{message}</p>
+          <button
+            className="close-message"
+            type="button"
+            onClick={() => setMessage('')}
+          >
+            &times;
+          </button>
+        </div>
 
         <div>
           <label htmlFor="email">Email</label>
