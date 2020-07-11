@@ -23,21 +23,20 @@ export const Login = ({ history }) => {
     } catch (error) {
       setIsAuthenticated(false);
 
-      if(error.code === ' auth/invalid-email') {
+      if (error.code === ' auth/invalid-email') {
         setMessage('🤖 email address is not valid');
       }
-      if(error.code === 'auth/user-disabled') {
+      if (error.code === 'auth/user-disabled') {
         setMessage('🤖 your account has been suspended');
       }
-      if(error.code === 'auth/user-not-found') {
+      if (error.code === 'auth/user-not-found') {
         setMessage('🤖 email does no exist!');
       }
-      if(error.code === ' auth/invalid-email') {
+      if (error.code === ' auth/invalid-email') {
         setMessage('🤖 incorrect password');
       }
     }
-  }
-
+  };
   return (
     <>
       <Link to="/signup">Sign Up</Link>
