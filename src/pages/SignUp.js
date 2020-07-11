@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { signUpHelper } from '../helpers';
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-const eye = <FontAwesomeIcon icon={faEye} />;
+import { FormMessage } from '../components/FormMessage';
+import { PasswordInput } from '../components/PasswordInput';
+import { EmailInput } from '../components/EmailInput';
 
 export const SignUp = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const [isSignedUp, setIsSignedUp] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,10 +17,10 @@ export const SignUp = ({ history }) => {
       setMessage('User is successfully signed up');
       setPassword('');
       setEmail('');
-      setIsSignedUp(true);
+      setIsAuthenticated(true);
       setTimeout(() => history.push('/my-properties'), 5000);
     } catch (error) {
-      setIsSignedUp(false);
+      setIsAuthenticated(false);
 
       if (error.code === 'auth/email-already-in-use') {
         setMessage('Email is already taken!');
@@ -38,48 +36,17 @@ export const SignUp = ({ history }) => {
     }
   };
 
-  const handleClick = () => setMessage('');
-
   return (
     <>
       <form onSubmit={handleSubmit} className="auth-form">
-        <div
-          className={`message-wrapper ${message ? 'message' : ''} ${
-            isSignedUp ? 'success' : 'fail'
-          }`}
-        >
-          <p>{message}</p>
-          <button
-            className="close-message"
-            type="button"
-            onClick={() => setMessage('')}
-          >
-            &times;
-          </button>
-        </div>
-
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-
-        <div className="password-wrapper">
-          <label htmlFor="password">Password</label>
-          <input
-            type={showPassword ? 'text' : 'password'} 
-            name="password"
-            className="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <i onClick={() => setShowPassword(!showPassword)}>{eye}</i>
-        </div>
-        <button type="submit">Submit</button>
+        <FormMessage
+          isAuthenticated={isAuthenticated}
+          message={message}
+          setMessage={setMessage}
+        />
+        <EmailInput email={email} setEmail={setEmail} />
+        <PasswordInput setPassword={setPassword} password={password} />
+        <button type="submit">Create your account</button>
       </form>
     </>
   );
