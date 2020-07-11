@@ -60,4 +60,31 @@ form {
     background-color: lightgreen;
     color: green;
   }
+
+  input {
+    margin: 0 auto;
+    opacity: 50%;
+    margin-top: 10px;
+    width: 300px;
+    height: 59px;
+    font-size: 22px;
+    margin-bottom: 14px;
+    max-width: 527px;
+  }
+
+  .password-wrapper {
+    position: relative;
+    margin-bottom: 14px;
+  }
+  
+  i {
+    position: absolute;
+    top: 38%;
+    right: 73%;
+  }
+
+  i:hover {
+    color: grey;
+    cursor: pointer;
+  }
 }

@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { signUpHelper } from '../helpers';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye} />;
+
 export const SignUp = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [isSignedUp, setIsSignedUp] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,14 +68,16 @@ export const SignUp = ({ history }) => {
           />
         </div>
 
-        <div>
+        <div className="password-wrapper">
           <label htmlFor="password">Password</label>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'} 
             name="password"
+            className="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <i onClick={() => setShowPassword(!showPassword)}>{eye}</i>
         </div>
         <button type="submit">Submit</button>
       </form>
