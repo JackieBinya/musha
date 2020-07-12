@@ -10,6 +10,7 @@ import { Error } from './pages/Error';
 import { NavBar } from './components/NavBar';
 import { PrivateRoute } from './components/PrivateRoute';
 import { AuthContext } from './context/auth-context';
+import { PasswordReset } from './pages/PasswordReset';
 
 export const App = () => {
   const { currentUser } = useContext(AuthContext);
@@ -21,6 +22,7 @@ export const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/password-reset" component={PasswordReset} />
         <PrivateRoute exact path="/my-properties" component={Properties} />
         <Route component={Error} />
       </Switch>
