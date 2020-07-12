@@ -22,11 +22,11 @@ export const PasswordReset = ({ history }) => {
     } catch (error) {
         setIsEmailSent(false)
         if(error.code === 'auth/invalid-email'){
-          return setMessage('Email invalid');
+          setMessage('Email invalid');
         }
 
         if(error.code === 'auth/user-not-found'){
-            return setMessage('An account associated with the provided email does not exist!')
+          setMessage('An account associated with the provided email does not exist!')
         }
     }
   };
