@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { SignUp } from './SignUp';
 import { FormMessage } from '../components/FormMessage';
 import { PasswordInput } from '../components/PasswordInput';
@@ -51,6 +51,7 @@ export const Login = ({ history }) => {
         <PasswordInput setPassword={setPassword} password={password} />
         <button type="submit">Continue</button>
       </form>
+      <Link to="/password-reset">Have you forgotten your password?</Link>
     </>
   );
 };

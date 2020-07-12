@@ -37,7 +37,7 @@ export const SignUp = ({ history }) => {
 
   return (
     <>
-    <h1>Sign up</h1>
+      <h1>Sign up</h1>
       <form onSubmit={handleSubmit} className="auth-form">
         <FormMessage
           isAuthenticated={isAuthenticated}
