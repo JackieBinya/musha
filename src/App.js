@@ -11,6 +11,7 @@ import { NavBar } from './components/NavBar';
 import { PrivateRoute } from './components/PrivateRoute';
 import { AuthContext } from './context/auth-context';
 import { PasswordReset } from './pages/PasswordReset';
+import { Property } from './pages/Property';
 
 export const App = () => {
   const { currentUser } = useContext(AuthContext);
@@ -20,6 +21,7 @@ export const App = () => {
       <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/property/:propertyId" component={Property} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/password-reset" component={PasswordReset} />
