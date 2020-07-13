@@ -12,6 +12,7 @@ import { PrivateRoute } from './components/PrivateRoute';
 import { AuthContext } from './context/auth-context';
 import { PasswordReset } from './pages/PasswordReset';
 import { Property } from './pages/Property';
+import { PostPropertyForm } from './components/PostPropertyForm';
 
 export const App = () => {
   const { currentUser } = useContext(AuthContext);
@@ -26,6 +27,7 @@ export const App = () => {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/password-reset" component={PasswordReset} />
         <PrivateRoute exact path="/my-properties" component={Properties} />
+        <PrivateRoute exact path="/my-properties/post" component={PostPropertyForm} />
         <Route component={Error} />
       </Switch>
     </Router>
