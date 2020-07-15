@@ -1,16 +1,18 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { storage } from '../firebase';
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import { storage, firebase } from '../firebase';
+import { AuthContext } from '../context/auth-context';
 
 import { generatePushId } from '../helpers';
 
 export const PostPropertyForm = () => {
+  const { currentUser :{uid}} = useContext(AuthContext)
   const [city, setCity] = useState('');
   const [location, setLocation] = useState('');
   const [numberOfBedrooms, setNumberOfBedRooms] = useState('');
   const [numberOfBathrooms, setNumberOfBathrooms] = useState('');
   const [description, setDescription] = useState();
   const [mobileNumber, setMobileNumber] = useState('');
-  const [availability, setAvailability] = useState('');
+  const [availableTo, setAvailableTo] = useState('');
   const [imageUrls, setImageUrls] = useState([]);
   const [previewUrls, setPreviewUrls] = useState('');
   const [image, setImage] = useState(null);
@@ -19,6 +21,7 @@ export const PostPropertyForm = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isBtn1Visible, setBtn1IsVisible] = useState(false);
   const [isBtn2Visible, setBtn2IsVisible] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   var storageRef = storage.ref();
 
@@ -44,6 +47,26 @@ export const PostPropertyForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setHasSubmitted(true)
+     firebase
+    .firestore()
+    .collection('properties')
+    .add({
+      ownerID: uid,
+      city,
+      location,
+      availableTo,
+      numberOfBathrooms,
+      numberOfBedrooms,
+      description,
+      imageUrls,
+      mobileNumber,
+    })
+    .then(function(docRef) {
+      console.log("Document written with ID: ", docRef.id);
+  })
+    .catch((error) => console.log({error}))
+    
   };
 
   useEffect(() => {
@@ -84,51 +107,70 @@ export const PostPropertyForm = () => {
     <>
       <h1>Create a property ad</h1>
 
-      <form onSubmit={handleSubmit}>
+      <h2>Fill in the form below as accurately as possible.</h2>
+
+      <form onSubmit={handleSubmit} className="auth-form">
         <div>
           <label htmlFor="city">City</label>
-          <input type="text" name="city" value={city} />
+          <input type="text" name="city" value={city} onChange={(e) => setCity(e.target.value)} />
         </div>
 
         <div>
           <label htmlFor="location">Location/Suburb</label>
-          <input type="text" name="location" value={location} />
+          <input type="text" name="location" value={location} onChange={(e) => setLocation(e.target.value)} />
         </div>
 
         <div>
-          <label htmlFor="location">The property is available to :</label>
-          <input type="checkbox" name="rent" value={availability} />
-          <input type="checkbox" name="sale" value={availability} />
+          <p>The property is available for :</p>
+          <label>
+            Rent
+            <input type="radio" 
+            value="rent"
+            checked={availableTo === "rent"}
+            onChange={e => setAvailableTo(e.target.value)}
+            />
+          </label>
+
+          <label>
+            Sale
+            <input type="radio" 
+            value="sale" 
+            checked={availableTo === "sale"}
+            onChange={e => setAvailableTo(e.target.value)}/>
+          </label>
         </div>
 
         <div>
-          <label htmlFor="bed-sitter">Bed Sitter</label>
-          <input type="radio" name="number-of-bedrooms" value="BedSitter" />
+        <label>
+          Choose the number of bedrooms in your property:
+          <select value={numberOfBedrooms} onChange ={(e) => setNumberOfBedRooms(e.target.value)}>
+            <option value="studio">Studio</option>
+            <option value="1">1 bedroom</option>
+            <option value="2">2 bedrooms</option>
+            <option value="3">3+ bedrooms</option>
+          </select>
+          </label>
         </div>
 
         <div>
-          <label htmlFor="one-bedroom">1 bedroom</label>
-          <input type="radio" name="number-of-bedrooms" value="1Bedroom" />
-        </div>
-
-        <div>
-          <label htmlFor="two-bedrooms">2bedroom</label>
-          <input type="radio" name="number-of-bedrooms" value="2Bedrooms" />
-        </div>
-
-        <div>
-          <label htmlFor="three-bedrooms-and-more">3 or more bedrooms</label>
-          <input type="radio" name="number-of-bedrooms" value="3BedroomsPlus" />
+        <label>
+          Choose the number of bathrooms in your property:
+          <select value={numberOfBathrooms} onChange={(e) => setNumberOfBathrooms(e.target.value)}>
+            <option value="1">1 bathroom</option>
+            <option value="2">2 bathrooms</option>
+            <option value="3">3+ bathrooms</option>
+          </select>
+          </label>
         </div>
 
         <div>
           <label htmlFor="description">Description</label>
-          <textarea name="description" rows="8" value={description} />
+          <textarea name="description" rows="8" value={description} onChange={(e) => setDescription(e.target.value)} />
         </div>
 
         <div>
           <label htmlFor="mobile-number">Mobile Number</label>
-          <input type="text" name="mobile-number" value={mobileNumber} />
+          <input type="text" name="mobile-number" value={mobileNumber} onChange={(e) => setMobileNumber(e.target.value)} />
         </div>
         {previewUrls &&
           previewUrls.map((imgPre) => (
@@ -187,7 +229,7 @@ export const PostPropertyForm = () => {
             style={{ display: 'none' }}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={hasSubmitted ? true : false}>Submit</button>
       </form>
     </>
   );
