@@ -5,11 +5,11 @@ import { AuthContext } from '../context/auth-context';
 import { generatePushId } from '../helpers';
 
 export const PostPropertyForm = () => {
-  const { currentUser :{uid}} = useContext(AuthContext)
+  const { currentUser :{uid}} = useContext(AuthContext);
   const [city, setCity] = useState('');
   const [location, setLocation] = useState('');
-  const [numberOfBedrooms, setNumberOfBedRooms] = useState('');
-  const [numberOfBathrooms, setNumberOfBathrooms] = useState('');
+  const [numberOfBedrooms, setNumberOfBedRooms] = useState('studio');
+  const [numberOfBathrooms, setNumberOfBathrooms] = useState('1');
   const [description, setDescription] = useState();
   const [mobileNumber, setMobileNumber] = useState('');
   const [availableTo, setAvailableTo] = useState('');
@@ -64,6 +64,19 @@ export const PostPropertyForm = () => {
     })
     .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
+      setCity('');
+      setDescription('');
+      setLocation('');
+      setAvailableTo('');
+      setNumberOfBedRooms('');
+      setNumberOfBathrooms('');
+      setImageUrls([]);
+      setMobileNumber('');
+      setPreviewUrls([]);
+      setIsVisible(true);
+      setBtn1IsVisible(false);
+      setBtn2IsVisible(false)
+
   })
     .catch((error) => console.log({error}))
     
@@ -156,6 +169,7 @@ export const PostPropertyForm = () => {
         <label>
           Choose the number of bathrooms in your property:
           <select value={numberOfBathrooms} onChange={(e) => setNumberOfBathrooms(e.target.value)}>
+          <option value="shared">shared bathroom</option>
             <option value="1">1 bathroom</option>
             <option value="2">2 bathrooms</option>
             <option value="3">3+ bathrooms</option>
