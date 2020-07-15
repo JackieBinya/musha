@@ -27,7 +27,11 @@ export const App = () => {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/password-reset" component={PasswordReset} />
         <PrivateRoute exact path="/my-properties" component={Properties} />
-        <PrivateRoute exact path="/my-properties/post" component={PostPropertyForm} />
+        <PrivateRoute
+          exact
+          path="/my-properties/post"
+          component={PostPropertyForm}
+        />
         <Route component={Error} />
       </Switch>
     </Router>
