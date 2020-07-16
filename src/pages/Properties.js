@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { firebase } from '../firebase';
 import { Link, Route, useRouteMatch } from 'react-router-dom';
-import { PostPropertyForm } from '../components/PostPropertyForm';
+import { PostPropertyAdForm } from './PostPropertyAdForm';
 
 /* 
 Authenticated users access a form they can use to list a new property
@@ -26,7 +26,7 @@ export const Properties = ({ history }) => {
       <Link to={`${path}/post`}>Post a property</Link>
 
       <Route path={`${path}/post`}>
-        <PostPropertyForm />
+        <PostPropertyAdForm />
       </Route>
     </>
   );

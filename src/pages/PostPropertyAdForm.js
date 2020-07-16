@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import { firebase } from '../firebase';
 import { AuthContext } from '../context/auth-context';
-import { FirstStep } from './FirstStep';
-import { LocationStep } from './LocationStep';
-import { PropertyDetailsStep } from './PropertyDetailsStep';
-import { UploadImagesStep } from './UploadImagesStep';
+import { FirstStep } from '../components/FirstStep';
+import { LocationStep } from '../components/LocationStep';
+import { PropertyDetailsStep } from '../components/PropertyDetailsStep';
+import { UploadImagesStep } from '../components/UploadImagesStep';
 
-export const PostPropertyForm = () => {
+export const PostPropertyAdForm = () => {
   const {
     currentUser: { uid },
   } = useContext(AuthContext);
