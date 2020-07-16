@@ -72,7 +72,11 @@ export const PostPropertyForm = () => {
           setLocation={setLocation}
         />
 
-        <UploadImagesStep imageUrls={imageUrls} setImageUrls={setImageUrls} />
+        <UploadImagesStep
+          hasSubmitted={hasSubmitted}
+          imageUrls={imageUrls}
+          setImageUrls={setImageUrls}
+        />
 
         <PropertyDetailsStep
           numberOfBathrooms={numberOfBathrooms}

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { storage } from '../firebase';
 import { generatePushId } from '../helpers';
 
-export const UploadImagesStep = ({ imageUrls, setImageUrls }) => {
+export const UploadImagesStep = ({ imageUrls, setImageUrls, hasSubmitted }) => {
   const [image, setImage] = useState(null);
   const [previewUrls, setPreviewUrls] = useState('');
   const [isImageLoading, setIsImageLoading] = useState(false);
@@ -64,6 +64,17 @@ export const UploadImagesStep = ({ imageUrls, setImageUrls }) => {
       return () => URL.revokeObjectURL(image);
     }
   }, [image]);
+
+  useEffect(() => {
+    if (hasSubmitted) {
+      setPreviewUrls([]);
+      setImage(null);
+      setIsVisible(true, setBtn1IsVisible(false));
+      setBtn2IsVisible(false);
+      setImageLoadingErrorMessage('');
+      setIsImageLoading(false);
+    }
+  }, [hasSubmitted]);
 
   return (
     <>
