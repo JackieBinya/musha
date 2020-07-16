@@ -1,0 +1,43 @@
+import React from 'react';
+
+export const FirstStep = ({
+  setAvailableTo,
+  setMobileNumber,
+  mobileNumber,
+  availableTo,
+}) => {
+  return (
+    <div>
+      <p>The property is available for :</p>
+      <label>
+        Rent
+        <input
+          type="radio"
+          value="rent"
+          checked={availableTo === 'rent'}
+          onChange={(e) => setAvailableTo(e.target.value)}
+        />
+      </label>
+
+      <label>
+        Sale
+        <input
+          type="radio"
+          value="sale"
+          checked={availableTo === 'sale'}
+          onChange={(e) => setAvailableTo(e.target.value)}
+        />
+      </label>
+
+      <div>
+        <label htmlFor="mobile-number">Mobile Number</label>
+        <input
+          type="text"
+          name="mobile-number"
+          value={mobileNumber}
+          onChange={(e) => setMobileNumber(e.target.value)}
+        />
+      </div>
+    </div>
+  );
+};
