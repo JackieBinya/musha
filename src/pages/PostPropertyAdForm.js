@@ -6,6 +6,7 @@ import { FirstSection } from '../components/FirstSection';
 import { LocationSection } from '../components/LocationSection';
 import { PropertyDetailsSection } from '../components/PropertyDetailsSection';
 import { UploadImagesSection } from '../components/UploadImagesStep';
+import { postAdValidator } from '../helpers';
 
 export const PostPropertyAdForm = () => {
   const {
@@ -23,9 +24,43 @@ export const PostPropertyAdForm = () => {
   const [availableTo, setAvailableTo] = useState('');
   const [imageUrls, setImageUrls] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setError('');
+
+    if(!availableTo) {
+      setError('Specify if the property is for sale or rent!');
+      return;
+    }
+
+    if(!mobileNumber) {
+      setError('Please provide your mobile number!');
+      return;
+    }
+
+    if(!location) {
+      setError('Please provide the location of your property!');
+      return;
+    }
+
+    if(!city) {
+      setError('Please provide the city!');
+      return;
+    }
+
+    if(!description){
+         setError('Description is required!');
+         return;
+    }
+
+    if(description.length > 500) {
+      setError('The description is too long!')
+      return;
+    }
+
     setHasSubmitted(true);
     firebase
       .firestore()
@@ -60,6 +95,8 @@ export const PostPropertyAdForm = () => {
       <h1>Create a property ad</h1>
 
       <h2>Fill in the form below as accurately as possible.</h2>
+
+      {error && <p style={{color: 'red'}}>{error}</p>}
 
       <form onSubmit={handleSubmit} className="auth-form">
         <FirstSection

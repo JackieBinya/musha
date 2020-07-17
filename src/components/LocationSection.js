@@ -24,7 +24,6 @@ export const LocationSection = ({ city, setCity, location, setLocation }) => {
           onChange={(e) => setLocation(e.target.value)}
         />
       </div>
-      <button disabled>Continue</button>
     </section>
   );
 };

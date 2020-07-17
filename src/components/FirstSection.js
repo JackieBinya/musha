@@ -39,7 +39,6 @@ export const FirstSection = ({
           onChange={(e) => setMobileNumber(e.target.value)}
         />
       </div>
-      <button disabled>Continue</button>
     </section>
   );
 };

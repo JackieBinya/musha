@@ -50,7 +50,6 @@ export const PropertyDetailsSection = ({
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <button disabled>Continue</button>
     </section>
   );
 };
