@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import { firebase } from '../firebase';
 import { AuthContext } from '../context/auth-context';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 import { FirstSection } from '../components/FirstSection';
 import { LocationSection } from '../components/LocationSection';
 import { PropertyDetailsSection } from '../components/PropertyDetailsSection';
@@ -14,7 +14,7 @@ export const PostPropertyAdForm = () => {
   } = useContext(AuthContext);
 
   // const { register, handleSubmit } = useForm();
-
+  const [title, setTitle] = useState('');
   const [city, setCity] = useState('');
   const [location, setLocation] = useState('');
   const [numberOfBedrooms, setNumberOfBedRooms] = useState('studio');
@@ -31,33 +31,33 @@ export const PostPropertyAdForm = () => {
 
     setError('');
 
-    if(!availableTo) {
+    if (!availableTo) {
       setError('Specify if the property is for sale or rent!');
       return;
     }
 
-    if(!mobileNumber) {
+    if (!mobileNumber) {
       setError('Please provide your mobile number!');
       return;
     }
 
-    if(!location) {
+    if (!location) {
       setError('Please provide the location of your property!');
       return;
     }
 
-    if(!city) {
+    if (!city) {
       setError('Please provide the city!');
       return;
     }
 
-    if(!description){
-         setError('Description is required!');
-         return;
+    if (!description) {
+      setError('Description is required!');
+      return;
     }
 
-    if(description.length > 500) {
-      setError('The description is too long!')
+    if (description.length > 500) {
+      setError('The description is too long!');
       return;
     }
 
@@ -75,9 +75,10 @@ export const PostPropertyAdForm = () => {
         description,
         imageUrls,
         mobileNumber,
+        title,
       })
-      .then(function (docRef) {
-        console.log('Document written with ID: ', docRef.id);
+      .then(function () {
+        setTitle('');
         setCity('');
         setDescription('');
         setLocation('');
@@ -96,10 +97,12 @@ export const PostPropertyAdForm = () => {
 
       <h2>Fill in the form below as accurately as possible.</h2>
 
-      {error && <p style={{color: 'red'}}>{error}</p>}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
 
       <form onSubmit={handleSubmit} className="auth-form">
         <FirstSection
+          title={title}
+          setTitle={setTitle}
           setAvailableTo={setAvailableTo}
           availableTo={availableTo}
           setMobileNumber={setMobileNumber}
@@ -128,9 +131,7 @@ export const PostPropertyAdForm = () => {
           setDescription={setDescription}
         />
 
-        <button type="submit" disabled={hasSubmitted ? true : false}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     </>
   );

@@ -5,10 +5,12 @@ export const FirstSection = ({
   setMobileNumber,
   mobileNumber,
   availableTo,
+  title,
+  setTitle,
 }) => {
   return (
     <section className="step-wrapper">
-     <h3 className="step-headliner">Miscellaneous details</h3>
+      <h3 className="step-headliner">Miscellaneous details</h3>
       <p>The property is available for :</p>
       <label>
         Rent
@@ -29,6 +31,16 @@ export const FirstSection = ({
           onChange={(e) => setAvailableTo(e.target.value)}
         />
       </label>
+
+      <div>
+        <label htmlFor="ad-title">Title</label>
+        <input
+          type="text"
+          name="ad-title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+      </div>
 
       <div>
         <label htmlFor="mobile-number">Mobile Number</label>
