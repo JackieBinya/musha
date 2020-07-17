@@ -10,7 +10,7 @@ export const PropertyDetailsSection = ({
 }) => {
   return (
     <section className="step-wrapper">
-     <h3 className="step-headliner">Property Details</h3>
+      <h3 className="step-headliner">Property Details</h3>
       <div>
         <label>
           Choose the number of bedrooms in your property:
