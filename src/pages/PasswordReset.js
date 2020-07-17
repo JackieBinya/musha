@@ -9,7 +9,7 @@ import { FormMessage } from '../components/FormMessage';
 
 export const PasswordReset = ({ history }) => {
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState('');
   const [isEmailSent, setIsEmailSent] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -17,24 +17,28 @@ export const PasswordReset = ({ history }) => {
     try {
       await firebase.auth().sendPasswordResetEmail(email);
       setIsEmailSent(true);
-      setMessage('Check your inbox for further instructions on how to reset your password! ');
+      setMessage(
+        'Check your inbox for further instructions on how to reset your password! '
+      );
       setTimeout(() => history.push('/'), 5000);
     } catch (error) {
-        setIsEmailSent(false)
-        if(error.code === 'auth/invalid-email'){
-          setMessage('Email invalid');
-        }
+      setIsEmailSent(false);
+      if (error.code === 'auth/invalid-email') {
+        setMessage('Email invalid');
+      }
 
-        if(error.code === 'auth/user-not-found'){
-          setMessage('An account associated with the provided email does not exist!')
-        }
+      if (error.code === 'auth/user-not-found') {
+        setMessage(
+          'An account associated with the provided email does not exist!'
+        );
+      }
     }
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-      <FormMessage
+        <FormMessage
           isAuthenticated={isEmailSent}
           message={message}
           setMessage={setMessage}

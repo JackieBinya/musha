@@ -23,17 +23,17 @@ export const Login = ({ history }) => {
     } catch (error) {
       setIsAuthenticated(false);
 
-      if (error.code === ' auth/invalid-email') {
-        setMessage('🤖 email address is not valid');
+      if (error.code === 'auth/invalid-email') {
+        setMessage('Email address is not valid');
       }
       if (error.code === 'auth/user-disabled') {
-        setMessage('🤖 your account has been suspended');
+        setMessage('Your account has been suspended');
       }
       if (error.code === 'auth/user-not-found') {
-        setMessage('🤖 email does no exist!');
+        setMessage('Email does no exist!');
       }
-      if (error.code === ' auth/wrong-password') {
-        setMessage('🤖 incorrect password');
+      if (error.code === 'auth/wrong-password') {
+        setMessage('Invalid password');
       }
     }
   };
