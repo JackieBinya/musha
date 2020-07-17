@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { storage } from '../firebase';
 import { generatePushId } from '../helpers';
 
-export const UploadImagesStep = ({ imageUrls, setImageUrls, hasSubmitted }) => {
+export const UploadImagesSection = ({ imageUrls, setImageUrls, hasSubmitted}) => {
   const [image, setImage] = useState(null);
   const [previewUrls, setPreviewUrls] = useState('');
   const [isImageLoading, setIsImageLoading] = useState(false);
@@ -10,6 +10,7 @@ export const UploadImagesStep = ({ imageUrls, setImageUrls, hasSubmitted }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isBtn1Visible, setBtn1IsVisible] = useState(false);
   const [isBtn2Visible, setBtn2IsVisible] = useState(false);
+  const [error, setError] = useState('')
 
   const imgInput = useRef(null);
   const img1Input = useRef(null);
@@ -31,8 +32,22 @@ export const UploadImagesStep = ({ imageUrls, setImageUrls, hasSubmitted }) => {
     img2Input.current.click();
   };
 
+  const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
+
   useEffect(() => {
     if (image) {
+        setError('')
+
+        if(!acceptedImageTypes.includes(image.type)){
+            setError('Invalid file type');
+            return;
+        }
+
+         if(image.size > 10485760){
+             setError('Image is too big!')
+             return;
+         }
+
       setPreviewUrls(() => [
         ...previewUrls,
         { path: URL.createObjectURL(image), id: generatePushId() },
@@ -77,7 +92,8 @@ export const UploadImagesStep = ({ imageUrls, setImageUrls, hasSubmitted }) => {
   }, [hasSubmitted]);
 
   return (
-    <>
+    <section className="step-wrapper">
+    <h3 className="step-headliner">Upload Images</h3>
       {previewUrls &&
         previewUrls.map((imgPre) => (
           <img
@@ -87,6 +103,8 @@ export const UploadImagesStep = ({ imageUrls, setImageUrls, hasSubmitted }) => {
             style={{ height: '200px', width: '200px' }}
           />
         ))}
+
+        {error && <p style={{color: 'red'}}>{error}</p>}
       <div>
         <div style={{ display: 'flex' }}>
           <button
@@ -135,6 +153,7 @@ export const UploadImagesStep = ({ imageUrls, setImageUrls, hasSubmitted }) => {
           style={{ display: 'none' }}
         />
       </div>
-    </>
+      <button type="button" disabled={ imageUrls.length < 2 ? true : false}>Continue</button>
+    </section>
   );
 };

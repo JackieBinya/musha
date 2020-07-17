@@ -1,15 +1,19 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import { firebase } from '../firebase';
 import { AuthContext } from '../context/auth-context';
-import { FirstStep } from '../components/FirstStep';
-import { LocationStep } from '../components/LocationStep';
-import { PropertyDetailsStep } from '../components/PropertyDetailsStep';
-import { UploadImagesStep } from '../components/UploadImagesStep';
+import { useForm } from "react-hook-form";
+import { FirstSection } from '../components/FirstSection';
+import { LocationSection } from '../components/LocationSection';
+import { PropertyDetailsSection } from '../components/PropertyDetailsSection';
+import { UploadImagesSection } from '../components/UploadImagesStep';
 
 export const PostPropertyAdForm = () => {
   const {
     currentUser: { uid },
   } = useContext(AuthContext);
+
+  // const { register, handleSubmit } = useForm();
+
   const [city, setCity] = useState('');
   const [location, setLocation] = useState('');
   const [numberOfBedrooms, setNumberOfBedRooms] = useState('studio');
@@ -58,27 +62,27 @@ export const PostPropertyAdForm = () => {
       <h2>Fill in the form below as accurately as possible.</h2>
 
       <form onSubmit={handleSubmit} className="auth-form">
-        <FirstStep
+        <FirstSection
           setAvailableTo={setAvailableTo}
           availableTo={availableTo}
           setMobileNumber={setMobileNumber}
           mobileNumber={mobileNumber}
         />
 
-        <LocationStep
+        <LocationSection
           city={city}
           setCity={setCity}
           location={location}
           setLocation={setLocation}
         />
 
-        <UploadImagesStep
+        <UploadImagesSection
           hasSubmitted={hasSubmitted}
           imageUrls={imageUrls}
           setImageUrls={setImageUrls}
         />
 
-        <PropertyDetailsStep
+        <PropertyDetailsSection
           numberOfBathrooms={numberOfBathrooms}
           setNumberOfBathrooms={setNumberOfBathrooms}
           numberOfBedrooms={numberOfBedrooms}

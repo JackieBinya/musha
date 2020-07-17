@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const PropertyDetailsStep = ({
+export const PropertyDetailsSection = ({
   numberOfBathrooms,
   setNumberOfBathrooms,
   numberOfBedrooms,
@@ -9,7 +9,8 @@ export const PropertyDetailsStep = ({
   setDescription,
 }) => {
   return (
-    <>
+    <section className="step-wrapper">
+     <h3 className="step-headliner">Property Details</h3>
       <div>
         <label>
           Choose the number of bedrooms in your property:
@@ -49,6 +50,7 @@ export const PropertyDetailsStep = ({
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-    </>
+      <button disabled>Continue</button>
+    </section>
   );
 };

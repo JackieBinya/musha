@@ -1,9 +1,10 @@
-import React from 'react';
-import { FirstStep } from './FirstStep';
+import React, { useState } from 'react';
+import { FirstStep } from './FirstSection';
 
-export const LocationStep = ({ city, setCity, location, setLocation }) => {
+export const LocationSection = ({ city, setCity, location, setLocation }) => {
   return (
-    <>
+    <section className="step-wrapper">
+        <h3 className="step-headliner">Location</h3>
       <div>
         <label htmlFor="city">City</label>
         <input
@@ -23,6 +24,7 @@ export const LocationStep = ({ city, setCity, location, setLocation }) => {
           onChange={(e) => setLocation(e.target.value)}
         />
       </div>
-    </>
+      <button disabled>Continue</button>
+    </section>
   );
 };

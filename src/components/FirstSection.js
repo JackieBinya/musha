@@ -1,13 +1,14 @@
 import React from 'react';
 
-export const FirstStep = ({
+export const FirstSection = ({
   setAvailableTo,
   setMobileNumber,
   mobileNumber,
   availableTo,
 }) => {
   return (
-    <div>
+    <section className="step-wrapper">
+     <h3 className="step-headliner">Miscellaneous details</h3>
       <p>The property is available for :</p>
       <label>
         Rent
@@ -38,6 +39,7 @@ export const FirstStep = ({
           onChange={(e) => setMobileNumber(e.target.value)}
         />
       </div>
-    </div>
+      <button disabled>Continue</button>
+    </section>
   );
 };
