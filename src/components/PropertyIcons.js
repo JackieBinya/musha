@@ -13,6 +13,7 @@ export const PropertyIcons = ({
   city,
   numberOfBathrooms,
   numberOfBedrooms,
+  user = '',
 }) => (
   <section className="property-icons" style={{ display: 'flex' }}>
     <div>
@@ -26,7 +27,7 @@ export const PropertyIcons = ({
       {`${location},${city}.`}
     </div>
 
-    <div>
+    <div className={user ? 'show' : 'hide'}>
       <FontAwesomeIcon icon={faPen} />
       <FontAwesomeIcon icon={faTrash} />
     </div>

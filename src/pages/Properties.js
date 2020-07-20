@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { firebase } from '../firebase';
 import { Link, Route, useRouteMatch } from 'react-router-dom';
 import { PostPropertyAdForm } from './PostPropertyAdForm';
+import { usePropertiesByUserID } from '../hooks';
+import { AuthContext } from '../context/auth-context';
+import { Loader } from '../components/Loader';
+import { ShortProperty } from '../components/ShortProperty';
+import { PropertyIcons } from '../components/PropertyIcons';
 
 /* 
 Authenticated users access a form they can use to list a new property
@@ -11,6 +16,9 @@ Users can update their properties
 
 export const Properties = ({ history }) => {
   const { path } = useRouteMatch();
+  const { currentUser } = useContext(AuthContext);
+  const { userProperties } = usePropertiesByUserID(currentUser.uid);
+
   const handleLogOut = () => {
     firebase.auth().signOut();
     history.push('/');
@@ -28,6 +36,37 @@ export const Properties = ({ history }) => {
       <Route path={`${path}/post`}>
         <PostPropertyAdForm />
       </Route>
+
+      {!userProperties ? (
+        <Loader />
+      ) : (
+        userProperties.map(
+          ({
+            city,
+            location,
+            imageUrls,
+            numberOfBathrooms,
+            numberOfBedrooms,
+            title,
+            description,
+            id,
+          }) => (
+            <>
+              <h3>{title ? title : `New property in ${location}`}</h3>
+              <ShortProperty key={id} imageUrls={imageUrls}>
+                <p>{description}</p>
+                <PropertyIcons
+                  city={city}
+                  location={location}
+                  numberOfBathrooms={numberOfBathrooms}
+                  numberOfBedrooms={numberOfBedrooms}
+                  user={currentUser}
+                />
+              </ShortProperty>
+            </>
+          )
+        )
+      )}
     </>
   );
 };
