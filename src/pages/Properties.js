@@ -51,11 +51,12 @@ export const Properties = ({ history }) => {
             description,
             id,
           }) => (
-            <>
+            <div key={id}>
               <h3>{title ? title : `New property in ${location}`}</h3>
-              <ShortProperty key={id} imageUrls={imageUrls}>
+              <ShortProperty imageUrls={imageUrls}>
                 <p>{description}</p>
                 <PropertyIcons
+                  id={id}
                   city={city}
                   location={location}
                   numberOfBathrooms={numberOfBathrooms}
@@ -63,7 +64,7 @@ export const Properties = ({ history }) => {
                   user={currentUser}
                 />
               </ShortProperty>
-            </>
+            </div>
           )
         )
       )}
