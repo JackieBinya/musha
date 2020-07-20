@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useProperties } from '../hooks';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBath, faBed, faMapMarker } from '@fortawesome/free-solid-svg-icons';
+import { PropertyIcons } from '../components/PropertyIcons';
 
 export const Home = () => {
   const { properties } = useProperties();
@@ -26,22 +25,20 @@ export const Home = () => {
               {title ? `${title}` : `New property in ${location}`}
             </Link>
             <section>
-              {imageUrls &&
-                  <img
-                    src={imageUrls[0].url}
-                    style={{ height: '200px', width: '200px' }}
-                    alt=""
-                  />
-              }
+              {imageUrls && (
+                <img
+                  src={imageUrls[0].url}
+                  style={{ height: '200px', width: '200px' }}
+                  alt=""
+                />
+              )}
 
-              <div style={{display:'flex'}}>
-              <FontAwesomeIcon icon={faBed} />
-              {numberOfBedrooms}{'|'}
-              <FontAwesomeIcon icon={faBath} />{'|'}
-              {numberOfBathrooms}
-              <FontAwesomeIcon icon={faMapMarker} />
-              {`${location},${city}.`}
-              </div>
+              <PropertyIcons
+                city={city}
+                location={location}
+                numberOfBathrooms={numberOfBathrooms}
+                numberOfBedrooms={numberOfBedrooms}
+              />
             </section>
           </li>
         )

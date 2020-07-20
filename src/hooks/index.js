@@ -21,3 +21,24 @@ export const useProperties = () => {
 
   return { properties, setProperties };
 };
+
+export const useProperty = (id) => {
+  const [property, setProperty] = useState('');
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection('properties')
+      .doc(id)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          const newProperty = doc.data();
+          setProperty(newProperty);
+        }
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  return { property };
+};
