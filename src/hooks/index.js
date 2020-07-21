@@ -23,7 +23,7 @@ export const useProperties = () => {
 };
 
 export const useProperty = (id) => {
-  const [property, setProperty] = useState('');
+  const [property, setProperty] = useState(null);
 
   useEffect(() => {
     firebase
@@ -38,7 +38,7 @@ export const useProperty = (id) => {
         }
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [id]);
 
   return { property };
 };

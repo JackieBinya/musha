@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import {
   faBath,
   faBed,
@@ -16,6 +17,7 @@ export const PropertyIcons = ({
   numberOfBathrooms,
   numberOfBedrooms,
   user = '',
+  path = '',
 }) => {
   const handleDelete = () => {
     firebase
@@ -47,9 +49,9 @@ export const PropertyIcons = ({
           <FontAwesomeIcon icon={faTrash} />
         </button>
 
-        {/* <Link to={`/my-properties/edit/${id}`}>hello</Link> */}
-
-        <FontAwesomeIcon icon={faPen} />
+        <Link to={`${path}/edit/${id}`}>
+          <FontAwesomeIcon icon={faPen} />
+        </Link>
       </div>
     </section>
   );

@@ -12,7 +12,8 @@ import { PrivateRoute } from './components/PrivateRoute';
 import { AuthContext } from './context/auth-context';
 import { PasswordReset } from './pages/PasswordReset';
 import { Property } from './pages/Property';
-import { PostPropertyAdForm } from './pages/PostPropertyAdForm';
+import { PostPropertyAd } from './pages/PostPropertyAd';
+import { EditPropertyAds } from './pages/EditPropertyAd';
 
 export const App = () => {
   const { currentUser } = useContext(AuthContext);
@@ -30,7 +31,12 @@ export const App = () => {
         <PrivateRoute
           exact
           path="/my-properties/post"
-          component={PostPropertyAdForm}
+          component={PostPropertyAd}
+        />
+        <PrivateRoute
+          exact
+          path="/my-properties/edit/:propertyId"
+          component={EditPropertyAds}
         />
         <Route component={Error} />
       </Switch>

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { firebase } from '../firebase';
 import { Link, Route, useRouteMatch } from 'react-router-dom';
-import { PostPropertyAdForm } from './PostPropertyAdForm';
+import { PostPropertyAd } from './PostPropertyAd';
 import { usePropertiesByUserID } from '../hooks';
 import { AuthContext } from '../context/auth-context';
 import { Loader } from '../components/Loader';
@@ -33,10 +33,6 @@ export const Properties = ({ history }) => {
 
       <Link to={`${path}/post`}>Post a property</Link>
 
-      <Route path={`${path}/post`}>
-        <PostPropertyAdForm />
-      </Route>
-
       {!userProperties ? (
         <Loader />
       ) : (
@@ -62,6 +58,7 @@ export const Properties = ({ history }) => {
                   numberOfBathrooms={numberOfBathrooms}
                   numberOfBedrooms={numberOfBedrooms}
                   user={currentUser}
+                  path={path}
                 />
               </ShortProperty>
             </div>
