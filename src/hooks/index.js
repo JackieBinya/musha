@@ -23,7 +23,7 @@ export const useProperties = () => {
 };
 
 export const useProperty = (id) => {
-  const [property, setProperty] = useState('');
+  const [property, setProperty] = useState(null);
 
   useEffect(() => {
     firebase
@@ -38,7 +38,31 @@ export const useProperty = (id) => {
         }
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [id]);
 
   return { property };
+};
+
+export const usePropertiesByUserID = (userId) => {
+  const [userProperties, setUserProperties] = useState([]);
+  console.log(userProperties);
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection('properties')
+      .where('ownerID', '==', userId)
+      .get()
+      .then((data) => {
+        const newProperties = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+
+        setUserProperties([...newProperties]);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  return { userProperties };
 };

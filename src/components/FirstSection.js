@@ -5,7 +5,7 @@ export const FirstSection = ({
   setMobileNumber,
   mobileNumber,
   availableTo,
-  title,
+  title='',
   setTitle,
 }) => {
   return (

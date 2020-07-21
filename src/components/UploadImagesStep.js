@@ -6,6 +6,7 @@ export const UploadImagesSection = ({
   imageUrls,
   setImageUrls,
   hasSubmitted,
+  isEditing,
 }) => {
   const [image, setImage] = useState(null);
   const [previewUrls, setPreviewUrls] = useState('');
@@ -100,7 +101,7 @@ export const UploadImagesSection = ({
   }, [hasSubmitted]);
 
   return (
-    <section className="step-wrapper">
+    <section className={`step-wrapper  ${isEditing ? 'hide' : 'show'} `}>
       <h3 className="step-headliner">Upload Images</h3>
       {previewUrls &&
         previewUrls.map((imgPre) => (

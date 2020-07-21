@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useProperties } from '../hooks';
 import { PropertyIcons } from '../components/PropertyIcons';
+import { ShortProperty } from '../components/ShortProperty';
 
 export const Home = () => {
   const { properties } = useProperties();
@@ -24,22 +25,15 @@ export const Home = () => {
               {' '}
               {title ? `${title}` : `New property in ${location}`}
             </Link>
-            <section>
-              {imageUrls && (
-                <img
-                  src={imageUrls[0].url}
-                  style={{ height: '200px', width: '200px' }}
-                  alt=""
-                />
-              )}
 
+            <ShortProperty imageUrls={imageUrls}>
               <PropertyIcons
                 city={city}
                 location={location}
                 numberOfBathrooms={numberOfBathrooms}
                 numberOfBedrooms={numberOfBedrooms}
               />
-            </section>
+            </ShortProperty>
           </li>
         )
       )}
