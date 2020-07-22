@@ -27,13 +27,13 @@ export const PropertyForm = ({
   description,
   setDescription,
   isEditing = false,
-  persistProperty=null,
-  propertyId=''
+  persistProperty = null,
+  propertyId = '',
 }) => {
   const {
     currentUser: { uid },
   } = useContext(AuthContext);
-  
+
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [error, setError] = useState('');
 
@@ -103,76 +103,103 @@ export const PropertyForm = ({
   };
 
   const handleSave = () => {
-      const propertyRef = firebase.firestore().collection("properties").doc(propertyId)
+    const propertyRef = firebase
+      .firestore()
+      .collection('properties')
+      .doc(propertyId);
 
-      if(persistProperty.title !== title) {
-          propertyRef.update({
-              title
-          })
-          .then(() => console.log('Title successfully updated'))
-          .catch((error) => console.log(error))
-      }
-
-      if(persistProperty.availableTo !== availableTo) {
-        propertyRef.update({
-            availableTo
+    if (persistProperty.title !== title) {
+      propertyRef
+        .update({
+          title,
         })
-        .then(() => console.log(`Property ID:${propertyId} is successfully updated`))
-        .catch((error) => console.log(error))
+        .then(() => console.log('Title successfully updated'))
+        .catch((error) => console.log(error));
     }
 
-    if(persistProperty.mobileNumber !== mobileNumber) {
-      propertyRef.update({
-          mobileNumber
-      })
-      .then(() => console.log(`Property ID:${propertyId} is successfully updated`))
-      .catch((error) => console.log(error))
-  }
-
-  if(persistProperty.city!== city) {
-    propertyRef.update({
-        city
-    })
-    .then(() => console.log(`Property ID:${propertyId} is successfully updated`))
-    .catch((error) => console.log(error))
-}
-
-if(persistProperty.location !== location) {
-  propertyRef.update({
-      location
-  })
-  .then(() => console.log(`Property ID:${propertyId} is successfully updated`))
-  .catch((error) => console.log(error))
-}
-
-      if(persistProperty.description !== description) {
-        propertyRef.update({
-            description
+    if (persistProperty.availableTo !== availableTo) {
+      propertyRef
+        .update({
+          availableTo,
         })
-        .then(() => console.log(`Property ID:${propertyId} is successfully updated`))
-        .catch((error) => console.log(error))
+        .then(() =>
+          console.log(`Property ID:${propertyId} is successfully updated`)
+        )
+        .catch((error) => console.log(error));
     }
 
-    if(persistProperty.numberOfBedrooms !== numberOfBedrooms) {
-      propertyRef.update({
-          numberOfBedrooms
-      })
-      .then(() => console.log(`Property ID:${propertyId} is successfully updated`))
-      .catch((error) => console.log(error))
-  }
+    if (persistProperty.mobileNumber !== mobileNumber) {
+      propertyRef
+        .update({
+          mobileNumber,
+        })
+        .then(() =>
+          console.log(`Property ID:${propertyId} is successfully updated`)
+        )
+        .catch((error) => console.log(error));
+    }
 
-  if(persistProperty.numberOfBathrooms !== numberOfBathrooms) {
-    propertyRef.update({
-        numberOfBathrooms
-    })
-    .then(() => console.log(`Property ID:${propertyId} is successfully updated`))
-    .catch((error) => console.log(error))
-}
-  }
+    if (persistProperty.city !== city) {
+      propertyRef
+        .update({
+          city,
+        })
+        .then(() =>
+          console.log(`Property ID:${propertyId} is successfully updated`)
+        )
+        .catch((error) => console.log(error));
+    }
+
+    if (persistProperty.location !== location) {
+      propertyRef
+        .update({
+          location,
+        })
+        .then(() =>
+          console.log(`Property ID:${propertyId} is successfully updated`)
+        )
+        .catch((error) => console.log(error));
+    }
+
+    if (persistProperty.description !== description) {
+      propertyRef
+        .update({
+          description,
+        })
+        .then(() =>
+          console.log(`Property ID:${propertyId} is successfully updated`)
+        )
+        .catch((error) => console.log(error));
+    }
+
+    if (persistProperty.numberOfBedrooms !== numberOfBedrooms) {
+      propertyRef
+        .update({
+          numberOfBedrooms,
+        })
+        .then(() =>
+          console.log(`Property ID:${propertyId} is successfully updated`)
+        )
+        .catch((error) => console.log(error));
+    }
+
+    if (persistProperty.numberOfBathrooms !== numberOfBathrooms) {
+      propertyRef
+        .update({
+          numberOfBathrooms,
+        })
+        .then(() =>
+          console.log(`Property ID:${propertyId} is successfully updated`)
+        )
+        .catch((error) => console.log(error));
+    }
+  };
   return (
     <>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <button type="button"onClick={handleSave}>Save</button>
+      <button type="button" onClick={handleSave}>
+        Save
+      </button>
       <form onSubmit={handleSubmit} className="auth-form">
         <FirstSection
           title={title}
@@ -206,7 +233,9 @@ if(persistProperty.location !== location) {
           setDescription={setDescription}
         />
 
-        <button type="submit" disabled={isEditing}>Submit</button>
+        <button type="submit" disabled={isEditing}>
+          Submit
+        </button>
       </form>
     </>
   );

@@ -38,16 +38,16 @@ export const EditPropertyAds = () => {
       } = property;
 
       persistProperty = {
-          title,
-          city,
-          location,
-          numberOfBedrooms,
-          numberOfBathrooms,
-          description,
-          mobileNumber,
-          availableTo,
-          imageUrls
-      }
+        title,
+        city,
+        location,
+        numberOfBedrooms,
+        numberOfBathrooms,
+        description,
+        mobileNumber,
+        availableTo,
+        imageUrls,
+      };
       setTitle(title);
       setCity(city);
       setLocation(location);
