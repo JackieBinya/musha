@@ -39,7 +39,6 @@ export const Login = ({ history }) => {
   };
   return (
     <>
-      <Link to="/signup">Sign Up</Link>
       <h1>Login</h1>
       <form className="auth-form" onSubmit={handleLogin}>
         <FormMessage

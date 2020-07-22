@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 /* General Settings */
 html {
   -webkit-box-sizing: border-box;
@@ -17,11 +17,119 @@ body {
   padding: 0;
   line-height: 1;
   font-family: 'Montserrat', sans-serif;
+  // font-family: 'Comfortaa', cursive;;
   color: #202020;
   background-color: #fafafa;
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/************Variables ******************/
+$black: black;
+$alert-color: red;
+$alert-background: pink;
+$main-background: blue;
+$vivid-color: white;
+$tablet-width: 769px;
+$desktop-width: 1024px;
+
+/*******************************
+*Nav bar and hero styles
+*
+*********************************/
+.reveal {
+  display: flex;
+}
+
+.menu {
+  
+
+  a {
+    color: $black;
+    cursor: pointer;
+  }
+
+  .menu-logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+
+    &:hover {
+      color: blue;
+    }
+  }
+
+  &-container {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.2em;
+  }
+
+  &-list__mobile {
+    padding: 1em;
+    height: 100%;
+    background-color: $main-background;
+    font-weight: 500;
+    
+
+    a {
+      padding-right: 1.5em;
+      padding-bottom: 1.5em;
+      color: white;
+    }
+  }
+
+  button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  &-list__desktop {
+    display: flex;
+
+    a {
+      font-weight: 500;
+      padding-right: 1.5em;
+    }
+
+    a:hover {
+      color: blue;
+    }
+
+
+  }
+
+  @media (max-width: $tablet-width) {
+    &-list__desktop {
+      display: none;
+    }
+
+    
+  }
+
+  @media (min-width: $tablet-width) {
+    &-mobile-control,
+    &-list__mobile {
+      display: none;
+    }
+
+    .menu-container{
+      padding: 2em;
+    }
+  }
 }
 
 /*************************
