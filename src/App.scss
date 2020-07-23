@@ -39,8 +39,10 @@ a {
 $black: black;
 $alert-color: red;
 $alert-background: pink;
+$success-color: green;
+$success-background: lightgreen;
 $main-background: blue;
-$vivid-color: white;
+$vivid-white: white;
 $tablet-width: 769px;
 $desktop-width: 1024px;
 
@@ -53,8 +55,6 @@ $desktop-width: 1024px;
 }
 
 .menu {
-  
-
   a {
     color: $black;
     cursor: pointer;
@@ -80,9 +80,8 @@ $desktop-width: 1024px;
   &-list__mobile {
     padding: 1em;
     height: 100%;
-    background-color: $main-background;
+    background-color: rgb(6, 6, 32);
     font-weight: 500;
-    
 
     a {
       padding-right: 1.5em;
@@ -108,16 +107,12 @@ $desktop-width: 1024px;
     a:hover {
       color: blue;
     }
-
-
   }
 
   @media (max-width: $tablet-width) {
     &-list__desktop {
       display: none;
     }
-
-    
   }
 
   @media (min-width: $tablet-width) {
@@ -126,12 +121,55 @@ $desktop-width: 1024px;
       display: none;
     }
 
-    .menu-container{
+    .menu-container {
       padding: 2em;
     }
   }
 }
 
+.hero-container {
+  overflow: hidden;
+}
+
+.hero {
+  background: url('./images/hero.jpg') center no-repeat;
+  background-size: cover;
+  height: 60vh;
+  width: 100vw;
+  position: relative;
+}
+
+.hero-overlay {
+  background-color: rgba(25, 25, 112, 0.4);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.hero-content {
+  font-weight: 500;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  z-index: 50;
+  font-size: 0.9em;
+}
+
+/******************
+*
+**********************/
+.container {
+  max-width: 80%;
+  margin: 0rem auto;
+  position: relative;
+}
+
+.container {
+  padding-top: 2em;
+}
 /*************************
 * Sign up Form
 */
@@ -168,8 +206,8 @@ $desktop-width: 1024px;
     color: red;
   }
   .success {
-    background-color: lightgreen;
-    color: green;
+    background-color: $success-background;
+    color: $success-color;
   }
 
   input[type='text'] {
