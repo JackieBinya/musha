@@ -35,6 +35,10 @@ a {
   text-decoration: none;
 }
 
+img {  
+  display:block;  /* removes extra space */
+}
+
 /************Variables ******************/
 $black: black;
 $alert-color: red;
@@ -162,9 +166,15 @@ $desktop-width: 1024px;
 *
 **********************/
 .container {
-  max-width: 80%;
+  max-width: 90%;
   margin: 0rem auto;
   position: relative;
+}
+
+@media(min-width: 650px){
+ .container{
+  max-width: 80%;
+ }
 }
 
 .container {
@@ -238,6 +248,125 @@ $desktop-width: 1024px;
   }
 }
 
+/////Home////////////////////////
+
+.main {
+
+  &-list-item {
+    list-style: none;
+    cursor: pointer;
+    background-color: rgb(245, 245, 245);
+    margin-bottom: 1.5em;
+    box-shadow: 0 1px 5px rgba(50,50,50,0.2);;
+  }
+
+  &-link {
+    font-weight: 500;
+    margin-bottom: 1em;
+    color: black;
+    font-weight: normal;
+  }
+}
+
+.short-property {
+
+  display: grid;
+  cursor: pointer;
+
+  img{
+    display: block;
+  }
+
+ &-image {
+    height: 250px;
+    width: 100%;
+    margin: 0;
+  }
+
+  &-title{
+    font-weight: bold;
+  }
+
+  &-description{
+    display: none;
+  }
+}
+
+@media(min-width: 600px){
+  .short-property{
+    grid-template-columns: 1fr 1fr;
+  }
+ 
+ .short-property-right{
+   display: grid;
+   grid-template-rows: 2em 2fr 1fr;
+   padding : 1em 0 0 0.4em ;
+ } 
+
+ .short-property-description{
+   display: block;
+   font-size: 0.9em;
+ }
+}
+
+@media(min-width: 1024px){
+  .short-property{
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.icon-container {
+  position: relative;
+  z-index: 3;
+  left: 10px;
+  top: -25px;
+  color: whitesmoke;
+
+  span{
+    padding-left: 0.3em;
+  }
+}
+
+@media(min-width: 1024px){
+  .short-property-image{
+    width: 400px;
+    margin: 0;
+  }
+
+  .short-property-description{
+    font-size: 1em;
+    line-height: 1.2em;
+  }
+}
+
+.property-icons {
+  display: flex;
+  margin-top: 1em;
+  padding-bottom: 0.6em;
+
+  &-svg {
+    color: darkgray;
+    margin-right: 0.2em;
+  }
+
+  &-text {
+    display: inline-block;
+    margin-right: 0.6em;
+    color: darkgray;
+  }
+}
+
+@media (min-width: 600px){
+      .property-icons{
+        border-top: 1px solid darkgrey;
+        padding-top: 1em;
+      }
+} 
+
+@media(min-width: 1024px){
+  
+}
+
 .hide {
   display: none;
 }
@@ -254,4 +383,9 @@ $desktop-width: 1024px;
 
 .step-headliner {
   border-bottom: 1px solid lightgrey;
+}
+
+
+ .short-property-image-container{
+ // font-size: 0em;
 }

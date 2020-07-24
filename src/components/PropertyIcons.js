@@ -16,6 +16,7 @@ export const PropertyIcons = ({
   city,
   numberOfBathrooms,
   numberOfBedrooms,
+  title,
   user = '',
   path = '',
 }) => {
@@ -32,27 +33,35 @@ export const PropertyIcons = ({
   };
 
   return (
-    <section className="property-icons" style={{ display: 'flex' }}>
-      <div>
-        <FontAwesomeIcon icon={faBed} />
-        {numberOfBedrooms}
-        {'|'}
-        <FontAwesomeIcon icon={faBath} />
-        {'|'}
-        {numberOfBathrooms}
-        <FontAwesomeIcon icon={faMapMarker} />
-        {`${location},${city}.`}
-      </div>
+    <section className="property-icons">
+        <div className="property-icons-container">
+          <FontAwesomeIcon icon={faBed} className="property-icons-svg" />
+          <span className="property-icons-text">{numberOfBedrooms}</span>
+          {'|'}
+        </div>
 
-      <div className={user ? 'show' : 'hide'}>
-        <button type="button" onClick={handleDelete}>
-          <FontAwesomeIcon icon={faTrash} />
+        <div className="property-icons-container">
+          <FontAwesomeIcon icon={faBath} className="property-icons-svg" />
+
+          <span className="property-icons-text">{numberOfBathrooms}</span>
+          {'|'}
+        </div>
+        <div className="property-icons-container">
+          <FontAwesomeIcon icon={faMapMarker} className="property-icons-svg" />
+          <span className="property-icons-text">{`${location}`}</span>
+        </div>
+
+        <button
+          className={user ? 'show' : 'hide'}
+          type="button"
+          onClick={handleDelete}
+        >
+          <FontAwesomeIcon icon={faTrash} className="property-icons-svg" />
         </button>
 
-        <Link to={`${path}/edit/${id}`}>
-          <FontAwesomeIcon icon={faPen} />
+        <Link className={user ? 'show' : 'hide'} to={`${path}/edit/${id}`}>
+          <FontAwesomeIcon icon={faPen} className="property-icons-svg" />
         </Link>
-      </div>
     </section>
   );
 };
