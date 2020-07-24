@@ -79,6 +79,7 @@ $desktop-width: 1024px;
     justify-content: space-between;
     align-items: center;
     height: 1.2em;
+    box-shadow: 0 1px 5px rgba(50,50,50,0.2);
   }
 
   &-list__mobile {
@@ -257,7 +258,7 @@ $desktop-width: 1024px;
     cursor: pointer;
     background-color: rgb(245, 245, 245);
     margin-bottom: 1.5em;
-    box-shadow: 0 1px 5px rgba(50,50,50,0.2);;
+    box-shadow: 0 1px 5px rgba(50,50,50,0.2);
   }
 
   &-link {
@@ -384,8 +385,8 @@ $desktop-width: 1024px;
 .step-headliner {
   border-bottom: 1px solid lightgrey;
 }
+/********************
+* Property Styling
+*
+*********************/
 
-
- .short-property-image-container{
- // font-size: 0em;
-}
