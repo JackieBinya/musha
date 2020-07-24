@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useProperty } from '../hooks';
 import { Loader } from '../components/Loader';
@@ -10,18 +10,8 @@ export const Property = () => {
 
   const { property } = useProperty(propertyId);
 
-  const {
-    imageUrls,
-    location,
-    title,
-    numberOfBathrooms,
-    numberOfBedrooms,
-    description,
-    city,
-  } = property;
-
   const handleNext = () => {
-    if (index + 1 === imageUrls.length) {
+    if (index + 1 === property.imageUrls.length) {
       setIndex(0);
       return;
     }
@@ -29,9 +19,8 @@ export const Property = () => {
   };
 
   const handlePrevious = () => {
-    console.log({ index });
     if (index - 1 < 0) {
-      setIndex(imageUrls.length - 1);
+      setIndex(property.imageUrls.length - 1);
       return;
     }
     setIndex(index - 1);
@@ -43,10 +32,12 @@ export const Property = () => {
         <Loader />
       ) : (
         <>
-          <h2>{title ? `New property in ${location}` : `title`}</h2>
+          <h2>
+            {property.title ? `New property in ${property.location}` : `title`}
+          </h2>
           <div className="show-property_gallery">
             <img
-              src={imageUrls ? imageUrls[index].url : ''}
+              src={property.imageUrls ? property.imageUrls[index].url : ''}
               style={{ height: '500px', width: '450px' }}
             />
             <button type="button" onClick={handleNext}>
@@ -57,13 +48,13 @@ export const Property = () => {
             </button>
           </div>
 
-          <p>{description}</p>
+          <p>{property.description}</p>
 
           <PropertyIcons
-            city={city}
-            location={location}
-            numberOfBathrooms={numberOfBathrooms}
-            numberOfBedrooms={numberOfBedrooms}
+            city={property.city}
+            location={property.location}
+            numberOfBathrooms={property.numberOfBathrooms}
+            numberOfBedrooms={property.numberOfBedrooms}
           />
         </>
       )}

@@ -11,32 +11,35 @@ export const Home = () => {
     <>
       <Hero />
       <main>
-        <div className="container">
+        <div className="main container">
           {properties.map(
             ({
               id,
               location,
               imageUrls,
-              numberOfBathroom,
               numberOfBathrooms,
               numberOfBedrooms,
               city,
               title,
+              description,
             }) => (
-              <li key={id}>
-                <Link to={`/property/${id}`}>
-                  {' '}
-                  {title ? `${title}` : `New property in ${location}`}
-                </Link>
-
-                <ShortProperty imageUrls={imageUrls}>
-                  <PropertyIcons
-                    city={city}
+              <li key={id} className="main-list-item">
+                <Link to={`/property/${id}`} className="main-link">
+                  <ShortProperty
+                    imageUrls={imageUrls}
+                    title={title}
                     location={location}
-                    numberOfBathrooms={numberOfBathrooms}
-                    numberOfBedrooms={numberOfBedrooms}
-                  />
-                </ShortProperty>
+                    description={description}
+                  >
+                    <PropertyIcons
+                      city={city}
+                      title={title}
+                      location={location}
+                      numberOfBathrooms={numberOfBathrooms}
+                      numberOfBedrooms={numberOfBedrooms}
+                    />
+                  </ShortProperty>
+                </Link>
               </li>
             )
           )}
