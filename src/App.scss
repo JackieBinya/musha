@@ -181,6 +181,13 @@ $desktop-width: 1024px;
 .container {
   padding-top: 2em;
 }
+
+@media(min-width: 2500px){
+  .container{
+    max-width: 50%;
+    margin: 0 auto;
+  }
+}
 /*************************
 * Sign up Form
 */
@@ -390,3 +397,58 @@ $desktop-width: 1024px;
 *
 *********************/
 
+//     style={{ height: '500px', width: '450px' }}
+
+.show-property-gallery{
+  display: flex;
+  justify-content: center;
+ 
+    img {
+      height: 250px;
+      width: 300px;
+    }
+
+    button{
+      background: transparent;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      font-size: 1.2rem;
+      color: whitesmoke;
+      position: relative;
+    }
+
+    &-next{
+      right: -264px;
+      top: -130px;
+    }
+
+    &-previous{
+      top: -128.8px;
+      left: -32px;
+    } 
+}
+
+@media(min-width: 768px){
+  .show-property-gallery{
+   
+  }
+
+ 
+}
+@media(min-width: 1024px){
+  .show-property-gallery img{
+    height: 345px;
+    width: 345px;
+  }
+
+  .show-property-gallery-next{
+    top: -175px;
+    right: -308px;
+  }
+
+  .show-property-gallery-previous{
+    top: -172.5px;
+     left: -26px;
+  } 
+}
