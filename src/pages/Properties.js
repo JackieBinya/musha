@@ -48,7 +48,7 @@ export const Properties = ({ history }) => {
             id,
           }) => (
             <div key={id} className="my-properties">
-              <h3>{title ? title : `New property in ${location}`}</h3>
+              <h2>{title ? title : `New property in ${location}`}</h2>
               <ShortProperty imageUrls={imageUrls}>
                 <h3 className="property-id">Property ID: {id}</h3>
                 <p>{description}</p>
