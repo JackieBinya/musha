@@ -22,32 +22,34 @@ export const SignUp = ({ history }) => {
       setIsAuthenticated(false);
 
       if (error.code === 'auth/email-already-in-use') {
-        setMessage('🤖 email is already taken!');
+        setMessage('Email is already taken!');
       }
 
       if (error.code === 'auth/invalid-email') {
-        setMessage('🤖 email is invalid!');
+        setMessage('Email is invalid!');
       }
 
       if (error.code === 'auth/weak-password') {
-        setMessage('🤖 password should be at least six characters long!');
+        setMessage('Password should be at least six characters long!');
       }
     }
   };
 
   return (
-    <>
-      <h1>Sign up</h1>
-      <form onSubmit={handleSubmit} className="auth-form">
-        <FormMessage
+    <div className="container">
+      <div className="form-container">
+      <FormMessage
           isAuthenticated={isAuthenticated}
           message={message}
           setMessage={setMessage}
         />
+      <h1>Sign up</h1>
+      <form onSubmit={handleSubmit} className="auth-form">
         <EmailInput email={email} setEmail={setEmail} />
         <PasswordInput setPassword={setPassword} password={password} />
         <button type="submit">Create your account</button>
       </form>
-    </>
+      </div>
+    </div>
   );
 };

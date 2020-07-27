@@ -36,8 +36,10 @@ export const PasswordReset = ({ history }) => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="container">
+      <div className="form-container">
+        <h1>Password Reset</h1>
+      <form onSubmit={handleSubmit} className="auth-form">
         <FormMessage
           isAuthenticated={isEmailSent}
           message={message}
@@ -46,6 +48,7 @@ export const PasswordReset = ({ history }) => {
         <EmailInput email={email} setEmail={setEmail} />
         <button type="submit">Reset my password</button>
       </form>
-    </>
+      </div>
+    </div>
   );
 };

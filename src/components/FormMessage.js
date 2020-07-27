@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const FormMessage = ({ message, isAuthenticated, setMessage }) => (
+  <div className="alert-container">
   <div
     className={`message-wrapper ${message ? 'message' : ''} ${
       isAuthenticated ? 'success' : 'fail'
@@ -14,5 +15,6 @@ export const FormMessage = ({ message, isAuthenticated, setMessage }) => (
     >
       &times;
     </button>
+  </div>
   </div>
 );
