@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SignUp } from './SignUp';
-import { FormMessage } from '../components/FormMessage';
+import { AlertMessage } from '../components/AlertMessage';
 import { PasswordInput } from '../components/PasswordInput';
 import { EmailInput } from '../components/EmailInput';
 import { firebase } from '../firebase';
@@ -40,18 +40,18 @@ export const Login = ({ history }) => {
   return (
     <div className="container">
       <div className="form-container">
-      <FormMessage
+        <AlertMessage
           isAuthenticated={isAuthenticated}
           message={message}
           setMessage={setMessage}
         />
-      <h1>Login</h1>
-      <form className="auth-form" onSubmit={handleLogin}>
-        <EmailInput email={email} setEmail={setEmail} />
-        <PasswordInput setPassword={setPassword} password={password} />
-        <button type="submit">Continue</button>
-      </form>
-      <Link to="/password-reset">Have you forgotten your password?</Link>
+        <h1>Login</h1>
+        <form className="form-primary auth-form" onSubmit={handleLogin}>
+          <EmailInput email={email} setEmail={setEmail} />
+          <PasswordInput setPassword={setPassword} password={password} />
+          <button type="submit">Continue</button>
+        </form>
+        <Link to="/password-reset">Have you forgotten your password?</Link>
       </div>
     </div>
   );

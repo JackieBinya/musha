@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { signUpHelper } from '../helpers';
-import { FormMessage } from '../components/FormMessage';
+import { AlertMessage } from '../components/AlertMessage';
 import { PasswordInput } from '../components/PasswordInput';
 import { EmailInput } from '../components/EmailInput';
 
@@ -38,17 +38,17 @@ export const SignUp = ({ history }) => {
   return (
     <div className="container">
       <div className="form-container">
-      <FormMessage
+        <AlertMessage
           isAuthenticated={isAuthenticated}
           message={message}
           setMessage={setMessage}
         />
-      <h1>Sign up</h1>
-      <form onSubmit={handleSubmit} className="auth-form">
-        <EmailInput email={email} setEmail={setEmail} />
-        <PasswordInput setPassword={setPassword} password={password} />
-        <button type="submit">Create your account</button>
-      </form>
+        <h1>Sign up</h1>
+        <form onSubmit={handleSubmit} className="form-primary auth-form">
+          <EmailInput email={email} setEmail={setEmail} />
+          <PasswordInput setPassword={setPassword} password={password} />
+          <button type="submit">Create your account</button>
+        </form>
       </div>
     </div>
   );

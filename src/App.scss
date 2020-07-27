@@ -35,8 +35,8 @@ a {
   text-decoration: none;
 }
 
-img {  
-  display:block;  /* removes extra space */
+img {
+  display: block; /* removes extra space */
 }
 
 /************Variables ******************/
@@ -79,7 +79,7 @@ $desktop-width: 1024px;
     justify-content: space-between;
     align-items: center;
     height: 1.2em;
-    box-shadow: 0 1px 5px rgba(50,50,50,0.2);
+    box-shadow: 0 1px 5px rgba(50, 50, 50, 0.2);
   }
 
   &-list__mobile {
@@ -172,18 +172,18 @@ $desktop-width: 1024px;
   position: relative;
 }
 
-@media(min-width: 650px){
- .container{
-  max-width: 80%;
- }
+@media (min-width: 650px) {
+  .container {
+    max-width: 80%;
+  }
 }
 
 .container {
   padding-top: 2em;
 }
 
-@media(min-width: 2500px){
-  .container{
+@media (min-width: 2500px) {
+  .container {
     max-width: 50%;
     margin: 0 auto;
   }
@@ -193,17 +193,12 @@ $desktop-width: 1024px;
 * Login Form
 */
 
-.auth-form {
+.form-primary {
   input[type='text'] {
     margin: 0 auto;
     opacity: 50%;
     margin-top: 10px;
     max-width: 527px;
-  }
-
-  .password-wrapper {
-    position: relative;
-    margin-bottom: 14px;
   }
 
   i {
@@ -217,7 +212,8 @@ $desktop-width: 1024px;
     cursor: pointer;
   }
 
-  input, button{
+  input,
+  button {
     height: 40px;
     width: 100%;
     font-size: 22px;
@@ -225,16 +221,22 @@ $desktop-width: 1024px;
     cursor: pointer;
   }
 
-  button:hover{
-     color: white;
-     background-color: royalblue;
-     border: transparent;
-     border-radius: 1px;
+  button:hover {
+    color: white;
+    background-color: royalblue;
+    border: transparent;
+    border-radius: 1px;
   }
-
 }
 
-.alert-container{
+.auth-form {
+  .password-wrapper {
+    position: relative;
+    margin-bottom: 14px;
+  }
+}
+
+.alert-container {
   .message-wrapper {
     width: 100%;
     height: 0em;
@@ -242,7 +244,6 @@ $desktop-width: 1024px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 
     .close-message {
       color: inherit;
@@ -273,18 +274,17 @@ $desktop-width: 1024px;
     background-color: $success-background;
     color: $success-color;
   }
-
 }
 
-@media (min-width : 786px){
-  .form-container{
+@media (min-width: 786px) {
+  .form-container {
     max-width: 60%;
     margin: 0 auto;
   }
 }
 
-@media (min-width : 786px){
-  .form-container{
+@media (min-width: 786px) {
+  .form-container {
     max-width: 40%;
     margin: 0 auto;
   }
@@ -292,13 +292,12 @@ $desktop-width: 1024px;
 /////Home////////////////////////
 
 .main {
-
   &-list-item {
     list-style: none;
     cursor: pointer;
     background-color: rgb(245, 245, 245);
     margin-bottom: 1.5em;
-    box-shadow: 0 1px 5px rgba(50,50,50,0.2);
+    box-shadow: 0 1px 5px rgba(50, 50, 50, 0.2);
   }
 
   &-link {
@@ -310,48 +309,47 @@ $desktop-width: 1024px;
 }
 
 .short-property {
-
   display: grid;
   cursor: pointer;
 
-  img{
+  img {
     display: block;
   }
 
- &-image {
+  &-image {
     height: 250px;
     width: 100%;
     margin: 0;
   }
 
-  &-title{
+  &-title {
     font-weight: bold;
   }
 
-  &-description{
+  &-description {
     display: none;
   }
 }
 
-@media(min-width: 600px){
-  .short-property{
+@media (min-width: 600px) {
+  .short-property {
     grid-template-columns: 1fr 1fr;
   }
- 
- .short-property-right{
-   display: grid;
-   grid-template-rows: 2em 2fr 1fr;
-   padding : 1em 0 0 0.4em ;
- } 
 
- .short-property-description{
-   display: block;
-   font-size: 0.9em;
- }
+  .short-property-right {
+    display: grid;
+    grid-template-rows: 2em 2fr 1fr;
+    padding: 1em 0 0 0.4em;
+  }
+
+  .short-property-description {
+    display: block;
+    font-size: 0.9em;
+  }
 }
 
-@media(min-width: 1024px){
-  .short-property{
+@media (min-width: 1024px) {
+  .short-property {
     grid-template-columns: 1fr 2fr;
   }
 }
@@ -363,18 +361,18 @@ $desktop-width: 1024px;
   top: -25px;
   color: whitesmoke;
 
-  span{
+  span {
     padding-left: 0.3em;
   }
 }
 
-@media(min-width: 1024px){
-  .short-property-image{
+@media (min-width: 1024px) {
+  .short-property-image {
     width: 400px;
     margin: 0;
   }
 
-  .short-property-description{
+  .short-property-description {
     font-size: 1em;
     line-height: 1.2em;
   }
@@ -397,15 +395,14 @@ $desktop-width: 1024px;
   }
 }
 
-@media (min-width: 600px){
-      .property-icons{
-        border-top: 1px solid darkgrey;
-        padding-top: 1em;
-      }
-} 
+@media (min-width: 600px) {
+  .property-icons {
+    border-top: 1px solid darkgrey;
+    padding-top: 1em;
+  }
+}
 
-@media(min-width: 1024px){
-  
+@media (min-width: 1024px) {
 }
 
 .hide {
@@ -432,56 +429,53 @@ $desktop-width: 1024px;
 
 //     style={{ height: '500px', width: '450px' }}
 
-.show-property-gallery{
+.show-property-gallery {
   display: flex;
   justify-content: center;
- 
-    img {
-      height: 250px;
-      width: 300px;
-    }
 
-    button{
-      background: transparent;
-      cursor: pointer;
-      outline: none;
-      border: none;
-      font-size: 1.2rem;
-      color: whitesmoke;
-      position: relative;
-    }
-
-    &-next{
-      right: -264px;
-      top: -130px;
-    }
-
-    &-previous{
-      top: -128.8px;
-      left: -32px;
-    } 
-}
-
-@media(min-width: 768px){
-  .show-property-gallery{
-   
+  img {
+    height: 250px;
+    width: 300px;
   }
 
- 
+  button {
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    color: whitesmoke;
+    position: relative;
+  }
+
+  &-next {
+    right: -264px;
+    top: -130px;
+  }
+
+  &-previous {
+    top: -128.8px;
+    left: -32px;
+  }
 }
-@media(min-width: 1024px){
-  .show-property-gallery img{
+
+@media (min-width: 768px) {
+  .show-property-gallery {
+  }
+}
+@media (min-width: 1024px) {
+  .show-property-gallery img {
     height: 345px;
     width: 345px;
   }
 
-  .show-property-gallery-next{
+  .show-property-gallery-next {
     top: -175px;
     right: -308px;
   }
 
-  .show-property-gallery-previous{
+  .show-property-gallery-previous {
     top: -172.5px;
-     left: -26px;
-  } 
+    left: -26px;
+  }
 }
