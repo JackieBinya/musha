@@ -25,7 +25,7 @@ export const Properties = ({ history }) => {
   };
 
   return (
-    <>
+    <div className="container">
       <h1>Properties</h1>
       <button type="button" onClick={handleLogOut}>
         Logout
@@ -47,9 +47,10 @@ export const Properties = ({ history }) => {
             description,
             id,
           }) => (
-            <div key={id}>
+            <div key={id} className="my-properties">
               <h3>{title ? title : `New property in ${location}`}</h3>
               <ShortProperty imageUrls={imageUrls}>
+                <h3 className="property-id">Property ID: {id}</h3>
                 <p>{description}</p>
                 <PropertyIcons
                   id={id}
@@ -65,6 +66,6 @@ export const Properties = ({ history }) => {
           )
         )
       )}
-    </>
+    </div>
   );
 };

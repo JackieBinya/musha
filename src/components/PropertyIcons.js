@@ -38,14 +38,12 @@ export const PropertyIcons = ({
         <div className="property-icons-container">
           <FontAwesomeIcon icon={faBed} className="property-icons-svg" />
           <span className="property-icons-text">{numberOfBedrooms}</span>
-          {'|'}
         </div>
 
         <div className="property-icons-container">
           <FontAwesomeIcon icon={faBath} className="property-icons-svg" />
 
           <span className="property-icons-text">{numberOfBathrooms}</span>
-          {'|'}
         </div>
         <div className="property-icons-container">
           <FontAwesomeIcon icon={faMapMarker} className="property-icons-svg" />

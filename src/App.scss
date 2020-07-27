@@ -388,6 +388,11 @@ $desktop-width: 1024px;
   &-description {
     display: none;
   }
+
+  .property-id{
+    padding: 0;
+    margin-top: 0;
+  }
 }
 
 @media (min-width: 600px) {
@@ -446,7 +451,7 @@ $desktop-width: 1024px;
 
   &-svg {
     color: darkgray;
-    margin-right: 0.2em;
+    margin-right: 1em;
   }
 
   &-text {
@@ -456,14 +461,22 @@ $desktop-width: 1024px;
   }
 
   //Edit Form
+  
+
   .edit-icons{
     display: flex;
     justify-content: space-between;
     align-items: center;
 
+    svg:hover{
+      color: blue;
+    }
+
     button{
       border: none;
       outline: none;
+      cursor: pointer;
+      background-color: transparent;
     }
   }
 
@@ -471,6 +484,10 @@ $desktop-width: 1024px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    svg{
+      cursor: none;
+    }
   }
 }
 
@@ -486,6 +503,7 @@ $desktop-width: 1024px;
 
 .hide {
   display: none;
+  height: 0rem;
 }
 
 .show {
@@ -527,12 +545,9 @@ $desktop-width: 1024px;
     top: -128.8px;
     left: -32px;
   }
+  
 }
 
-@media (min-width: 768px) {
-  .show-property-gallery {
-  }
-}
 @media (min-width: 1024px) {
   .show-property-gallery img {
     height: 345px;
@@ -548,4 +563,10 @@ $desktop-width: 1024px;
     top: -172.5px;
     left: -26px;
   }
+}
+
+
+/// My Properties
+.my-properties{
+  cursor: none;
 }
