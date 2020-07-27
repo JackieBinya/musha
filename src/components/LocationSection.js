@@ -8,14 +8,12 @@ export const LocationSection = ({ city, setCity, location, setLocation }) => {
       <div className="step-contents">
         <div>
           <label htmlFor="city">City:</label>
-          <div>
           <input
             type="text"
             name="city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
-          </div>
         </div>
 
         <div>

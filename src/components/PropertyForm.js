@@ -197,10 +197,10 @@ export const PropertyForm = ({
   return (
     <div className="property-form-container">
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <button type="button" onClick={handleSave}>
+      <form onSubmit={handleSubmit} className="form-primary">
+      <button type="button" className={`button-primary ${isEditing ? 'show' : 'hide'}`} onClick={handleSave}>
         Save
       </button>
-      <form onSubmit={handleSubmit} className="form-primary">
         <FirstSection
           title={title}
           setTitle={setTitle}
@@ -233,7 +233,7 @@ export const PropertyForm = ({
           setDescription={setDescription}
         />
 
-        <button type="submit" disabled={isEditing}>
+        <button type="submit" className={`${isEditing ? 'hide' : 'show'}`} disabled={isEditing}>
           Submit
         </button>
       </form>

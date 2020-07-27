@@ -33,6 +33,7 @@ ul {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 img {
@@ -235,7 +236,12 @@ $desktop-width: 1024px;
   textarea{
     width: 100%;
     padding: 1em;
-    color: darkgrey;
+    font-size: 22px;
+    
+  }
+
+  label{
+    display: block;
   }
 
   button:hover {
@@ -261,7 +267,14 @@ $desktop-width: 1024px;
   .details-wrapper{
     margin-bottom: 1em;
   }
+  .button-primary {
+    width: 200px;
+    margin-top: 1em;
+    margin-left: 5px;
+  }
 }
+
+
 
 .auth-form {
   .password-wrapper {
@@ -323,6 +336,18 @@ $desktop-width: 1024px;
     max-width: 40%;
     margin: 0 auto;
   }
+}
+
+///// Upload
+.upload-button{
+  cursor: pointer;
+  border: 1px solid rgb(154, 174, 235);
+  width: 100px;
+  height: 50px;
+  padding: 1rem;
+}
+.upload-svg{
+  color: rgb(154, 174, 235);
 }
 /////Home////////////////////////
 
