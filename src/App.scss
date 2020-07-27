@@ -233,14 +233,13 @@ $desktop-width: 1024px;
     margin-bottom: 14px;
   }
 
-  textarea{
+  textarea {
     width: 100%;
     padding: 1em;
     font-size: 22px;
-    
   }
 
-  label{
+  label {
     display: block;
   }
 
@@ -264,7 +263,7 @@ $desktop-width: 1024px;
     padding: 0 0.5em;
   }
 
-  .details-wrapper{
+  .details-wrapper {
     margin-bottom: 1em;
   }
   .button-primary {
@@ -272,9 +271,9 @@ $desktop-width: 1024px;
     margin-top: 1em;
     margin-left: 5px;
   }
+
+  
 }
-
-
 
 .auth-form {
   .password-wrapper {
@@ -339,14 +338,14 @@ $desktop-width: 1024px;
 }
 
 ///// Upload
-.upload-button{
+.upload-button {
   cursor: pointer;
   border: 1px solid rgb(154, 174, 235);
   width: 100px;
   height: 50px;
   padding: 1rem;
 }
-.upload-svg{
+.upload-svg {
   color: rgb(154, 174, 235);
 }
 /////Home////////////////////////
@@ -442,6 +441,8 @@ $desktop-width: 1024px;
   display: flex;
   margin-top: 1em;
   padding-bottom: 0.6em;
+  justify-content: space-between;
+  align-items: center;
 
   &-svg {
     color: darkgray;
@@ -452,6 +453,24 @@ $desktop-width: 1024px;
     display: inline-block;
     margin-right: 0.6em;
     color: darkgray;
+  }
+
+  //Edit Form
+  .edit-icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button{
+      border: none;
+      outline: none;
+    }
+  }
+
+  .details-icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
