@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SignUp } from './SignUp';
-import { FormMessage } from '../components/FormMessage';
+import { AlertMessage } from '../components/AlertMessage';
 import { PasswordInput } from '../components/PasswordInput';
 import { EmailInput } from '../components/EmailInput';
 import { firebase } from '../firebase';
@@ -24,33 +24,35 @@ export const Login = ({ history }) => {
       setIsAuthenticated(false);
 
       if (error.code === 'auth/invalid-email') {
-        setMessage('Email address is not valid');
+        setMessage('Email address is not valid!');
       }
       if (error.code === 'auth/user-disabled') {
-        setMessage('Your account has been suspended');
+        setMessage('Your account has been suspended!');
       }
       if (error.code === 'auth/user-not-found') {
         setMessage('Email does no exist!');
       }
       if (error.code === 'auth/wrong-password') {
-        setMessage('Invalid password');
+        setMessage('Invalid password!');
       }
     }
   };
   return (
-    <>
-      <h1>Login</h1>
-      <form className="auth-form" onSubmit={handleLogin}>
-        <FormMessage
+    <div className="container">
+      <div className="form-container">
+        <AlertMessage
           isAuthenticated={isAuthenticated}
           message={message}
           setMessage={setMessage}
         />
-        <EmailInput email={email} setEmail={setEmail} />
-        <PasswordInput setPassword={setPassword} password={password} />
-        <button type="submit">Continue</button>
-      </form>
-      <Link to="/password-reset">Have you forgotten your password?</Link>
-    </>
+        <h1>Login</h1>
+        <form className="form-primary auth-form" onSubmit={handleLogin}>
+          <EmailInput email={email} setEmail={setEmail} />
+          <PasswordInput setPassword={setPassword} password={password} />
+          <button type="submit">Continue</button>
+        </form>
+        <Link to="/password-reset">Have you forgotten your password?</Link>
+      </div>
+    </div>
   );
 };

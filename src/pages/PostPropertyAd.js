@@ -13,7 +13,7 @@ export const PostPropertyAd = () => {
   const [imageUrls, setImageUrls] = useState([]);
 
   return (
-    <>
+    <div className="container">
       <h1>Create a property ad</h1>
 
       <h2>Fill in the form below as accurately as possible.</h2>
@@ -38,6 +38,6 @@ export const PostPropertyAd = () => {
         imageUrls={imageUrls}
         setImageUrls={setImageUrls}
       />
-    </>
+    </div>
   );
 };

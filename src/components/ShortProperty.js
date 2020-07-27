@@ -31,7 +31,7 @@ export const ShortProperty = ({
         </div>
 
         <div>
-        <p className="short-property-description">{description}</p>
+          <p className="short-property-description">{description}</p>
         </div>
         {children}
       </div>

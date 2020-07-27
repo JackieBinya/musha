@@ -34,34 +34,34 @@ export const PropertyIcons = ({
 
   return (
     <section className="property-icons">
-        <div className="property-icons-container">
-          <FontAwesomeIcon icon={faBed} className="property-icons-svg" />
-          <span className="property-icons-text">{numberOfBedrooms}</span>
-          {'|'}
-        </div>
+      <div className="property-icons-container">
+        <FontAwesomeIcon icon={faBed} className="property-icons-svg" />
+        <span className="property-icons-text">{numberOfBedrooms}</span>
+        {'|'}
+      </div>
 
-        <div className="property-icons-container">
-          <FontAwesomeIcon icon={faBath} className="property-icons-svg" />
+      <div className="property-icons-container">
+        <FontAwesomeIcon icon={faBath} className="property-icons-svg" />
 
-          <span className="property-icons-text">{numberOfBathrooms}</span>
-          {'|'}
-        </div>
-        <div className="property-icons-container">
-          <FontAwesomeIcon icon={faMapMarker} className="property-icons-svg" />
-          <span className="property-icons-text">{`${location}`}</span>
-        </div>
+        <span className="property-icons-text">{numberOfBathrooms}</span>
+        {'|'}
+      </div>
+      <div className="property-icons-container">
+        <FontAwesomeIcon icon={faMapMarker} className="property-icons-svg" />
+        <span className="property-icons-text">{`${location}`}</span>
+      </div>
 
-        <button
-          className={user ? 'show' : 'hide'}
-          type="button"
-          onClick={handleDelete}
-        >
-          <FontAwesomeIcon icon={faTrash} className="property-icons-svg" />
-        </button>
+      <button
+        className={user ? 'show' : 'hide'}
+        type="button"
+        onClick={handleDelete}
+      >
+        <FontAwesomeIcon icon={faTrash} className="property-icons-svg" />
+      </button>
 
-        <Link className={user ? 'show' : 'hide'} to={`${path}/edit/${id}`}>
-          <FontAwesomeIcon icon={faPen} className="property-icons-svg" />
-        </Link>
+      <Link className={user ? 'show' : 'hide'} to={`${path}/edit/${id}`}>
+        <FontAwesomeIcon icon={faPen} className="property-icons-svg" />
+      </Link>
     </section>
   );
 };

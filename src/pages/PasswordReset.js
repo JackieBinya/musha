@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { firebase } from '../firebase';
 import { EmailInput } from '../components/EmailInput';
-import { FormMessage } from '../components/FormMessage';
+import { AlertMessage } from '../components/AlertMessage';
 
 /********************
  *  Add continue url : https://firebase.google.com/docs/auth/web/passing-state-in-email-actions#passing_statecontinue_url_in_email_actions
@@ -36,16 +36,19 @@ export const PasswordReset = ({ history }) => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <FormMessage
-          isAuthenticated={isEmailSent}
-          message={message}
-          setMessage={setMessage}
-        />
-        <EmailInput email={email} setEmail={setEmail} />
-        <button type="submit">Reset my password</button>
-      </form>
-    </>
+    <div className="container">
+      <div className="form-container">
+        <h1>Password Reset</h1>
+        <form onSubmit={handleSubmit} className="form-primary">
+          <AlertMessage
+            isAuthenticated={isEmailSent}
+            message={message}
+            setMessage={setMessage}
+          />
+          <EmailInput email={email} setEmail={setEmail} />
+          <button type="submit">Reset my password</button>
+        </form>
+      </div>
+    </div>
   );
 };

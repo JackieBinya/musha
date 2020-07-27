@@ -9,7 +9,7 @@ export const PasswordInput = ({ setPassword, password }) => {
 
   return (
     <div className="password-wrapper">
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password">Password:</label>
       <input
         type={showPassword ? 'text' : 'password'}
         name="password"
