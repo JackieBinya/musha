@@ -212,7 +212,9 @@ $desktop-width: 1024px;
     cursor: pointer;
   }
 
-  input,
+  input[type='text'],
+  input[type='password'],
+  input[type='email'],
   button {
     height: 40px;
     width: 100%;
@@ -221,11 +223,43 @@ $desktop-width: 1024px;
     cursor: pointer;
   }
 
+  input[type='radio'] {
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+
+  .radio-wrapper {
+    margin-bottom: 14px;
+  }
+
+  textarea{
+    width: 100%;
+    padding: 1em;
+    color: darkgrey;
+  }
+
   button:hover {
     color: white;
     background-color: royalblue;
     border: transparent;
     border-radius: 1px;
+  }
+  .step-wrapper {
+    border: 1px solid lightgrey;
+    margin: 0.5em;
+  }
+
+  .step-headliner {
+    padding: 0.3em;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .step-contents {
+    padding: 0 0.5em;
+  }
+
+  .details-wrapper{
+    margin-bottom: 1em;
   }
 }
 
@@ -277,7 +311,8 @@ $desktop-width: 1024px;
 }
 
 @media (min-width: 786px) {
-  .form-container {
+  .form-container,
+  .property-form-container {
     max-width: 60%;
     margin: 0 auto;
   }
@@ -413,15 +448,6 @@ $desktop-width: 1024px;
   display: block;
 }
 
-.step-wrapper {
-  border: 1px solid rgb(100, 98, 98);
-  padding: 1em;
-  margin: 0.5em;
-}
-
-.step-headliner {
-  border-bottom: 1px solid lightgrey;
-}
 /********************
 * Property Styling
 *

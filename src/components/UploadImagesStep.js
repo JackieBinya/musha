@@ -103,68 +103,67 @@ export const UploadImagesSection = ({
   return (
     <section className={`step-wrapper  ${isEditing ? 'hide' : 'show'} `}>
       <h3 className="step-headliner">Upload Images</h3>
-      {previewUrls &&
-        previewUrls.map((imgPre) => (
-          <img
-            key={imgPre.id}
-            src={imgPre.path}
-            alt="preview image"
-            style={{ height: '200px', width: '200px' }}
+      <div className="step-contents">
+        {previewUrls &&
+          previewUrls.map((imgPre) => (
+            <img
+              key={imgPre.id}
+              src={imgPre.path}
+              alt="preview image"
+              style={{ height: '200px', width: '200px' }}
+            />
+          ))}
+
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <div>
+          <div style={{ display: 'flex' }}>
+            <button
+              type="button"
+              onClick={handleImg}
+              className={isVisible ? 'show' : 'hide'}
+            >
+              Upload
+            </button>
+            <button
+              type="button"
+              onClick={handleImg1}
+              className={isBtn1Visible ? 'show' : 'hide'}
+            >
+              Upload
+            </button>
+            <button
+              type="button"
+              onClick={handleImg2}
+              className={isBtn2Visible ? 'show' : 'hide'}
+              disabled={imageUrls.length === 3 ? true : false}
+            >
+              Upload
+            </button>
+          </div>
+
+          <input
+            type="file"
+            name="image"
+            onChange={(e) => setImage(e.target.files[0])}
+            ref={imgInput}
+            style={{ display: 'none' }}
           />
-        ))}
-
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <div>
-        <div style={{ display: 'flex' }}>
-          <button
-            type="button"
-            onClick={handleImg}
-            className={isVisible ? 'show' : 'hide'}
-          >
-            Upload
-          </button>
-          <button
-            type="button"
-            onClick={handleImg1}
-            className={isBtn1Visible ? 'show' : 'hide'}
-          >
-            Upload
-          </button>
-          <button
-            type="button"
-            onClick={handleImg2}
-            className={isBtn2Visible ? 'show' : 'hide'}
-            disabled={imageUrls.length === 3 ? true : false}
-          >
-            Upload
-          </button>
+          <input
+            type="file"
+            name="image1"
+            onChange={(e) => setImage(e.target.files[0])}
+            ref={img1Input}
+            style={{ display: 'none' }}
+          />
+          <input
+            type="file"
+            name="image2"
+            onChange={(e) => setImage(e.target.files[0])}
+            ref={img2Input}
+            style={{ display: 'none' }}
+          />
         </div>
-
-        <input
-          type="file"
-          name="image"
-          onChange={(e) => setImage(e.target.files[0])}
-          ref={imgInput}
-          style={{ display: 'none' }}
-        />
-        <input
-          type="file"
-          name="image1"
-          onChange={(e) => setImage(e.target.files[0])}
-          ref={img1Input}
-          style={{ display: 'none' }}
-        />
-        <input
-          type="file"
-          name="image2"
-          onChange={(e) => setImage(e.target.files[0])}
-          ref={img2Input}
-          style={{ display: 'none' }}
-        />
       </div>
-      <button type="button" disabled={imageUrls.length < 2 ? true : false}>
-        Continue
-      </button>
     </section>
   );
 };

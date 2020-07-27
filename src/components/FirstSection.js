@@ -11,45 +11,53 @@ export const FirstSection = ({
   return (
     <section className="step-wrapper">
       <h3 className="step-headliner">Miscellaneous details</h3>
-      <p>The property is available for :</p>
-      <label>
-        Rent
-        <input
-          type="radio"
-          value="rent"
-          checked={availableTo === 'rent'}
-          onChange={(e) => setAvailableTo(e.target.value)}
-        />
-      </label>
+      <div className="step-contents">
+        <p>The property is available for :</p>
+        <div className="radio-wrapper">
+          <div>
+            <label>
+              <input
+                type="radio"
+                value="rent"
+                checked={availableTo === 'rent'}
+                onChange={(e) => setAvailableTo(e.target.value)}
+              />
+              Rent
+            </label>
+          </div>
 
-      <label>
-        Sale
-        <input
-          type="radio"
-          value="sale"
-          checked={availableTo === 'sale'}
-          onChange={(e) => setAvailableTo(e.target.value)}
-        />
-      </label>
+          <div>
+            <label>
+              <input
+                type="radio"
+                value="sale"
+                checked={availableTo === 'sale'}
+                onChange={(e) => setAvailableTo(e.target.value)}
+              />
+              Sale
+            </label>
+          </div>
+        </div>
 
-      <div>
-        <label htmlFor="ad-title">Title</label>
-        <input
-          type="text"
-          name="ad-title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </div>
+        <div>
+          <label htmlFor="ad-title">Ad title:</label>
+          <input
+            type="text"
+            name="ad-title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
 
-      <div>
-        <label htmlFor="mobile-number">Mobile Number</label>
-        <input
-          type="text"
-          name="mobile-number"
-          value={mobileNumber}
-          onChange={(e) => setMobileNumber(e.target.value)}
-        />
+        <div>
+          <label htmlFor="mobile-number">Your mobile Number:</label>
+          <input
+            type="text"
+            name="mobile-number"
+            value={mobileNumber}
+            onChange={(e) => setMobileNumber(e.target.value)}
+          />
+        </div>
       </div>
     </section>
   );

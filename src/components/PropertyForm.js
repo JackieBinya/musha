@@ -195,12 +195,12 @@ export const PropertyForm = ({
     }
   };
   return (
-    <>
+    <div className="property-form-container">
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <button type="button" onClick={handleSave}>
         Save
       </button>
-      <form onSubmit={handleSubmit} className="auth-form">
+      <form onSubmit={handleSubmit} className="form-primary">
         <FirstSection
           title={title}
           setTitle={setTitle}
@@ -237,6 +237,6 @@ export const PropertyForm = ({
           Submit
         </button>
       </form>
-    </>
+    </div>
   );
 };

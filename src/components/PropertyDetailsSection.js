@@ -11,7 +11,8 @@ export const PropertyDetailsSection = ({
   return (
     <section className="step-wrapper">
       <h3 className="step-headliner">Property Details</h3>
-      <div>
+      <div className="step-contents">
+      <div className="details-wrapper">
         <label>
           Choose the number of bedrooms in your property:
           <select
@@ -26,7 +27,7 @@ export const PropertyDetailsSection = ({
         </label>
       </div>
 
-      <div>
+      <div  className="details-wrapper">
         <label>
           Choose the number of bathrooms in your property:
           <select
@@ -41,14 +42,14 @@ export const PropertyDetailsSection = ({
         </label>
       </div>
 
-      <div>
-        <label htmlFor="description">Description</label>
+      <div  className="details-wrapper">
+        <label htmlFor="description">Description:</label>
         <textarea
           name="description"
-          rows="8"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
+      </div>
       </div>
     </section>
   );
