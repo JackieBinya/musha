@@ -7,7 +7,7 @@ import { Login } from './pages/Login';
 import { Properties } from './pages/Properties';
 import { SignUp } from './pages/SignUp';
 import { Error } from './pages/Error';
-import { NavBar } from './components/NavBar';
+import NavBar from './components/NavBar';
 import { PrivateRoute } from './components/PrivateRoute';
 import { AuthContext } from './context/auth-context';
 import { PasswordReset } from './pages/PasswordReset';

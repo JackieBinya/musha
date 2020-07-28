@@ -11,7 +11,7 @@ export const ShortProperty = ({
 }) => {
   const { url } = useRouteMatch();
 
-  console.log({description})
+  console.log({ description });
   return (
     <section className="short-property">
       {imageUrls && (
@@ -29,12 +29,14 @@ export const ShortProperty = ({
       )}
 
       <div className="short-property-right">
-        <div className={`short-property-title ${url === '/' ? 'show' : 'hide'}`}>
+        <div
+          className={`short-property-title ${url === '/' ? 'show' : 'hide'}`}
+        >
           {' '}
           {title ? `${title}` : `New property in ${location}`}
         </div>
 
-        <div className={`${url === '/' ? 'show' : 'hide'}`}  > 
+        <div className={`${url === '/' ? 'show' : 'hide'}`}>
           <p className="short-property-description">{description}</p>
         </div>
         {children}
@@ -42,4 +44,3 @@ export const ShortProperty = ({
     </section>
   );
 };
- 

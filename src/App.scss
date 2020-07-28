@@ -65,6 +65,13 @@ $desktop-width: 1024px;
     cursor: pointer;
   }
 
+  button {
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+  }
+
+
   .menu-logo {
     font-weight: bold;
     font-size: 1.5rem;
@@ -79,7 +86,7 @@ $desktop-width: 1024px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 1.2em;
+    height: 4em;
     box-shadow: 0 1px 5px rgba(50, 50, 50, 0.2);
   }
 
@@ -94,16 +101,33 @@ $desktop-width: 1024px;
       padding-bottom: 1.5em;
       color: white;
     }
-  }
 
-  button {
-    border: none;
-    outline: none;
-    background-color: transparent;
+    .close-menu-button{
+      border: none;
+    }
+
+    .logout-button {
+      border: none;
+      background-color: transparent;
+      color: white;
+      padding: 0;
+    }
+  }
+  
+  &-mobile-control{
+    .menu-button{
+      border: none;
+    }
+
+    svg{
+      font-size: 1.5rem;
+    }
   }
 
   &-list__desktop {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     a {
       font-weight: 500;
@@ -112,6 +136,33 @@ $desktop-width: 1024px;
 
     a:hover {
       color: blue;
+    }
+
+  
+    .logout-button {
+      padding: 0;
+      color: black;
+      border: none;
+      background-color: transparent;
+
+
+      &:hover{
+        color: blue;
+      }
+    }
+
+    .post-button {
+      color: white;
+      background-color: blue;
+      text-align: center;
+      padding: 1em;
+     margin-right: 1em;
+
+      &:hover{
+        background-color: transparent;
+        color: black;
+        border: 1px solid blue;
+      }
     }
   }
 
@@ -125,10 +176,6 @@ $desktop-width: 1024px;
     &-mobile-control,
     &-list__mobile {
       display: none;
-    }
-
-    .menu-container {
-      padding: 2em;
     }
   }
 }
@@ -271,8 +318,6 @@ $desktop-width: 1024px;
     margin-top: 1em;
     margin-left: 5px;
   }
-
-  
 }
 
 .auth-form {
@@ -382,7 +427,7 @@ $desktop-width: 1024px;
   }
 
   &-title {
-    font-size: 1.2rem ;
+    font-size: 1.2rem;
     font-weight: bold;
   }
 
@@ -390,7 +435,7 @@ $desktop-width: 1024px;
     display: none;
   }
 
-  .property-id{
+  .property-id {
     padding: 0;
     margin-top: 0;
   }
@@ -462,18 +507,17 @@ $desktop-width: 1024px;
   }
 
   //Edit Form
-  
 
-  .edit-icons{
+  .edit-icons {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    svg:hover{
+    svg:hover {
       color: blue;
     }
 
-    button{
+    button {
       border: none;
       outline: none;
       cursor: pointer;
@@ -481,12 +525,12 @@ $desktop-width: 1024px;
     }
   }
 
-  .details-icons{
+  .details-icons {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    svg{
+    svg {
       cursor: none;
     }
   }
@@ -546,7 +590,6 @@ $desktop-width: 1024px;
     top: -128.8px;
     left: -32px;
   }
-  
 }
 
 @media (min-width: 1024px) {
@@ -566,8 +609,7 @@ $desktop-width: 1024px;
   }
 }
 
-
 /// My Properties
-.my-properties{
+.my-properties {
   cursor: none;
 }

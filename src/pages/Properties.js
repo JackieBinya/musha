@@ -19,20 +19,9 @@ export const Properties = ({ history }) => {
   const { currentUser } = useContext(AuthContext);
   const { userProperties } = usePropertiesByUserID(currentUser.uid);
 
-  const handleLogOut = () => {
-    firebase.auth().signOut();
-    history.push('/');
-  };
-
   return (
     <div className="container">
       <h1>Properties</h1>
-      <button type="button" onClick={handleLogOut}>
-        Logout
-      </button>
-
-      <Link to={`${path}/post`}>Post a property</Link>
-
       {!userProperties ? (
         <Loader />
       ) : (
