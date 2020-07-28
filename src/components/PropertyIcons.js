@@ -51,7 +51,7 @@ export const PropertyIcons = ({
         </div>
       </div>
 
-      <div  className="edit-icons">
+      <div className="edit-icons">
         <button
           className={user ? 'show' : 'hide'}
           type="button"
