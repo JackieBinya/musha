@@ -103,6 +103,7 @@ export const PropertyForm = ({
   };
 
   const handleSave = () => {
+    console.log('Saved');
     const propertyRef = firebase
       .firestore()
       .collection('properties')
@@ -194,17 +195,21 @@ export const PropertyForm = ({
         .catch((error) => console.log(error));
     }
   };
+
+  const handleCancel = () => {
+    console.log('Cancel');
+  };
   return (
     <div className="property-form-container">
+      <button
+        type="button"
+        className={`button-primary ${isEditing ? 'show' : 'hide'}`}
+        onClick={handleCancel}
+      >
+        Cancel
+      </button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit} className="form-primary">
-        <button
-          type="button"
-          className={`button-primary ${isEditing ? 'show' : 'hide'}`}
-          onClick={handleSave}
-        >
-          Save
-        </button>
         <FirstSection
           title={title}
           setTitle={setTitle}
@@ -243,6 +248,14 @@ export const PropertyForm = ({
           disabled={isEditing}
         >
           Submit
+        </button>
+
+        <button
+          type="button"
+          className={`button-primary ${isEditing ? 'show' : 'hide'}`}
+          onClick={handleSave}
+        >
+          Save
         </button>
       </form>
     </div>

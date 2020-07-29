@@ -11,7 +11,6 @@ export const ShortProperty = ({
 }) => {
   const { url } = useRouteMatch();
 
-  console.log({ description });
   return (
     <section className="short-property">
       {imageUrls && (

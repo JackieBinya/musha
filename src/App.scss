@@ -71,7 +71,6 @@ $desktop-width: 1024px;
     cursor: pointer;
   }
 
-
   .menu-logo {
     font-weight: bold;
     font-size: 1.5rem;
@@ -102,7 +101,7 @@ $desktop-width: 1024px;
       color: white;
     }
 
-    .close-menu-button{
+    .close-menu-button {
       border: none;
     }
 
@@ -113,13 +112,13 @@ $desktop-width: 1024px;
       padding: 0;
     }
   }
-  
-  &-mobile-control{
-    .menu-button{
+
+  &-mobile-control {
+    .menu-button {
       border: none;
     }
 
-    svg{
+    svg {
       font-size: 1.5rem;
     }
   }
@@ -138,15 +137,13 @@ $desktop-width: 1024px;
       color: blue;
     }
 
-  
     .logout-button {
       padding: 0;
       color: black;
       border: none;
       background-color: transparent;
 
-
-      &:hover{
+      &:hover {
         color: blue;
       }
     }
@@ -156,9 +153,9 @@ $desktop-width: 1024px;
       background-color: blue;
       text-align: center;
       padding: 1em;
-     margin-right: 1em;
+      margin-right: 1em;
 
-      &:hover{
+      &:hover {
         background-color: transparent;
         color: black;
         border: 1px solid blue;
@@ -380,6 +377,14 @@ $desktop-width: 1024px;
     max-width: 40%;
     margin: 0 auto;
   }
+}
+
+//Form Alert Modal
+
+.form-modal-container{
+  height: 5em;
+  width: 100%;
+  padding: 1em;
 }
 
 ///// Upload

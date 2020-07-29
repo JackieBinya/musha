@@ -1,64 +1,61 @@
 import React from 'react';
-
+import { SectionWrapper } from '../components/SectionWrapper';
 export const FirstSection = ({
-  setAvailableTo,
-  setMobileNumber,
-  mobileNumber,
-  availableTo,
-  title = '',
-  setTitle,
+  register,
+  defaultAvailableTo = '',
+  defaultTitle = '',
+  defaultMobileNumber,
 }) => {
   return (
-    <section className="step-wrapper">
-      <h3 className="step-headliner">Miscellaneous details</h3>
-      <div className="step-contents">
-        <p>The property is available for :</p>
-        <div className="radio-wrapper">
-          <div>
-            <label>
-              <input
-                type="radio"
-                value="rent"
-                checked={availableTo === 'rent'}
-                onChange={(e) => setAvailableTo(e.target.value)}
-              />
-              Rent
-            </label>
-          </div>
-
-          <div>
-            <label>
-              <input
-                type="radio"
-                value="sale"
-                checked={availableTo === 'sale'}
-                onChange={(e) => setAvailableTo(e.target.value)}
-              />
-              Sale
-            </label>
-          </div>
+    <SectionWrapper heading="Miscellaneous Details">
+      <p>The property is available for :</p>
+      <div className="radio-wrapper">
+        <div>
+          <label>
+            <input
+              type="radio"
+              value="rent"
+              name="availableTo"
+              defaultChecked={defaultAvailableTo === 'rent' ? true : false}
+              ref={register}
+            />
+            Rent
+          </label>
         </div>
 
         <div>
-          <label htmlFor="ad-title">Ad title:</label>
-          <input
-            type="text"
-            name="ad-title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="mobile-number">Your mobile Number:</label>
-          <input
-            type="text"
-            name="mobile-number"
-            value={mobileNumber}
-            onChange={(e) => setMobileNumber(e.target.value)}
-          />
+          <label>
+            <input
+              type="radio"
+              value="sale"
+              name="availableTo"
+              defaultChecked={defaultAvailableTo === 'sale' ? true : false}
+              ref={register}
+            />
+            Sale
+          </label>
         </div>
       </div>
-    </section>
+
+      <div>
+        <label htmlFor="title">Ad title:</label>
+        <input
+          type="text"
+          name="title"
+          defaultValue={defaultTitle}
+          ref={register}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="mobileNumber">Your mobile Number:</label>
+        <input
+          type="text"
+          name="mobileNumber"
+          defaultValue={defaultMobileNumber}
+          ref={register}
+        />
+      </div>
+    </SectionWrapper>
   );
 };

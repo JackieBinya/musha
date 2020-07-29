@@ -45,7 +45,6 @@ export const useProperty = (id) => {
 
 export const usePropertiesByUserID = (userId) => {
   const [userProperties, setUserProperties] = useState([]);
-  console.log(userProperties);
 
   useEffect(() => {
     firebase
