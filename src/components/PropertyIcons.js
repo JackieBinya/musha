@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { useRouteMatch } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import {
@@ -21,6 +22,8 @@ export const PropertyIcons = ({
   path = '',
 }) => {
   const [showModal, setShowModal] = useState(false);
+  const { url } = useRouteMatch();
+
   const handleDelete = (e) => {
     firebase
       .firestore()
@@ -53,15 +56,16 @@ export const PropertyIcons = ({
         </div>
       </div>
 
-      <div className="edit-icons">
+      <div className={`${url === '/my-properties'  ? 'edit-icons' : 'hide'}`}>
         <div>
           <div
             className={`${showModal ? 'show' : 'hide'}`}
             style={{
-              position: 'absolute',
-              zIndex: '30',
-              backgroundColor: 'plum',
-              width: '150px',
+              position: 'relative',
+              backgroundColor: 'whitesmoke',
+              zIndex: '1000',
+              boxShadow: '0 1px 5px rgba(50, 50, 50, 0.6)',
+              width: '200px',
               height: '100px',
               borderRadius: '2px',
               padding: '1em',
@@ -69,7 +73,7 @@ export const PropertyIcons = ({
             }}
           >
             <span>Are you sure you want to delete?</span>
-            <div>
+            <div style={{marginTop: '0.5em'}}>
               <button type="button" onClick={(e) => handleDelete(e)}>
                 Yes
               </button>
@@ -80,7 +84,7 @@ export const PropertyIcons = ({
           </div>
 
           <button
-            className={`${user ? 'show' : 'hide'} ${
+            className={` ${
               showModal ? 'hide' : 'show'
             }`}
             type="button"
@@ -90,7 +94,7 @@ export const PropertyIcons = ({
           </button>
         </div>
 
-        <Link className={user ? 'show' : 'hide'} to={`${path}/edit/${id}`}>
+        <Link to={`${path}/edit/${id}`}>
           <FontAwesomeIcon icon={faPen} className="property-icons-svg" />
         </Link>
       </div>

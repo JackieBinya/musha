@@ -92,16 +92,14 @@ export const UploadImagesSection = ({
     }
   }, [image]);
 
-  /*  useEffect(() => {
+  useEffect(() => {
     if (hasSubmitted) {
       setPreviewUrls([]);
       setImage(null);
       setIsVisible(true, setBtn1IsVisible(false));
       setBtn2IsVisible(false);
-      setImageLoadingErrorMessage('');
-      //setIsImageLoading(false);
     }
-  }, [hasSubmitted]); */
+  }, [hasSubmitted]);
 
   return (
     <section className={`step-wrapper  ${isEditing ? 'hide' : 'show'} `}>

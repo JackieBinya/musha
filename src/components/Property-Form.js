@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
+import { useRouteMatch } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { firebase } from '../firebase';
 import { AuthContext } from '../context/auth-context';
@@ -12,9 +13,12 @@ export const PropertyForm = () => {
     currentUser: { uid },
   } = useContext(AuthContext);
 
+  const { url } = useRouteMatch();
+
   const { register, handleSubmit, watch, errors } = useForm();
 
   const [imageUrls, setImageUrls] = useState([]);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const onSubmit = (
     {
@@ -45,6 +49,7 @@ export const PropertyForm = () => {
         title,
       })
       .then(function () {
+        setHasSubmitted(true);
         e.target.reset();
         setImageUrls([]);
       })
@@ -52,7 +57,12 @@ export const PropertyForm = () => {
   };
 
   return (
-    <div className="property-form-container">
+    <div>
+      <div className={`form-modal-container ${hasSubmitted ? 'show' : 'hide'}`}>
+          <p>Congrats! You have successfully created a property ad.</p>
+          <button type="button">Go to my properties</button>
+      </div>
+    <div className={`property-form-container ${hasSubmitted ? 'hide' : 'show'}`}>
       <form onSubmit={handleSubmit(onSubmit)} className="form-primary">
         <FirstSection register={register} />
 
@@ -61,12 +71,14 @@ export const PropertyForm = () => {
         <UploadImagesSection
           imageUrls={imageUrls}
           setImageUrls={setImageUrls}
+          hasSubmitted={hasSubmitted}
         />
 
         <PropertyDetailsSection register={register} />
 
         <button type="submit">Submit</button>
       </form>
+    </div>
     </div>
   );
 };
