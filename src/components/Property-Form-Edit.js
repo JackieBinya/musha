@@ -162,7 +162,10 @@ export const PropertyEditForm = () => {
         {!property ? (
           <Loader />
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)} className={`form-primary ${isModalVisible ? 'hide' : 'show'}`}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className={`form-primary ${isModalVisible ? 'hide' : 'show'}`}
+          >
             <FirstSection
               defaultMobileNumber={property.mobileNumber}
               defaultTitle={property.title}

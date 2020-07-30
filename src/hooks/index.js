@@ -61,7 +61,7 @@ export const usePropertiesByUserID = (userId) => {
         setUserProperties([...newProperties]);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [userId]);
 
   return { userProperties };
 };
