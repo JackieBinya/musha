@@ -398,6 +398,15 @@ $desktop-width: 1024px;
 .upload-svg {
   color: rgb(154, 174, 235);
 }
+
+.mask {
+  background-color: rgba(208, 208, 214, 0.8);
+  position: relative;
+  z-index: 800;
+  top: -100%;
+  height: calc(100% - 2em);
+  width: calc(100% - 0.3em);
+}
 /////Home////////////////////////
 
 .main {
