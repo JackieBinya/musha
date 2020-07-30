@@ -12,37 +12,41 @@ export const Home = () => {
       <Hero />
       <main>
         <div className="main container">
-          {properties.map(
-            ({
-              id,
-              location,
-              imageUrls,
-              numberOfBathrooms,
-              numberOfBedrooms,
-              city,
-              title,
-              description,
-            }) => (
-              <li key={id} className="main-list-item">
-                <Link to={`/property/${id}`} className="main-link">
-                  <ShortProperty
-                    imageUrls={imageUrls}
-                    title={title}
-                    location={location}
-                    description={description}
-                  >
-                    <PropertyIcons
-                      city={city}
+          {properties.length ? 
+          (
+            properties.map(
+              ({
+                id,
+                location,
+                imageUrls,
+                numberOfBathrooms,
+                numberOfBedrooms,
+                city,
+                title,
+                description,
+              }) => (
+                <li key={id} className="main-list-item">
+                  <Link to={`/property/${id}`} className="main-link">
+                    <ShortProperty
+                      imageUrls={imageUrls}
                       title={title}
                       location={location}
-                      numberOfBathrooms={numberOfBathrooms}
-                      numberOfBedrooms={numberOfBedrooms}
-                    />
-                  </ShortProperty>
-                </Link>
-              </li>
-            )
-          )}
+                      description={description}
+                    >
+                      <PropertyIcons
+                        city={city}
+                        title={title}
+                        location={location}
+                        numberOfBathrooms={numberOfBathrooms}
+                        numberOfBedrooms={numberOfBedrooms}
+                      />
+                    </ShortProperty>
+                  </Link>
+                </li>
+              )
+          ))  :
+          <p>Ooops!!! no properties found</p>
+        }
         </div>
       </main>
     </>

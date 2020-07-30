@@ -24,7 +24,8 @@ export const Properties = ({ history }) => {
       <h1>Properties</h1>
       {!userProperties ? (
         <Loader />
-      ) : (
+      ) : 
+        userProperties.length ? (
         userProperties.map(
           ({
             city,
@@ -54,7 +55,9 @@ export const Properties = ({ history }) => {
             </div>
           )
         )
-      )}
+      ):
+      <p>Ooops!!! No properties found start posting property ads for free!</p>
+    }
     </div>
   );
 };
