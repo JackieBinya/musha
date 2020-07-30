@@ -12,8 +12,7 @@ export const Home = () => {
       <Hero />
       <main>
         <div className="main container">
-          {properties.length ? 
-          (
+          {properties.length ? (
             properties.map(
               ({
                 id,
@@ -44,9 +43,10 @@ export const Home = () => {
                   </Link>
                 </li>
               )
-          ))  :
-          <p>Ooops!!! no properties found</p>
-        }
+            )
+          ) : (
+            <p>Ooops!!! No properties found!</p>
+          )}
         </div>
       </main>
     </>

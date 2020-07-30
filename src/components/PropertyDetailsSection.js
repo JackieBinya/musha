@@ -7,7 +7,6 @@ export const PropertyDetailsSection = ({
   defaultNumberOfBedrooms,
   defaultDescription,
 }) => {
-  console.log({ defaultDescription });
   return (
     <SectionWrapper heading="Property Details">
       <div className="details-wrapper">

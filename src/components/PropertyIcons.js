@@ -20,21 +20,19 @@ export const PropertyIcons = ({
   user = '',
   path = '',
 }) => {
-  const[showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const handleDelete = (e) => {
     firebase
       .firestore()
       .collection('properties')
       .doc(id)
       .delete()
-      .then(() =>{
-        console.log(`Property with id ${id} is successfully deleted.`)
+      .then(() => {
+        console.log(`Property with id ${id} is successfully deleted.`);
         setShowModal(false);
       })
       .catch((error) => console.log(error));
   };
-    
-
 
   return (
     <section className="property-icons">
@@ -72,15 +70,21 @@ export const PropertyIcons = ({
           >
             <span>Are you sure you want to delete?</span>
             <div>
-              <button type="button" onClick={(e) => handleDelete(e)}>Yes</button>
-              <button type="button" onClick={() => setShowModal(false)}>Cancel</button> 
+              <button type="button" onClick={(e) => handleDelete(e)}>
+                Yes
+              </button>
+              <button type="button" onClick={() => setShowModal(false)}>
+                Cancel
+              </button>
             </div>
           </div>
 
           <button
-            className={ `${user ? 'show' : 'hide'} ${showModal ? 'hide' : 'show'}`}
+            className={`${user ? 'show' : 'hide'} ${
+              showModal ? 'hide' : 'show'
+            }`}
             type="button"
-            onClick={ () => setShowModal(true)}
+            onClick={() => setShowModal(true)}
           >
             <FontAwesomeIcon icon={faTrash} className="property-icons-svg" />
           </button>
