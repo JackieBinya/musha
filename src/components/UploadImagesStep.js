@@ -14,7 +14,6 @@ export const UploadImagesSection = ({
   const [isImageLoading, setIsImageLoading] = useState(false);
   const [image, setImage] = useState(null);
   const [previewUrls, setPreviewUrls] = useState('');
-  const [imageLoadingErrorMessage, setImageLoadingErrorMessage] = useState('');
   const [isVisible, setIsVisible] = useState(true);
   const [isBtn1Visible, setBtn1IsVisible] = useState(false);
   const [isBtn2Visible, setBtn2IsVisible] = useState(false);
@@ -66,15 +65,9 @@ export const UploadImagesSection = ({
       const uploadTask = storage.ref().child(`images/${image.name}`).put(image);
 
       uploadTask.on(
-        'state_changed',
-        function (snapshot) {
-          var progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        },
-        function (error) {
-          console.log(error);
-          // setImageLoadingErrorMessage(error)
-        },
+        'state_changed', 
+        null,
+        null,
         function () {
           setImage(null);
           setIsImageLoading(false);
@@ -111,24 +104,34 @@ export const UploadImagesSection = ({
               <div key={imgPre.id}>
                 <img
                   src={imgPre.path}
-                  alt="preview image"
+                  alt="Sample picture of the property"
                   style={{ height: '6em', width: '6em', marginRight: '0.3em' }}
                 />
-                <div style={{ position: 'relative', zIndex: '1000', top: '-50%' , left: '2em'}} className={` ${ isImageLoading && index == array.length - 1 ? 'show' : 'hide'}`}>
-                    <FontAwesomeIcon
-                      icon={faSpinner}
-                      spin
-                      className="property-icons-svg"
-                      style={{ fontSize: '2rem', color: 'gray' }}
-                    />
-                  </div>
+                <div
+                  style={{
+                    position: 'relative',
+                    zIndex: '1000',
+                    top: '-50%',
+                    left: '2em',
+                  }}
+                  className={` ${
+                    isImageLoading && index === array.length - 1
+                      ? 'show'
+                      : 'hide'
+                  }`}
+                >
+                  <FontAwesomeIcon
+                    icon={faSpinner}
+                    spin
+                    className="property-icons-svg"
+                    style={{ fontSize: '2rem', color: 'gray' }}
+                  />
+                </div>
                 <div
                   className={
-                    isImageLoading && index == array.length - 1 ? 'mask' : ''
+                    isImageLoading && index === array.length - 1 ? 'mask' : ''
                   }
-                >
-                  
-                </div>
+                ></div>
               </div>
             ))}
         </div>

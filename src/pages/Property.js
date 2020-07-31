@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useProperty } from '../hooks';
 import { Loader } from '../components/Loader';
 import { PropertyIcons } from '../components/PropertyIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faChevronLeft,
-  faChevronRight,
   faChevronCircleRight,
   faChevronCircleLeft,
   faPhone,

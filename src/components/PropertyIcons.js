@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
@@ -56,7 +56,7 @@ export const PropertyIcons = ({
         </div>
       </div>
 
-      <div className={`${url === '/my-properties'  ? 'edit-icons' : 'hide'}`}>
+      <div className={`${url === '/my-properties' ? 'edit-icons' : 'hide'}`}>
         <div>
           <div
             className={`${showModal ? 'show' : 'hide'}`}
@@ -73,7 +73,7 @@ export const PropertyIcons = ({
             }}
           >
             <span>Are you sure you want to delete?</span>
-            <div style={{marginTop: '0.5em'}}>
+            <div style={{ marginTop: '0.5em' }}>
               <button type="button" onClick={(e) => handleDelete(e)}>
                 Yes
               </button>
@@ -84,9 +84,7 @@ export const PropertyIcons = ({
           </div>
 
           <button
-            className={` ${
-              showModal ? 'hide' : 'show'
-            }`}
+            className={` ${showModal ? 'hide' : 'show'}`}
             type="button"
             onClick={() => setShowModal(true)}
           >

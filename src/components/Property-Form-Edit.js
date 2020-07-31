@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { firebase } from '../firebase';
@@ -11,16 +11,11 @@ import { Loader } from './Loader';
 import { PropertyDetailsSection } from './PropertyDetailsSection';
 
 export const PropertyEditForm = () => {
-  const {
-    currentUser: { uid },
-  } = useContext(AuthContext);
-
   const { propertyId } = useParams();
   const { property } = useProperty(propertyId);
 
   const { register, handleSubmit, watch, errors } = useForm();
 
-  // const [imageUrls, setImageUrls] = useState([]);
   const [isTitleUpdated, setIsTitleUpdated] = useState(false);
   const [isMobileNumberUpdated, setIsMobileNumberUpdated] = useState(false);
   const [isAvailableToUpdated, setIsAvailableToUpdated] = useState(false);

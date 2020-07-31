@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { firebase } from '../firebase';
 
 export const useProperties = () => {
@@ -44,7 +44,7 @@ export const useProperty = (id) => {
 };
 
 export const usePropertiesByUserID = (userId) => {
-  const [userProperties, setUserProperties] = useState([]);
+  const [userProperties, setUserProperties] = useState(null);
 
   useEffect(() => {
     firebase
@@ -61,7 +61,7 @@ export const usePropertiesByUserID = (userId) => {
         setUserProperties([...newProperties]);
       })
       .catch((error) => console.log(error));
-  }, [userId]);
+  }, []);
 
   return { userProperties };
 };

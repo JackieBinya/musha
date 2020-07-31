@@ -59,26 +59,28 @@ export const PropertyForm = () => {
   return (
     <div>
       <div className={`form-modal-container ${hasSubmitted ? 'show' : 'hide'}`}>
-          <p>Congrats! You have successfully created a property ad.</p>
-          <button type="button">Go to my properties</button>
+        <p>Congrats! You have successfully created a property ad.</p>
+        <button type="button">Go to my properties</button>
       </div>
-    <div className={`property-form-container ${hasSubmitted ? 'hide' : 'show'}`}>
-      <form onSubmit={handleSubmit(onSubmit)} className="form-primary">
-        <FirstSection register={register} />
+      <div
+        className={`property-form-container ${hasSubmitted ? 'hide' : 'show'}`}
+      >
+        <form onSubmit={handleSubmit(onSubmit)} className="form-primary">
+          <FirstSection register={register} />
 
-        <LocationSection register={register} />
+          <LocationSection register={register} />
 
-        <UploadImagesSection
-          imageUrls={imageUrls}
-          setImageUrls={setImageUrls}
-          hasSubmitted={hasSubmitted}
-        />
+          <UploadImagesSection
+            imageUrls={imageUrls}
+            setImageUrls={setImageUrls}
+            hasSubmitted={hasSubmitted}
+          />
 
-        <PropertyDetailsSection register={register} />
+          <PropertyDetailsSection register={register} />
 
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 };

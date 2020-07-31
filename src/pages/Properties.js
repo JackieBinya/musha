@@ -1,7 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { firebase } from '../firebase';
-import { Link, Route, useRouteMatch } from 'react-router-dom';
-import { PostPropertyAd } from './PostPropertyAd';
+import React, { useContext } from 'react';
+import { useRouteMatch } from 'react-router-dom';
 import { usePropertiesByUserID } from '../hooks';
 import { AuthContext } from '../context/auth-context';
 import { Loader } from '../components/Loader';
@@ -22,40 +20,46 @@ export const Properties = ({ history }) => {
   return (
     <div className="container">
       <h1>Properties</h1>
-      {!userProperties ? (
+      {userProperties === null ? (
         <Loader />
-      ) : userProperties.length ? (
-        userProperties.map(
-          ({
-            city,
-            location,
-            imageUrls,
-            numberOfBathrooms,
-            numberOfBedrooms,
-            title,
-            description,
-            id,
-          }) => (
-            <div key={id} className="my-properties">
-              <h2>{title ? title : `New property in ${location}`}</h2>
-              <ShortProperty imageUrls={imageUrls}>
-                <h3 className="property-id">Property ID: {id}</h3>
-                <p>{description}</p>
-                <PropertyIcons
-                  id={id}
-                  city={city}
-                  location={location}
-                  numberOfBathrooms={numberOfBathrooms}
-                  numberOfBedrooms={numberOfBedrooms}
-                  user={currentUser}
-                  path={path}
-                />
-              </ShortProperty>
-            </div>
-          )
-        )
+      ) : userProperties.length === 0 ? (
+        <p>Ooops! No properties found, start posting property ads for free.</p>
+      ) : userProperties.length > 0 ? (
+        <div>
+          <div>
+            {userProperties.map(
+              ({
+                city,
+                location,
+                imageUrls,
+                numberOfBathrooms,
+                numberOfBedrooms,
+                title,
+                description,
+                id,
+              }) => (
+                <div key={id} className="my-properties">
+                  <h2>{title ? title : `New property in ${location}`}</h2>
+                  <ShortProperty imageUrls={imageUrls}>
+                    <h3 className="property-id">Property ID: {id}</h3>
+                    <p>{description}</p>
+                    <PropertyIcons
+                      id={id}
+                      city={city}
+                      location={location}
+                      numberOfBathrooms={numberOfBathrooms}
+                      numberOfBedrooms={numberOfBedrooms}
+                      user={currentUser}
+                      path={path}
+                    />
+                  </ShortProperty>
+                </div>
+              )
+            )}
+          </div>
+        </div>
       ) : (
-        <p>Ooops!!! No properties found start posting property ads for free!</p>
+        ''
       )}
     </div>
   );

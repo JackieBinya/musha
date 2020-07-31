@@ -4,6 +4,7 @@ import { useProperties } from '../hooks';
 import { PropertyIcons } from '../components/PropertyIcons';
 import { ShortProperty } from '../components/ShortProperty';
 import { Hero } from '../components/Hero';
+import { Loader } from '../components/Loader';
 
 export const Home = () => {
   const { properties } = useProperties();
@@ -12,7 +13,7 @@ export const Home = () => {
       <Hero />
       <main>
         <div className="main container">
-          {properties.length ? (
+          {properties.length > 0 ? (
             properties.map(
               ({
                 id,
@@ -45,7 +46,7 @@ export const Home = () => {
               )
             )
           ) : (
-            <p>Ooops!!! No properties found!</p>
+            <Loader />
           )}
         </div>
       </main>
