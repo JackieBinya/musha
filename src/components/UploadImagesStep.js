@@ -3,7 +3,7 @@ import { storage } from '../firebase';
 import { generatePushId } from '../helpers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faCamera, faImage, faUpload } from '@fortawesome/free-solid-svg-icons';
 
 export const UploadImagesSection = ({
   imageUrls,
@@ -64,22 +64,17 @@ export const UploadImagesSection = ({
 
       const uploadTask = storage.ref().child(`images/${image.name}`).put(image);
 
-      uploadTask.on(
-        'state_changed', 
-        null,
-        null,
-        function () {
-          setImage(null);
-          setIsImageLoading(false);
-          uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-            let imageObject = {
-              imageId: generatePushId(),
-              url: downloadURL,
-            };
-            setImageUrls(() => [...imageUrls, imageObject]);
-          });
-        }
-      );
+      uploadTask.on('state_changed', null, null, function () {
+        setImage(null);
+        setIsImageLoading(false);
+        uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
+          let imageObject = {
+            imageId: generatePushId(),
+            url: downloadURL,
+          };
+          setImageUrls(() => [...imageUrls, imageObject]);
+        });
+      });
 
       return () => URL.revokeObjectURL(image);
     }
@@ -138,30 +133,32 @@ export const UploadImagesSection = ({
 
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <div>
-          <div style={{ display: 'flex' }}>
-            <button
-              type="button"
+          <div className="upload-images" >
+            <div
+              role="button"
               onClick={handleImg}
-              className={isVisible ? 'show' : 'hide'}
+              className={`upload-images-container ${isVisible ? 'show' : 'hide'}`}
             >
-              Upload
-            </button>
-            <button
-              type="button"
+              <FontAwesomeIcon icon={faImage} />
+            </div>
+
+            <div
+              role="button"
               disabled={isImageLoading ? true : false}
               onClick={handleImg1}
-              className={isBtn1Visible ? 'show' : 'hide'}
+              className={`upload-images-container ${isBtn1Visible ? 'show' : 'hide'}`}
             >
-              Upload
-            </button>
-            <button
-              type="button"
+              <FontAwesomeIcon icon={faImage} />
+            </div>
+
+            <div
+              role="button"
               onClick={handleImg2}
-              className={isBtn2Visible ? 'show' : 'hide'}
+              className={`upload-images-container ${isBtn2Visible ? 'show' : 'hide'}`}
               disabled={imageUrls.length === 3 || isImageLoading ? true : false}
             >
-              Upload
-            </button>
+              <FontAwesomeIcon icon={faImage} />
+            </div>
           </div>
 
           <input
@@ -186,6 +183,7 @@ export const UploadImagesSection = ({
             style={{ display: 'none' }}
           />
         </div>
+        <p>Upload up to 3 clear images of your property.</p>
       </div>
     </section>
   );
