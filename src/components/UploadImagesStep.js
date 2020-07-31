@@ -119,7 +119,7 @@ export const UploadImagesSection = ({
                     icon={faSpinner}
                     spin
                     className="property-icons-svg"
-                    style={{ fontSize: '2rem', color: 'gray' }}
+                    style={{ fontSize: '2rem', color: 'white' }}
                   />
                 </div>
                 <div
