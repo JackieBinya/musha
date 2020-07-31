@@ -61,7 +61,7 @@ export const PropertyIcons = ({
           <div
             className={`${showModal ? 'show' : 'hide'}`}
             style={{
-              position: 'relative',
+              position: 'absolute',
               backgroundColor: 'whitesmoke',
               zIndex: '1000',
               boxShadow: '0 1px 5px rgba(50, 50, 50, 0.6)',
