@@ -1,6 +1,11 @@
 import React from 'react';
 
-export const AlertMessage = ({ message, isAuthenticated, setMessage }) => (
+export const AlertMessage = ({ message, isAuthenticated, setMessage, setIsAuthenticated }) => {
+  const resetStyles = () => {
+    setIsAuthenticated(false);
+    setMessage('');
+  }
+  return(
   <div className="alert-container">
     <div
       className={`message-wrapper ${message ? 'message' : ''} ${
@@ -11,10 +16,10 @@ export const AlertMessage = ({ message, isAuthenticated, setMessage }) => (
       <button
         className="close-message"
         type="button"
-        onClick={() => setMessage('')}
+        onClick={resetStyles}
       >
         &times;
       </button>
     </div>
   </div>
-);
+)};

@@ -184,7 +184,7 @@ $desktop-width: 1024px;
 .hero {
   background: url('./images/hero.jpg') center no-repeat;
   background-size: cover;
-  height: 60vh;
+  height: 30vh;
   width: 100vw;
   position: relative;
 }
@@ -206,6 +206,12 @@ $desktop-width: 1024px;
   color: rgb(255, 255, 255);
   z-index: 50;
   font-size: 0.9em;
+}
+
+@media(min-width: 1024px){
+  .hero{
+    height: 60vh;
+  }
 }
 
 /******************

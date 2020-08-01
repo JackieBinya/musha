@@ -17,8 +17,10 @@ export const Login = ({ history }) => {
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
       setIsAuthenticated(true);
+      setEmail('');
+      setPassword('')
       setMessage('Congrats 🥳, you are successfully logged in.');
-      setTimeout(() => history.push('/my-properties'), 5000);
+      setTimeout(() => history.push('/my-properties'), 3000);
     } catch (error) {
       setIsAuthenticated(false);
 
@@ -41,6 +43,7 @@ export const Login = ({ history }) => {
       <div className="form-container">
         <AlertMessage
           isAuthenticated={isAuthenticated}
+          setIsAuthenticated={setIsAuthenticated}
           message={message}
           setMessage={setMessage}
         />

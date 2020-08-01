@@ -17,7 +17,7 @@ export const SignUp = ({ history }) => {
       setPassword('');
       setEmail('');
       setIsAuthenticated(true);
-      setTimeout(() => history.push('/my-properties'), 5000);
+      setTimeout(() => history.push('/my-properties'), 3000);
     } catch (error) {
       setIsAuthenticated(false);
 
@@ -42,6 +42,7 @@ export const SignUp = ({ history }) => {
           isAuthenticated={isAuthenticated}
           message={message}
           setMessage={setMessage}
+          setIsAuthenticated={setIsAuthenticated}
         />
         <h1>Sign up</h1>
         <form onSubmit={handleSubmit} className="form-primary auth-form">
