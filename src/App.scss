@@ -196,7 +196,7 @@ $desktop-width: 1024px;
   width: 100%;
 }
 
-.hero-content {
+.hero-content-container {
   font-weight: 500;
   position: absolute;
   text-align: center;
@@ -206,6 +206,16 @@ $desktop-width: 1024px;
   color: rgb(255, 255, 255);
   z-index: 50;
   font-size: 0.9em;
+}
+
+.hero-content-headliner{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.hero-content-year{
+  display: inline-block;
+  margin-left: 0.3em;
 }
 
 @media(min-width: 1024px){
