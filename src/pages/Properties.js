@@ -48,16 +48,16 @@ export const Properties = ({ history }) => {
                   <ShortProperty imageUrls={imageUrls}>
                     <h3 className="property-id">Property ID: {id}</h3>
 
-                   <div style={{padding: '1em'}}>
-                     {/* The wrapper div is temp style the imported component using classes */}
-                   <ReadMoreReact
-                      text={description}
-                      min={55}
-                      ideal={80}
-                      max={300}
-                      readMoreText="Read more"
-                    />
-                   </div>
+                    <div style={{ padding: '1em' }}>
+                      {/* The wrapper div is temp style the imported component using classes */}
+                      <ReadMoreReact
+                        text={description}
+                        min={55}
+                        ideal={80}
+                        max={300}
+                        readMoreText="Read more"
+                      />
+                    </div>
                     <PropertyIcons
                       id={id}
                       city={city}
