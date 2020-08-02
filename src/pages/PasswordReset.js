@@ -29,7 +29,6 @@ export const PasswordReset = ({ history }) => {
 
       if (error.code === 'auth/user-not-found') {
         setMessage(
-          
           'An account associated with the provided email does not exist!'
         );
       }
@@ -39,11 +38,11 @@ export const PasswordReset = ({ history }) => {
   return (
     <div className="container">
       <div className="form-container">
-      <AlertMessage
-            isAuthenticated={isEmailSent}
-            message={message}
-            setMessage={setMessage}
-          />
+        <AlertMessage
+          isAuthenticated={isEmailSent}
+          message={message}
+          setMessage={setMessage}
+        />
         <h1>Password Reset</h1>
         <form onSubmit={handleSubmit} className="form-primary">
           <EmailInput email={email} setEmail={setEmail} />

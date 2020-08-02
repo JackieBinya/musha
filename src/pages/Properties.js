@@ -42,7 +42,9 @@ export const Properties = ({ history }) => {
                   <h2>{title ? title : `New property in ${location}`}</h2>
                   <ShortProperty imageUrls={imageUrls}>
                     <h3 className="property-id">Property ID: {id}</h3>
-                    <p>{description}</p>
+                    <p>
+                      {description.replace(/(([^\s]+\s\s*){55})(.*)/, '$1…')}
+                    </p>
                     <PropertyIcons
                       id={id}
                       city={city}

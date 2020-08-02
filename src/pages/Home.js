@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useProperties } from '../hooks';
-import { PropertyIcons } from '../components/PropertyIcons';
 import { ShortProperty } from '../components/ShortProperty';
 import { Hero } from '../components/Hero';
 import { Loader } from '../components/Loader';
+import { PropertyIconsHome } from '../components/PropertyIconsHome';
 
 export const Home = () => {
   const { properties } = useProperties();
@@ -33,7 +33,7 @@ export const Home = () => {
                       location={location}
                       description={description}
                     >
-                      <PropertyIcons
+                      <PropertyIconsHome
                         city={city}
                         title={title}
                         location={location}

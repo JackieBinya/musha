@@ -51,16 +51,16 @@ export const usePropertiesByUserID = (userId) => {
       .firestore()
       .collection('properties')
       .where('ownerID', '==', userId)
-      .onSnapshot(function(querySnapshot) {
+      .onSnapshot(function (querySnapshot) {
         const newProperties = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
         }));
-        
+
         setUserProperties([...newProperties]);
-    });
-      
-      return () => unsubscribe();
+      });
+
+    return () => unsubscribe();
   }, []);
 
   return { userProperties };

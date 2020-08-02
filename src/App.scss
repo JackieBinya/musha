@@ -208,18 +208,18 @@ $desktop-width: 1024px;
   font-size: 0.9em;
 }
 
-.hero-content-headliner{
+.hero-content-headliner {
   font-size: 1.2rem;
   font-weight: 500;
 }
 
-.hero-content-year{
+.hero-content-year {
   display: inline-block;
   margin-left: 0.3em;
 }
 
-@media(min-width: 1024px){
-  .hero{
+@media (min-width: 1024px) {
+  .hero {
     height: 60vh;
   }
 }
@@ -404,15 +404,14 @@ $desktop-width: 1024px;
 }
 
 ///// Upload
-.upload-images{
+.upload-images {
   display: flex;
 
-  &-container{
+  &-container {
     font-size: 2rem;
     cursor: pointer;
     color: lightgrey;
   }
-
 }
 .mask {
   background-color: rgba(208, 208, 214, 0.5);

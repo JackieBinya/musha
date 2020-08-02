@@ -18,7 +18,7 @@ export const Login = ({ history }) => {
       await firebase.auth().signInWithEmailAndPassword(email, password);
       setIsAuthenticated(true);
       setEmail('');
-      setPassword('')
+      setPassword('');
       setMessage('Congrats 🥳, you are successfully logged in.');
       setTimeout(() => history.push('/my-properties'), 3000);
     } catch (error) {

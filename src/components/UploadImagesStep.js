@@ -3,7 +3,7 @@ import { storage } from '../firebase';
 import { generatePushId } from '../helpers';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner, faCamera, faImage, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faImage } from '@fortawesome/free-solid-svg-icons';
 
 export const UploadImagesSection = ({
   imageUrls,
@@ -133,11 +133,13 @@ export const UploadImagesSection = ({
 
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <div>
-          <div className="upload-images" >
+          <div className="upload-images">
             <div
               role="button"
               onClick={handleImg}
-              className={`upload-images-container ${isVisible ? 'show' : 'hide'}`}
+              className={`upload-images-container ${
+                isVisible ? 'show' : 'hide'
+              }`}
             >
               <FontAwesomeIcon icon={faImage} />
             </div>
@@ -146,7 +148,9 @@ export const UploadImagesSection = ({
               role="button"
               disabled={isImageLoading ? true : false}
               onClick={handleImg1}
-              className={`upload-images-container ${isBtn1Visible ? 'show' : 'hide'}`}
+              className={`upload-images-container ${
+                isBtn1Visible ? 'show' : 'hide'
+              }`}
             >
               <FontAwesomeIcon icon={faImage} />
             </div>
@@ -154,7 +158,9 @@ export const UploadImagesSection = ({
             <div
               role="button"
               onClick={handleImg2}
-              className={`upload-images-container ${isBtn2Visible ? 'show' : 'hide'}`}
+              className={`upload-images-container ${
+                isBtn2Visible ? 'show' : 'hide'
+              }`}
               disabled={imageUrls.length === 3 || isImageLoading ? true : false}
             >
               <FontAwesomeIcon icon={faImage} />

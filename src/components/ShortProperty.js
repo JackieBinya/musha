@@ -7,7 +7,7 @@ export const ShortProperty = ({
   imageUrls,
   title,
   location,
-  description,
+  description = '',
 }) => {
   const { url } = useRouteMatch();
 
@@ -36,7 +36,9 @@ export const ShortProperty = ({
         </div>
 
         <div className={`${url === '/' ? 'show' : 'hide'}`}>
-          <p className="short-property-description">{description}</p>
+          <p className="short-property-description">
+            {description.replace(/(([^\s]+\s\s*){55})(.*)/, '$1…')}
+          </p>
         </div>
         {children}
       </div>

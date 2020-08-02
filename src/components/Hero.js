@@ -1,4 +1,5 @@
-import React from 'react';import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 
 export const Hero = () => {
@@ -7,8 +8,12 @@ export const Hero = () => {
       <div className="hero">
         <div className="hero-overlay">
           <div className="hero-content-container">
-            <p className="hero-content-headliner">Mushaa your property champions</p>
-            <p className="hero-content">Residential sales and rentals for free!</p>
+            <p className="hero-content-headliner">
+              Mushaa your property champions
+            </p>
+            <p className="hero-content">
+              Residential sales and rentals for free!
+            </p>
             <FontAwesomeIcon icon={faCopyright} />
             <span className="hero-content-year">2020</span>
           </div>
