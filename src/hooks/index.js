@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { firebase } from '../firebase';
 
 export const useProperties = () => {
@@ -44,24 +44,23 @@ export const useProperty = (id) => {
 };
 
 export const usePropertiesByUserID = (userId) => {
-  const [userProperties, setUserProperties] = useState([]);
-  console.log(userProperties);
+  const [userProperties, setUserProperties] = useState(null);
 
   useEffect(() => {
-    firebase
+    var unsubscribe = firebase
       .firestore()
       .collection('properties')
       .where('ownerID', '==', userId)
-      .get()
-      .then((data) => {
-        const newProperties = data.docs.map((doc) => ({
+      .onSnapshot(function (querySnapshot) {
+        const newProperties = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
         }));
 
         setUserProperties([...newProperties]);
-      })
-      .catch((error) => console.log(error));
+      });
+
+    return () => unsubscribe();
   }, []);
 
   return { userProperties };

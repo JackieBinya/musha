@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useProperties } from '../hooks';
-import { PropertyIcons } from '../components/PropertyIcons';
 import { ShortProperty } from '../components/ShortProperty';
 import { Hero } from '../components/Hero';
+import { Loader } from '../components/Loader';
+import { PropertyIconsHome } from '../components/PropertyIconsHome';
 
 export const Home = () => {
   const { properties } = useProperties();
@@ -12,36 +13,40 @@ export const Home = () => {
       <Hero />
       <main>
         <div className="main container">
-          {properties.map(
-            ({
-              id,
-              location,
-              imageUrls,
-              numberOfBathrooms,
-              numberOfBedrooms,
-              city,
-              title,
-              description,
-            }) => (
-              <li key={id} className="main-list-item">
-                <Link to={`/property/${id}`} className="main-link">
-                  <ShortProperty
-                    imageUrls={imageUrls}
-                    title={title}
-                    location={location}
-                    description={description}
-                  >
-                    <PropertyIcons
-                      city={city}
+          {properties.length > 0 ? (
+            properties.map(
+              ({
+                id,
+                location,
+                imageUrls,
+                numberOfBathrooms,
+                numberOfBedrooms,
+                city,
+                title,
+                description,
+              }) => (
+                <li key={id} className="main-list-item">
+                  <Link to={`/property/${id}`} className="main-link">
+                    <ShortProperty
+                      imageUrls={imageUrls}
                       title={title}
                       location={location}
-                      numberOfBathrooms={numberOfBathrooms}
-                      numberOfBedrooms={numberOfBedrooms}
-                    />
-                  </ShortProperty>
-                </Link>
-              </li>
+                      description={description}
+                    >
+                      <PropertyIconsHome
+                        city={city}
+                        title={title}
+                        location={location}
+                        numberOfBathrooms={numberOfBathrooms}
+                        numberOfBedrooms={numberOfBedrooms}
+                      />
+                    </ShortProperty>
+                  </Link>
+                </li>
+              )
             )
+          ) : (
+            <Loader />
           )}
         </div>
       </main>

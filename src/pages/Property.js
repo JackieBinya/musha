@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useProperty } from '../hooks';
 import { Loader } from '../components/Loader';
 import { PropertyIcons } from '../components/PropertyIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faChevronLeft,
-  faChevronRight,
   faChevronCircleRight,
   faChevronCircleLeft,
-  faPhone,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const Property = () => {
@@ -43,6 +40,7 @@ export const Property = () => {
           <h2>
             {property.title ? `New property in ${property.location}` : `title`}
           </h2>
+
           <div className="show-property-gallery">
             <div>
               <img
@@ -64,14 +62,29 @@ export const Property = () => {
               </button>
             </div>
           </div>
-          <p>{property.description}</p>
-          <FontAwesomeIcon icon={faPhone} /> {property.mobileNumber}
+
           <PropertyIcons
             city={property.city}
             location={property.location}
             numberOfBathrooms={property.numberOfBathrooms}
             numberOfBedrooms={property.numberOfBedrooms}
           />
+
+          <div>
+            <h3>Description</h3>
+            <p>{property.description}</p>
+          </div>
+
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: '2em',
+            }}
+          >
+            <h3 style={{ marginRight: '0.3em' }}>Contact</h3>
+            <span> {property.mobileNumber}</span>
+          </div>
         </>
       )}
     </div>
