@@ -7,12 +7,8 @@ import { firebase } from '../firebase';
 export const PropertyIconsHome = ({
   id,
   location,
-  city,
   numberOfBathrooms,
   numberOfBedrooms,
-  title,
-  user = '',
-  path = '',
 }) => {
   const [showModal, setShowModal] = useState(false);
   const { url } = useRouteMatch();
