@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { firebase } from '../firebase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { useProperty } from '../hooks';
 import { UploadImagesSection } from '../components/UploadImagesStep';
 import { FirstSection } from '../components/FirstSection';
@@ -174,37 +176,49 @@ export const EditPropertyAds = ({ history }) => {
         {!property ? (
           <Loader />
         ) : (
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className={`form-primary ${isModalVisible ? 'hide' : 'show'}`}
-          >
-            <FirstSection
-              defaultMobileNumber={property.mobileNumber}
-              defaultTitle={property.title}
-              defaultAvailableTo={property.availableTo}
-              register={register}
-            />
+          <div>
+            <button type="button" onClick={() => history.goBack()}>
+              <FontAwesomeIcon
+                icon={faChevronLeft}
+                className="property-icons-svg"
+              />
+              Back
+            </button>
 
-            <LocationSection
-              defaultCity={property.city}
-              defaultLocation={property.location}
-              register={register}
-            />
+            <h1>Edit property ad</h1>
 
-            {/* <UploadImagesSection
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className={`form-primary ${isModalVisible ? 'hide' : 'show'}`}
+            >
+              <FirstSection
+                defaultMobileNumber={property.mobileNumber}
+                defaultTitle={property.title}
+                defaultAvailableTo={property.availableTo}
+                register={register}
+              />
+
+              <LocationSection
+                defaultCity={property.city}
+                defaultLocation={property.location}
+                register={register}
+              />
+
+              {/* <UploadImagesSection
                   defaultImageUrls={property.imageUrls}
                   setImageUrls={setImageUrls}
                 /> */}
 
-            <PropertyDetailsSection
-              defaultNumberOfBathrooms={property.numberOfBathrooms}
-              defaultNumberOfBedrooms={property.numberOfBedrooms}
-              defaultDescription={property.description}
-              register={register}
-            />
+              <PropertyDetailsSection
+                defaultNumberOfBathrooms={property.numberOfBathrooms}
+                defaultNumberOfBedrooms={property.numberOfBedrooms}
+                defaultDescription={property.description}
+                register={register}
+              />
 
-            <button type="submit">Save</button>
-          </form>
+              <button type="submit">Save</button>
+            </form>
+          </div>
         )}
       </div>
     </div>

@@ -1,5 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
+import ReadMoreReact from 'read-more-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { usePropertiesByUserID } from '../hooks';
 import { AuthContext } from '../context/auth-context';
 import { Loader } from '../components/Loader';
@@ -17,8 +20,10 @@ export const Properties = ({ history }) => {
   const { currentUser } = useContext(AuthContext);
   const { userProperties } = usePropertiesByUserID(currentUser.uid);
 
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
   return (
-    <div className="container">
+    <div className="container" style={{ marginBottom: '6em' }}>
       <h1>Properties</h1>
       {userProperties === null ? (
         <Loader />
@@ -42,9 +47,17 @@ export const Properties = ({ history }) => {
                   <h2>{title ? title : `New property in ${location}`}</h2>
                   <ShortProperty imageUrls={imageUrls}>
                     <h3 className="property-id">Property ID: {id}</h3>
-                    <p>
-                      {description.replace(/(([^\s]+\s\s*){55})(.*)/, '$1…')}
-                    </p>
+
+                   <div style={{padding: '1em'}}>
+                     {/* The wrapper div is temp style the imported component using classes */}
+                   <ReadMoreReact
+                      text={description}
+                      min={55}
+                      ideal={80}
+                      max={300}
+                      readMoreText="Read more"
+                    />
+                   </div>
                     <PropertyIcons
                       id={id}
                       city={city}
