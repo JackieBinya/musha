@@ -72,7 +72,9 @@ export const Property = () => {
 
           <div>
             <h3>Description</h3>
-            <p style={{whiteSpace:'pre-wrap', overflowWrap: 'break-word'}}>{property.description}</p>
+            <p style={{ whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}>
+              {property.description}
+            </p>
           </div>
 
           <div

@@ -142,7 +142,6 @@ export const EditPropertyAds = ({ history }) => {
       isNumberOfBedroomsUpdated ||
       isDescriptionUpdated
     ) {
-      console.log({ isTitleUpdated });
       setIsModalVisible(true);
 
       setIsTitleUpdated(false);

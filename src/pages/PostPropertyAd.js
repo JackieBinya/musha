@@ -9,8 +9,7 @@ import { UploadImagesSection } from '../components/UploadImagesStep';
 import { FirstSection } from '../components/FirstSection';
 import { LocationSection } from '../components/LocationSection';
 import { PropertyDetailsSection } from '../components/PropertyDetailsSection';
-import { PROPERTY_SCHEMA } from '../constants/validations'
-
+import { PROPERTY_SCHEMA } from '../constants/validations';
 
 export const PostPropertyAd = ({ history }) => {
   const {
@@ -21,7 +20,7 @@ export const PostPropertyAd = ({ history }) => {
     resolver: yupResolver(PROPERTY_SCHEMA),
   });
 
-  console.log({errors})
+  console.log({ errors });
 
   const [imageUrls, setImageUrls] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -56,7 +55,7 @@ export const PostPropertyAd = ({ history }) => {
       })
       .then(function () {
         setHasSubmitted(true);
-       // e.target.reset();
+        // e.target.reset();
         setImageUrls([]);
       })
       .catch((error) => console.log({ error }));
@@ -80,7 +79,7 @@ export const PostPropertyAd = ({ history }) => {
           <form onSubmit={handleSubmit(onSubmit)} className="form-primary">
             <FirstSection register={register} errors={errors} />
 
-            <LocationSection register={register} errors={errors}/>
+            <LocationSection register={register} errors={errors} />
 
             <UploadImagesSection
               imageUrls={imageUrls}
