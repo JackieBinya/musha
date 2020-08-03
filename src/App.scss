@@ -33,6 +33,10 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+button,
+a {
   cursor: pointer;
 }
 
@@ -40,35 +44,71 @@ img {
   display: block; /* removes extra space */
 }
 
-/************Variables ******************/
-$black: black;
+// Variables
+
+$vivid-black: black;
 $alert-color: red;
 $alert-background: pink;
 $success-color: green;
 $success-background: lightgreen;
-$main-background: blue;
+$vivid-blue: blue;
 $vivid-white: white;
-$tablet-width: 769px;
+$soft-grey: lightgrey;
+$vivid-royal-blue: rgb(6, 6, 32);
+$vivid-gray: darkgrey;
+$tablet-width: 768px;
 $desktop-width: 1024px;
+$generic-box-shadow: 0 1px 5px rgba(50, 50, 50, 0.2);
+$generic-border: 1px solid lightgrey;
 
-/*******************************
-*Nav bar and hero styles
-*
-*********************************/
+// Mixins
+
+@mixin clear-default-button-styles {
+  border: none;
+  outline: none;
+}
+
+@mixin button-primary($height-value) {
+  @include clear-default-button-styles;
+
+  width: 100%;
+  height: $height-value;
+
+  &:hover {
+    color: $vivid-blue;
+  }
+}
+
+@mixin button-hidden($color-value: $vivid-black, $weight-value: 500) {
+  border: none;
+  outline: none;
+  padding: 0em;
+  background-color: transparent;
+  color: $color-value;
+  font-weight: $weight-value;
+}
+
+@mixin align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Utility Classes
 .reveal {
   display: flex;
 }
 
+// Navbar OR Menu Styles
+
 .menu {
   a {
-    color: $black;
-    cursor: pointer;
+    color: $vivid-black;
   }
 
   button {
     font-weight: 500;
     outline: none;
-    cursor: pointer;
   }
 
   .menu-logo {
@@ -92,30 +132,27 @@ $desktop-width: 1024px;
   &-list__mobile {
     padding: 1em;
     height: 100%;
-    background-color: rgb(6, 6, 32);
+    background-color: $vivid-royal-blue;
     font-weight: 500;
 
     a {
       padding-right: 1.5em;
       padding-bottom: 1.5em;
-      color: white;
+      color: $vivid-white;
     }
 
     .close-menu-button {
-      border: none;
+      @include button-hidden();
     }
 
     .logout-button {
-      border: none;
-      background-color: transparent;
-      color: white;
-      padding: 0;
+      @include button-hidden($vivid-white);
     }
   }
 
   &-mobile-control {
     .menu-button {
-      border: none;
+      @include button-hidden();
     }
 
     svg {
@@ -131,20 +168,17 @@ $desktop-width: 1024px;
     a {
       font-weight: 500;
       padding-right: 1.5em;
-    }
 
-    a:hover {
-      color: blue;
+      &:hover {
+        color: $vivid-blue;
+      }
     }
 
     .logout-button {
-      padding: 0;
-      color: black;
-      border: none;
-      background-color: transparent;
+      @include button-hidden();
 
       &:hover {
-        color: blue;
+        color: $vivid-blue;
       }
     }
 
@@ -177,9 +211,7 @@ $desktop-width: 1024px;
   }
 }
 
-.hero-container {
-  overflow: hidden;
-}
+// Hero Styles
 
 .hero {
   background: url('./images/hero.jpg') center no-repeat;
@@ -187,87 +219,72 @@ $desktop-width: 1024px;
   height: 30vh;
   width: 100vw;
   position: relative;
-}
 
-.hero-overlay {
-  background-color: rgba(25, 25, 112, 0.4);
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
 
-.hero-content-container {
-  font-weight: 500;
-  position: absolute;
-  //text-align: center;
-  top: 50%;
-  left: 50%;
-  min-width: 80%;
-  transform: translate(-50%, -50%);
-  color: rgb(255, 255, 255);
-  z-index: 50;
-  font-size: 0.9em;
-}
-
-.hero-content-headliner {
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
-.hero-content-year {
-  display: inline-block;
-  margin-left: 0.3em;
-}
-
-@media (min-width: 768px) {
-  .hero-content-container {
-    min-width: 60%;
+  &-container {
+    overflow: hidden;
   }
 
-  .hero-content-headliner {
-    text-align: center;
+  &-overlay {
+    background-color: rgba(25, 25, 112, 0.4);
+    position: absolute;
+    height: 100%;
+    width: 100%;
   }
-}
 
-@media (min-width: 1024px) {
-  .hero {
+  &-content-container {
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 80%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    z-index: 50;
+    font-size: 0.9em;
+
+    @media (min-width: $tablet-width){
+      min-width: 60%;
+    }
+
+    @media (min-width: $desktop-width){
+      min-width: 40%;
+    }
+  }
+
+  &-content-headliner {
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    @media (min-width: $tablet-width){
+      text-align: center;
+    }
+  }
+
+  @media (min-width: 1024px){
     height: 60vh;
   }
-
-  .hero-content-container {
-    min-width: 40%;
-  }
+  
 }
 
-/******************
-*
-**********************/
+// Generic Layout Styles for containers, wrappers ect.
+
 .container {
   max-width: 90%;
   margin: 0rem auto;
   position: relative;
-}
+  padding : 2em 0;
 
-@media (min-width: 650px) {
-  .container {
+  @media (min-width: 650px){
     max-width: 80%;
   }
-}
 
-.container {
-  padding-top: 2em;
-}
-
-@media (min-width: 2500px) {
-  .container {
+  @media (min-width: 2500px){
     max-width: 50%;
-    margin: 0 auto;
   }
 }
-/*************************
-* Sign up Form
-* Login Form
-*/
+
+// Sign Up and LogIn Form Styles
 
 .form-primary {
   input[type='text'] {
@@ -410,7 +427,7 @@ $desktop-width: 1024px;
   }
 }
 
-//Form Alert Modal
+/***Form Alert Modal***/
 
 .form-modal-container {
   height: 5em;
@@ -418,12 +435,14 @@ $desktop-width: 1024px;
   padding: 1em;
 }
 
-//  Post and Edit Ads Form
+/***Post and Edit Ads Form***/
+
 .hook-error {
   color: red;
 }
 
-///// Upload
+/*** Upload ***/
+
 .upload-images {
   display: flex;
 
@@ -441,6 +460,7 @@ $desktop-width: 1024px;
   height: calc(100% - 2em);
   width: calc(100% - 0.3em);
 }
+
 /////Home////////////////////////
 
 .main {
@@ -554,7 +574,7 @@ $desktop-width: 1024px;
     color: darkgray;
   }
 
-  //Edit Form
+  /***Edit Form***/
 
   .edit-icons {
     display: flex;
@@ -600,12 +620,7 @@ $desktop-width: 1024px;
   display: block;
 }
 
-/********************
-* Property Styling
-*
-*********************/
-
-//     style={{ height: '500px', width: '450px' }}
+// Property Component Styles//
 
 .show-property-gallery {
   display: flex;
@@ -654,7 +669,7 @@ $desktop-width: 1024px;
   }
 }
 
-/// My Properties
+/// My Properties //
 .my-properties {
   cursor: none;
 }
