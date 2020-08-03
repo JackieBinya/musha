@@ -36,7 +36,9 @@ export const FirstSection = ({
             Sale
           </label>
         </div>
-        {errors.availableTo && <p className="hook-error">{errors.availableTo.message}</p>}
+        {errors.availableTo && (
+          <p className="hook-error">{errors.availableTo.message}</p>
+        )}
       </div>
 
       <div>
@@ -58,7 +60,9 @@ export const FirstSection = ({
           defaultValue={defaultMobileNumber}
           ref={register}
         />
-          {errors.mobileNumber && <p className="hook-error">{errors.mobileNumber.message}</p>}
+        {errors.mobileNumber && (
+          <p className="hook-error">{errors.mobileNumber.message}</p>
+        )}
       </div>
     </SectionWrapper>
   );

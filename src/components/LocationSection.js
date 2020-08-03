@@ -17,7 +17,7 @@ export const LocationSection = ({
           defaultValue={defaultCity ? defaultCity : ''}
           ref={register}
         />
-         {errors.city && <p className="hook-error">{errors.city.message}</p>}
+        {errors.city && <p className="hook-error">{errors.city.message}</p>}
       </div>
 
       <div>
@@ -28,7 +28,9 @@ export const LocationSection = ({
           defaultValue={defaultLocation ? defaultLocation : ''}
           ref={register}
         />
-         {errors.location && <p className="hook-error">{errors.location.message}</p>}
+        {errors.location && (
+          <p className="hook-error">{errors.location.message}</p>
+        )}
       </div>
     </SectionWrapper>
   );

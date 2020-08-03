@@ -54,7 +54,9 @@ export const PropertyDetailsSection = ({
           ref={register}
           placeholder="Type your description here..."
         />
-         {errors.description && <p className="hook-error">{errors.description.message}</p>}
+        {errors.description && (
+          <p className="hook-error">{errors.description.message}</p>
+        )}
       </div>
     </SectionWrapper>
   );
