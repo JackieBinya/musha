@@ -2,6 +2,7 @@ import React from 'react';
 import { SectionWrapper } from '../components/SectionWrapper';
 
 export const PropertyDetailsSection = ({
+  errors,
   register,
   defaultNumberOfBathrooms,
   defaultNumberOfBedrooms,
@@ -46,12 +47,14 @@ export const PropertyDetailsSection = ({
       </div>
 
       <div className="details-wrapper">
-        <label htmlFor="description">Description:</label>
+        <label htmlFor="description">*Description:</label>
         <textarea
           name="description"
           defaultValue={defaultDescription ? defaultDescription : ''}
           ref={register}
+          placeholder="Type your description here..."
         />
+         {errors.description && <p className="hook-error">{errors.description.message}</p>}
       </div>
     </SectionWrapper>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { SectionWrapper } from '../components/SectionWrapper';
 export const FirstSection = ({
+  errors,
   register,
   defaultAvailableTo = '',
   defaultTitle = '',
@@ -8,7 +9,7 @@ export const FirstSection = ({
 }) => {
   return (
     <SectionWrapper heading="Miscellaneous Details">
-      <p>The property is available for :</p>
+      <p>*The property is available for :</p>
       <div className="radio-wrapper">
         <div>
           <label>
@@ -35,26 +36,29 @@ export const FirstSection = ({
             Sale
           </label>
         </div>
+        {errors.availableTo && <p className="hook-error">{errors.availableTo.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="title">Ad title:</label>
+        <label htmlFor="title">*Ad title:</label>
         <input
           type="text"
           name="title"
           defaultValue={defaultTitle}
           ref={register}
         />
+        {errors.title && <p className="hook-error">{errors.title.message}</p>}
       </div>
 
       <div>
-        <label htmlFor="mobileNumber">Your mobile Number:</label>
+        <label htmlFor="mobileNumber">*Your mobile Number:</label>
         <input
           type="text"
           name="mobileNumber"
           defaultValue={defaultMobileNumber}
           ref={register}
         />
+          {errors.mobileNumber && <p className="hook-error">{errors.mobileNumber.message}</p>}
       </div>
     </SectionWrapper>
   );

@@ -2,18 +2,26 @@ import React, { useState, useContext } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { firebase } from '../firebase';
+import { yupResolver } from '@hookform/resolvers';
+
 import { AuthContext } from '../context/auth-context';
 import { UploadImagesSection } from '../components/UploadImagesStep';
 import { FirstSection } from '../components/FirstSection';
 import { LocationSection } from '../components/LocationSection';
 import { PropertyDetailsSection } from '../components/PropertyDetailsSection';
+import { PROPERTY_SCHEMA } from '../constants/validations'
+
 
 export const PostPropertyAd = ({ history }) => {
   const {
     currentUser: { uid },
   } = useContext(AuthContext);
 
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(PROPERTY_SCHEMA),
+  });
+
+  console.log({errors})
 
   const [imageUrls, setImageUrls] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -48,7 +56,7 @@ export const PostPropertyAd = ({ history }) => {
       })
       .then(function () {
         setHasSubmitted(true);
-        e.target.reset();
+       // e.target.reset();
         setImageUrls([]);
       })
       .catch((error) => console.log({ error }));
@@ -70,9 +78,9 @@ export const PostPropertyAd = ({ history }) => {
 
         <div className="property-form-container">
           <form onSubmit={handleSubmit(onSubmit)} className="form-primary">
-            <FirstSection register={register} />
+            <FirstSection register={register} errors={errors} />
 
-            <LocationSection register={register} />
+            <LocationSection register={register} errors={errors}/>
 
             <UploadImagesSection
               imageUrls={imageUrls}
@@ -80,7 +88,7 @@ export const PostPropertyAd = ({ history }) => {
               hasSubmitted={hasSubmitted}
             />
 
-            <PropertyDetailsSection register={register} />
+            <PropertyDetailsSection register={register} errors={errors} />
 
             <button type="submit">Submit</button>
           </form>

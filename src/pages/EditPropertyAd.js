@@ -2,20 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { firebase } from '../firebase';
+import { yupResolver } from '@hookform/resolvers';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+
 import { useProperty } from '../hooks';
 import { UploadImagesSection } from '../components/UploadImagesStep';
 import { FirstSection } from '../components/FirstSection';
 import { LocationSection } from '../components/LocationSection';
 import { Loader } from '../components/Loader';
 import { PropertyDetailsSection } from '../components/PropertyDetailsSection';
+import { PROPERTY_SCHEMA } from '../constants/validations';
 
 export const EditPropertyAds = ({ history }) => {
   const { propertyId } = useParams();
   const { property } = useProperty(propertyId);
 
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(PROPERTY_SCHEMA),
+  });
 
   const [isTitleUpdated, setIsTitleUpdated] = useState(false);
   const [isMobileNumberUpdated, setIsMobileNumberUpdated] = useState(false);
@@ -196,12 +202,14 @@ export const EditPropertyAds = ({ history }) => {
                 defaultTitle={property.title}
                 defaultAvailableTo={property.availableTo}
                 register={register}
+                errors={errors}
               />
 
               <LocationSection
                 defaultCity={property.city}
                 defaultLocation={property.location}
                 register={register}
+                errors={errors}
               />
 
               {/* <UploadImagesSection
@@ -214,6 +222,7 @@ export const EditPropertyAds = ({ history }) => {
                 defaultNumberOfBedrooms={property.numberOfBedrooms}
                 defaultDescription={property.description}
                 register={register}
+                errors={errors}
               />
 
               <button type="submit">Save</button>
