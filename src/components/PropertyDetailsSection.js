@@ -10,7 +10,7 @@ export const PropertyDetailsSection = ({
 }) => {
   return (
     <SectionWrapper heading="Property Details">
-      <div className="details-wrapper">
+      <div className="step-details-wrapper">
         <label>
           Choose the number of bedrooms in your property:
           <select
@@ -28,7 +28,7 @@ export const PropertyDetailsSection = ({
         </label>
       </div>
 
-      <div className="details-wrapper">
+      <div className="step-details-wrapper">
         <label>
           Choose the number of bathrooms in your property:
           <select
@@ -46,7 +46,7 @@ export const PropertyDetailsSection = ({
         </label>
       </div>
 
-      <div className="details-wrapper">
+      <div className="step-details-wrapper">
         <label htmlFor="description">*Description:</label>
         <textarea
           name="description"

@@ -12,7 +12,7 @@ export const ShortProperty = ({
   const { url } = useRouteMatch();
 
   return (
-    <section className="short-property">
+    <section className={ `short-property ${url === '/' ? 'custom-pointer' : 'default-pointer'}`}>
       {imageUrls && (
         <div className="short-property-image-container">
           <img

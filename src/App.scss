@@ -55,7 +55,7 @@ $vivid-blue: blue;
 $vivid-white: white;
 $soft-grey: lightgrey;
 $vivid-royal-blue: rgb(6, 6, 32);
-$vivid-gray: darkgrey;
+$vivid-grey: darkgrey;
 $tablet-width: 768px;
 $desktop-width: 1024px;
 $generic-box-shadow: 0 1px 5px rgba(50, 50, 50, 0.2);
@@ -63,7 +63,7 @@ $generic-border: 1px solid lightgrey;
 
 // Mixins
 
-@mixin clear-default-button-styles {
+/* @mixin clear-default-button-styles {
   border: none;
   outline: none;
 }
@@ -77,7 +77,7 @@ $generic-border: 1px solid lightgrey;
   &:hover {
     color: $vivid-blue;
   }
-}
+} */
 
 @mixin button-hidden($color-value: $vivid-black, $weight-value: 500) {
   border: none;
@@ -99,16 +99,19 @@ $generic-border: 1px solid lightgrey;
   display: flex;
 }
 
-// Navbar OR Menu Styles
+.hide {
+  display: none;
+  height: 0rem;
+}
 
+.show {
+  display: block;
+}
+
+// Navbar OR Menu Styles
 .menu {
   a {
     color: $vivid-black;
-  }
-
-  button {
-    font-weight: 500;
-    outline: none;
   }
 
   .menu-logo {
@@ -116,7 +119,7 @@ $generic-border: 1px solid lightgrey;
     font-size: 1.5rem;
 
     &:hover {
-      color: blue;
+      color: $vivid-blue;
     }
   }
 
@@ -126,7 +129,7 @@ $generic-border: 1px solid lightgrey;
     justify-content: space-between;
     align-items: center;
     height: 4em;
-    box-shadow: 0 1px 5px rgba(50, 50, 50, 0.2);
+    box-shadow: $generic-box-shadow;
   }
 
   &-list__mobile {
@@ -183,15 +186,15 @@ $generic-border: 1px solid lightgrey;
     }
 
     .post-button {
-      color: white;
-      background-color: blue;
+      color: $vivid-white;
+      background-color: $vivid-blue;
       text-align: center;
       padding: 1em;
       margin-right: 1em;
 
       &:hover {
         background-color: transparent;
-        color: black;
+        color: $vivid-black;
         border: 1px solid blue;
       }
     }
@@ -203,7 +206,7 @@ $generic-border: 1px solid lightgrey;
     }
   }
 
-  @media (min-width: $tablet-width) {
+  @media (min-width: 801px) {
     &-mobile-control,
     &-list__mobile {
       display: none;
@@ -212,7 +215,6 @@ $generic-border: 1px solid lightgrey;
 }
 
 // Hero Styles
-
 .hero {
   background: url('./images/hero.jpg') center no-repeat;
   background-size: cover;
@@ -264,11 +266,9 @@ $generic-border: 1px solid lightgrey;
   @media (min-width: 1024px){
     height: 60vh;
   }
-  
 }
 
 // Generic Layout Styles for containers, wrappers ect.
-
 .container {
   max-width: 90%;
   margin: 0rem auto;
@@ -285,11 +285,9 @@ $generic-border: 1px solid lightgrey;
 }
 
 // Sign Up and LogIn Form Styles
-
 .form-primary {
   input[type='text'] {
     margin: 0 auto;
-    opacity: 50%;
     margin-top: 10px;
     max-width: 527px;
   }
@@ -301,7 +299,7 @@ $generic-border: 1px solid lightgrey;
   }
 
   i:hover {
-    color: grey;
+    color: $vivid-grey;
     cursor: pointer;
   }
 
@@ -314,6 +312,19 @@ $generic-border: 1px solid lightgrey;
     font-size: 22px;
     margin-bottom: 14px;
     cursor: pointer;
+  }
+
+  input[type='text'],
+  input[type='password'],
+  input[type='email'] {
+    opacity: 50%;
+  }
+
+  button{
+    border: 1px solid $vivid-grey;
+    border-radius: 1px;
+    outline: none;
+    background: transparent;
   }
 
   input[type='radio'] {
@@ -329,6 +340,7 @@ $generic-border: 1px solid lightgrey;
     width: 100%;
     padding: 1em;
     font-size: 22px;
+    opacity: 50%;
   }
 
   label {
@@ -337,32 +349,36 @@ $generic-border: 1px solid lightgrey;
 
   button:hover {
     color: white;
-    background-color: royalblue;
+    background-color: $vivid-blue;
     border: transparent;
     border-radius: 1px;
   }
-  .step-wrapper {
-    border: 1px solid lightgrey;
-    margin: 0.5em;
-  }
 
-  .step-headliner {
-    padding: 0.3em;
-    border-bottom: 1px solid lightgrey;
-  }
+  .step{
+    &-wrapper{
+      border: 1px solid lightgrey;
+      margin: 0.5em;
+    }
 
-  .step-contents {
-    padding: 0 0.5em;
-  }
+    &-headliner{
+      padding: 0.3em;
+      border-bottom: 1px solid lightgrey;
+    }
 
-  .details-wrapper {
-    margin-bottom: 1em;
+    &-contents{
+      padding: 0 0.5em;
+    }
+
+    &-details-wrapper{
+      margin-bottom: 1em;
+    }
   }
-  .button-primary {
+ 
+ /*  .button-primary {
     width: 200px;
     margin-top: 1em;
     margin-left: 5px;
-  }
+  } */
 }
 
 .auth-form {
@@ -401,10 +417,12 @@ $generic-border: 1px solid lightgrey;
       display: flex;
     }
   }
+
   .fail {
-    background-color: pink;
-    color: red;
+    background-color: $alert-background;
+    color: $alert-color;
   }
+
   .success {
     padding: 0.5em;
     background-color: $success-background;
@@ -428,7 +446,6 @@ $generic-border: 1px solid lightgrey;
 }
 
 /***Form Alert Modal***/
-
 .form-modal-container {
   height: 5em;
   width: 100%;
@@ -436,13 +453,11 @@ $generic-border: 1px solid lightgrey;
 }
 
 /***Post and Edit Ads Form***/
-
 .hook-error {
   color: red;
 }
 
 /*** Upload ***/
-
 .upload-images {
   display: flex;
 
@@ -461,8 +476,7 @@ $generic-border: 1px solid lightgrey;
   width: calc(100% - 0.3em);
 }
 
-/////Home////////////////////////
-
+//Home Styles//
 .main {
   &-list-item {
     list-style: none;
@@ -482,7 +496,6 @@ $generic-border: 1px solid lightgrey;
 
 .short-property {
   display: grid;
-  cursor: default;
 
   img {
     display: block;
@@ -492,6 +505,11 @@ $generic-border: 1px solid lightgrey;
     height: 250px;
     width: 100%;
     margin: 0;
+
+    @media (min-width: 1024px){
+      width: 400px;
+      margin: 0;
+    }
   }
 
   &-title {
@@ -501,37 +519,52 @@ $generic-border: 1px solid lightgrey;
 
   &-description {
     display: none;
+
+    @media (min-width: 600px){
+      display: block;
+    font-size: 0.9em;
+      }
+
+
+    @media (min-width: 1024px){
+    font-size: 1em;
+    line-height: 1.2em;
+    }
+  }
+
+  &-right{
+    @media (min-width: 600px){
+      display: grid;
+    grid-template-rows: 2em 2fr 1fr;
+    padding: 1em 0 0 0.4em;
+      }
+
   }
 
   .property-id {
     padding: 0;
     margin-top: 0;
   }
-}
 
-@media (min-width: 600px) {
-  .short-property {
+  @media (min-width: 600px){
     grid-template-columns: 1fr 1fr;
   }
 
-  .short-property-right {
-    display: grid;
-    grid-template-rows: 2em 2fr 1fr;
-    padding: 1em 0 0 0.4em;
-  }
-
-  .short-property-description {
-    display: block;
-    font-size: 0.9em;
-  }
-}
-
-@media (min-width: 1024px) {
-  .short-property {
+  @media (min-width: 1024px){
     grid-template-columns: 1fr 2fr;
   }
 }
 
+/**Pointer Styles**/
+.custom-pointer{
+  cursor: pointer;
+}
+
+.default-pointer{
+  cursor: default;
+}
+
+/**Icon Styles**/
 .icon-container {
   position: relative;
   z-index: 3;
@@ -544,18 +577,6 @@ $generic-border: 1px solid lightgrey;
   }
 }
 
-@media (min-width: 1024px) {
-  .short-property-image {
-    width: 400px;
-    margin: 0;
-  }
-
-  .short-property-description {
-    font-size: 1em;
-    line-height: 1.2em;
-  }
-}
-
 .property-icons {
   display: flex;
   margin-top: 1em;
@@ -564,39 +585,32 @@ $generic-border: 1px solid lightgrey;
   align-items: center;
 
   &-svg {
-    color: darkgray;
+    color: $vivid-grey;
     margin-right: 1em;
   }
 
   &-text {
     display: inline-block;
     margin-right: 0.6em;
-    color: darkgray;
+    color: $vivid-grey;
   }
 
   /***Edit Form***/
 
   .edit-icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include align();
 
     svg:hover {
-      color: blue;
+      color: $vivid-blue;
     }
 
     button {
-      border: none;
-      outline: none;
-      cursor: pointer;
-      background-color: transparent;
+     @include button-hidden();
     }
   }
 
   .details-icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include align();
 
     svg {
       cursor: none;
@@ -609,15 +623,6 @@ $generic-border: 1px solid lightgrey;
     border-top: 1px solid darkgrey;
     padding-top: 1em;
   }
-}
-
-.hide {
-  display: none;
-  height: 0rem;
-}
-
-.show {
-  display: block;
 }
 
 // Property Component Styles//
