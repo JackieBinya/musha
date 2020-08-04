@@ -263,6 +263,33 @@ $generic-border: 1px solid lightgrey;
     }
   }
 
+  input[type='search']{
+    
+      padding-left: 2em;
+      height: 60px;
+      outline: none;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      width: 100%;
+      background-color: whitesmoke;
+      font-size: 1rem,
+    
+  }
+
+  .search-svg{
+      position: absolute;
+      z-index: 5000;
+      font-size: 1.2rem;
+      color: $vivid-grey;
+      left: 10px;
+      top: 5em;
+
+      @media (min-width: $tablet-width){
+        top: 4em;
+      }
+  }
+
+
   @media (min-width: 1024px){
     height: 60vh;
   }
@@ -482,6 +509,15 @@ $generic-border: 1px solid lightgrey;
     } 
   }
 
+  .mask {
+    background-color: rgba(208, 208, 214, 0.5);
+    position: relative;
+    z-index: 800;
+    top: -100%;
+    height: calc(100% - 2em);
+    width: calc(100% - 0.3em);
+  }
+
 }
 
 .upload-images {
@@ -493,15 +529,7 @@ $generic-border: 1px solid lightgrey;
     color: lightgrey;
   }
 }
-.mask {
-  background-color: rgba(208, 208, 214, 0.5);
-  position: relative;
-  z-index: 800;
-  top: -100%;
-  height: calc(100% - 2em);
-  width: calc(100% - 0.3em);
-}
-
+ 
 //Home Styles//
 .main {
   &-list-item {
