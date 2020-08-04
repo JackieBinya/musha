@@ -62,23 +62,6 @@ $generic-box-shadow: 0 1px 5px rgba(50, 50, 50, 0.2);
 $generic-border: 1px solid lightgrey;
 
 // Mixins
-
-/* @mixin clear-default-button-styles {
-  border: none;
-  outline: none;
-}
-
-@mixin button-primary($height-value) {
-  @include clear-default-button-styles;
-
-  width: 100%;
-  height: $height-value;
-
-  &:hover {
-    color: $vivid-blue;
-  }
-} */
-
 @mixin button-hidden($color-value: $vivid-black, $weight-value: 500) {
   border: none;
   outline: none;
@@ -206,7 +189,7 @@ $generic-border: 1px solid lightgrey;
     }
   }
 
-  @media (min-width: 801px) {
+  @media (min-width: 769px) {
     &-mobile-control,
     &-list__mobile {
       display: none;
@@ -297,6 +280,7 @@ $generic-border: 1px solid lightgrey;
   margin: 0rem auto;
   position: relative;
   padding: 2em 0;
+  margin-bottom: 4em;
 
   @media (min-width: 650px) {
     max-width: 80%;
@@ -473,6 +457,16 @@ $generic-border: 1px solid lightgrey;
   height: 5em;
   width: 100%;
   padding: 1em;
+
+  button{
+    border: none;
+    padding: 0;
+    color: $vivid-black;
+    font-weight: 500;
+    border-bottom: 3px solid $vivid-blue;
+    outline: none;
+
+  }
 }
 
 /***Post and Edit Ads Form***/
@@ -746,4 +740,12 @@ $generic-border: 1px solid lightgrey;
 /// My Properties //
 .my-properties {
   cursor: none;
+}
+
+.read-more-button{
+  font-weight: 500;
+  cursor: pointer;
+  :hover{
+    color: $vivid-blue;
+  }
 }
