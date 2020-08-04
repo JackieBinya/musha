@@ -14,11 +14,8 @@ import { firebase } from '../firebase';
 export const PropertyIcons = ({
   id,
   location,
-  city,
   numberOfBathrooms,
   numberOfBedrooms,
-  title,
-  user = '',
   path = '',
 }) => {
   const [showModal, setShowModal] = useState(false);
@@ -59,21 +56,10 @@ export const PropertyIcons = ({
       <div className={`${url === '/my-properties' ? 'edit-icons' : 'hide'}`}>
         <div>
           <div
-            className={`${showModal ? 'show' : 'hide'}`}
-            style={{
-              position: 'absolute',
-              backgroundColor: 'whitesmoke',
-              zIndex: '1000',
-              boxShadow: '0 1px 5px rgba(50, 50, 50, 0.6)',
-              width: '200px',
-              height: '100px',
-              borderRadius: '2px',
-              padding: '1em',
-              right: '30px',
-            }}
+            className={`confirm-delete-modal ${showModal ? 'show' : 'hide'}`}
           >
             <span>Are you sure you want to delete?</span>
-            <div style={{ marginTop: '0.5em' }}>
+            <div className="wrapper">
               <button type="button" onClick={(e) => handleDelete(e)}>
                 Yes
               </button>

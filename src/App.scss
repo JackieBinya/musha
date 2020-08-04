@@ -640,9 +640,32 @@ $generic-border: 1px solid lightgrey;
     margin-right: 0.6em;
     color: $vivid-grey;
   }
+  /**Confirm Delete**/
+  .confirm-delete-modal {
+    position: absolute;
+    background-color: whitesmoke;
+    z-index: 1000;
+    box-shadow: 0 1px 5px rgba(50, 50, 50, 0.6);
+    width: 200px;
+    height: 100px;
+    border-radius: 2px;
+    padding: 1em;
+    right: 30px;
 
+    .wrapper {
+      @include align;
+      margin-top: 0.5em;
+
+      button {
+        padding: 0.5em;
+
+        &:hover {
+          color: $vivid-blue !important;
+        }
+      }
+    }
+  }
   /***Edit Form***/
-
   .edit-icons {
     @include align();
 
