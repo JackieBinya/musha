@@ -97,10 +97,7 @@ export const UploadImagesSection = ({
           {previewUrls &&
             previewUrls.map((imgPre, index, array) => (
               <div className="preview-image-wrapper" key={imgPre.id}>
-                <img
-                  src={imgPre.path}
-                  alt="property"
-                />
+                <img src={imgPre.path} alt="property" />
                 <div
                   className={`loader-wrapper ${
                     isImageLoading && index === array.length - 1
@@ -122,7 +119,6 @@ export const UploadImagesSection = ({
               </div>
             ))}
         </div>
-
 
         {error && <p className="hook-error">{error}</p>}
 

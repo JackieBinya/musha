@@ -222,7 +222,6 @@ $generic-border: 1px solid lightgrey;
   width: 100vw;
   position: relative;
 
-
   &-container {
     overflow: hidden;
   }
@@ -245,11 +244,11 @@ $generic-border: 1px solid lightgrey;
     z-index: 50;
     font-size: 0.9em;
 
-    @media (min-width: $tablet-width){
+    @media (min-width: $tablet-width) {
       min-width: 60%;
     }
 
-    @media (min-width: $desktop-width){
+    @media (min-width: $desktop-width) {
       min-width: 40%;
     }
   }
@@ -258,39 +257,36 @@ $generic-border: 1px solid lightgrey;
     font-size: 1.2rem;
     font-weight: 500;
 
-    @media (min-width: $tablet-width){
+    @media (min-width: $tablet-width) {
       text-align: center;
     }
   }
 
-  input[type='search']{
-    
-      padding-left: 2em;
-      height: 60px;
-      outline: none;
-      border: 1px solid transparent;
-      border-radius: 6px;
-      width: 100%;
-      background-color: whitesmoke;
-      font-size: 1rem,
-    
+  input[type='search'] {
+    padding-left: 2em;
+    height: 60px;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    width: 100%;
+    background-color: whitesmoke;
+    font-size: 1rem;
   }
 
-  .search-svg{
-      position: absolute;
-      z-index: 5000;
-      font-size: 1.2rem;
-      color: $vivid-grey;
-      left: 10px;
-      top: 5em;
+  .search-svg {
+    position: absolute;
+    z-index: 5000;
+    font-size: 1.2rem;
+    color: $vivid-grey;
+    left: 10px;
+    top: 5em;
 
-      @media (min-width: $tablet-width){
-        top: 4em;
-      }
+    @media (min-width: $tablet-width) {
+      top: 4em;
+    }
   }
 
-
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     height: 60vh;
   }
 }
@@ -300,13 +296,13 @@ $generic-border: 1px solid lightgrey;
   max-width: 90%;
   margin: 0rem auto;
   position: relative;
-  padding : 2em 0;
+  padding: 2em 0;
 
-  @media (min-width: 650px){
+  @media (min-width: 650px) {
     max-width: 80%;
   }
 
-  @media (min-width: 2500px){
+  @media (min-width: 2500px) {
     max-width: 50%;
   }
 }
@@ -347,7 +343,7 @@ $generic-border: 1px solid lightgrey;
     opacity: 50%;
   }
 
-  button{
+  button {
     border: 1px solid $vivid-grey;
     border-radius: 1px;
     outline: none;
@@ -381,27 +377,27 @@ $generic-border: 1px solid lightgrey;
     border-radius: 1px;
   }
 
-  .step{
-    &-wrapper{
+  .step {
+    &-wrapper {
       border: 1px solid lightgrey;
       margin: 0.5em;
     }
 
-    &-headliner{
+    &-headliner {
       padding: 0.3em;
       border-bottom: 1px solid lightgrey;
     }
 
-    &-contents{
+    &-contents {
       padding: 0 0.5em;
     }
 
-    &-details-wrapper{
+    &-details-wrapper {
       margin-bottom: 1em;
     }
   }
- 
- /*  .button-primary {
+
+  /*  .button-primary {
     width: 200px;
     margin-top: 1em;
     margin-left: 5px;
@@ -485,28 +481,27 @@ $generic-border: 1px solid lightgrey;
 }
 
 /*** Upload ***/
-.preview{
+.preview {
   display: flex;
 
-  &-svg{
+  &-svg {
     font-size: 2rem;
     color: $vivid-white;
   }
 
-  &-image-wrapper{
-
-    img{
+  &-image-wrapper {
+    img {
       height: 6em;
       width: 6em;
       margin-right: 0.3em;
     }
 
-    .loader-wrapper{
+    .loader-wrapper {
       position: relative;
       z-index: 1000;
-      top:-50%;
+      top: -50%;
       left: 2em;
-    } 
+    }
   }
 
   .mask {
@@ -517,7 +512,6 @@ $generic-border: 1px solid lightgrey;
     height: calc(100% - 2em);
     width: calc(100% - 0.3em);
   }
-
 }
 
 .upload-images {
@@ -529,7 +523,7 @@ $generic-border: 1px solid lightgrey;
     color: lightgrey;
   }
 }
- 
+
 //Home Styles//
 .main {
   &-list-item {
@@ -560,7 +554,7 @@ $generic-border: 1px solid lightgrey;
     width: 100%;
     margin: 0;
 
-    @media (min-width: 1024px){
+    @media (min-width: 1024px) {
       width: 400px;
       margin: 0;
     }
@@ -574,25 +568,23 @@ $generic-border: 1px solid lightgrey;
   &-description {
     display: none;
 
-    @media (min-width: 600px){
+    @media (min-width: 600px) {
       display: block;
-    font-size: 0.9em;
-      }
+      font-size: 0.9em;
+    }
 
-
-    @media (min-width: 1024px){
-    font-size: 1em;
-    line-height: 1.2em;
+    @media (min-width: 1024px) {
+      font-size: 1em;
+      line-height: 1.2em;
     }
   }
 
-  &-right{
-    @media (min-width: 600px){
+  &-right {
+    @media (min-width: 600px) {
       display: grid;
-    grid-template-rows: 2em 2fr 1fr;
-    padding: 1em 0 0 0.4em;
-      }
-
+      grid-template-rows: 2em 2fr 1fr;
+      padding: 1em 0 0 0.4em;
+    }
   }
 
   .property-id {
@@ -600,21 +592,21 @@ $generic-border: 1px solid lightgrey;
     margin-top: 0;
   }
 
-  @media (min-width: 600px){
+  @media (min-width: 600px) {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     grid-template-columns: 1fr 2fr;
   }
 }
 
 /**Pointer Styles**/
-.custom-pointer{
+.custom-pointer {
   cursor: pointer;
 }
 
-.default-pointer{
+.default-pointer {
   cursor: default;
 }
 
@@ -659,7 +651,7 @@ $generic-border: 1px solid lightgrey;
     }
 
     button {
-     @include button-hidden();
+      @include button-hidden();
     }
   }
 
