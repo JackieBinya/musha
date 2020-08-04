@@ -93,23 +93,13 @@ export const UploadImagesSection = ({
     <section className={`step-wrapper  ${isEditing ? 'hide' : 'show'} `}>
       <h3 className="step-headliner">Upload Images</h3>
       <div className="step-contents">
-        <div style={{ display: 'flex' }}>
+        <div className="preview">
           {previewUrls &&
             previewUrls.map((imgPre, index, array) => (
-              <div key={imgPre.id}>
-                <img
-                  src={imgPre.path}
-                  alt="Sample picture of the property"
-                  style={{ height: '6em', width: '6em', marginRight: '0.3em' }}
-                />
+              <div className="preview-image-wrapper" key={imgPre.id}>
+                <img src={imgPre.path} alt="property" />
                 <div
-                  style={{
-                    position: 'relative',
-                    zIndex: '1000',
-                    top: '-50%',
-                    left: '2em',
-                  }}
-                  className={` ${
+                  className={`loader-wrapper ${
                     isImageLoading && index === array.length - 1
                       ? 'show'
                       : 'hide'
@@ -118,8 +108,7 @@ export const UploadImagesSection = ({
                   <FontAwesomeIcon
                     icon={faSpinner}
                     spin
-                    className="property-icons-svg"
-                    style={{ fontSize: '2rem', color: 'white' }}
+                    className="preview-svg"
                   />
                 </div>
                 <div
@@ -131,7 +120,8 @@ export const UploadImagesSection = ({
             ))}
         </div>
 
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {error && <p className="hook-error">{error}</p>}
+
         <div>
           <div className="upload-images">
             <div

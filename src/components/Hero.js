@@ -17,28 +17,8 @@ export const Hero = ({ query, setQuery }) => {
                 placeholder="Search by location"
                 value={query}
                 onChange={(e) => setQuery(e.currentTarget.value)}
-                style={{
-                  paddingLeft: '2em',
-                  height: '60px',
-                  outline: 'none',
-                  border: '1px solid transparent',
-                  borderRadius: '6px',
-                  width: '100%',
-                  backgroundColor: 'whitesmoke',
-                  fontSize: '1rem',
-                }}
               />
-              <FontAwesomeIcon
-                style={{
-                  position: 'absolute',
-                  zIndex: '5000',
-                  fontSize: '1.2rem',
-                  color: 'grey',
-                  left: '10px',
-                  top: ' 4em',
-                }}
-                icon={faSearch}
-              />
+              <FontAwesomeIcon className="search-svg" icon={faSearch} />
             </div>
           </div>
         </div>

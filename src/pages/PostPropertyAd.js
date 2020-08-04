@@ -62,7 +62,7 @@ export const PostPropertyAd = ({ history }) => {
   };
 
   return (
-    <div className="container" style={{ marginBottom: '2em' }}>
+    <div className="container" >
       <div className={`form-modal-container ${hasSubmitted ? 'show' : 'hide'}`}>
         <p>Congrats! You have successfully created a property ad.</p>
         <button type="button" onClick={() => history.goBack()}>

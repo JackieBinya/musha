@@ -33,6 +33,10 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+button,
+a {
   cursor: pointer;
 }
 
@@ -40,35 +44,57 @@ img {
   display: block; /* removes extra space */
 }
 
-/************Variables ******************/
-$black: black;
+// Variables
+
+$vivid-black: black;
 $alert-color: red;
 $alert-background: pink;
 $success-color: green;
 $success-background: lightgreen;
-$main-background: blue;
+$vivid-blue: blue;
 $vivid-white: white;
-$tablet-width: 769px;
+$soft-grey: lightgrey;
+$vivid-royal-blue: rgb(6, 6, 32);
+$vivid-grey: darkgrey;
+$tablet-width: 768px;
 $desktop-width: 1024px;
+$generic-box-shadow: 0 1px 5px rgba(50, 50, 50, 0.2);
+$generic-border: 1px solid lightgrey;
 
-/*******************************
-*Nav bar and hero styles
-*
-*********************************/
+// Mixins
+@mixin button-hidden($color-value: $vivid-black, $weight-value: 500) {
+  border: none;
+  outline: none;
+  padding: 0em;
+  background-color: transparent;
+  color: $color-value;
+  font-weight: $weight-value;
+}
+
+@mixin align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Utility Classes
 .reveal {
   display: flex;
 }
 
+.hide {
+  display: none;
+  height: 0rem;
+}
+
+.show {
+  display: block;
+}
+
+// Navbar OR Menu Styles
 .menu {
   a {
-    color: $black;
-    cursor: pointer;
-  }
-
-  button {
-    font-weight: 500;
-    outline: none;
-    cursor: pointer;
+    color: $vivid-black;
   }
 
   .menu-logo {
@@ -76,7 +102,7 @@ $desktop-width: 1024px;
     font-size: 1.5rem;
 
     &:hover {
-      color: blue;
+      color: $vivid-blue;
     }
   }
 
@@ -86,36 +112,33 @@ $desktop-width: 1024px;
     justify-content: space-between;
     align-items: center;
     height: 4em;
-    box-shadow: 0 1px 5px rgba(50, 50, 50, 0.2);
+    box-shadow: $generic-box-shadow;
   }
 
   &-list__mobile {
     padding: 1em;
     height: 100%;
-    background-color: rgb(6, 6, 32);
+    background-color: $vivid-royal-blue;
     font-weight: 500;
 
     a {
       padding-right: 1.5em;
       padding-bottom: 1.5em;
-      color: white;
+      color: $vivid-white;
     }
 
     .close-menu-button {
-      border: none;
+      @include button-hidden();
     }
 
     .logout-button {
-      border: none;
-      background-color: transparent;
-      color: white;
-      padding: 0;
+      @include button-hidden($vivid-white);
     }
   }
 
   &-mobile-control {
     .menu-button {
-      border: none;
+      @include button-hidden();
     }
 
     svg {
@@ -131,33 +154,30 @@ $desktop-width: 1024px;
     a {
       font-weight: 500;
       padding-right: 1.5em;
-    }
 
-    a:hover {
-      color: blue;
+      &:hover {
+        color: $vivid-blue;
+      }
     }
 
     .logout-button {
-      padding: 0;
-      color: black;
-      border: none;
-      background-color: transparent;
+      @include button-hidden();
 
       &:hover {
-        color: blue;
+        color: $vivid-blue;
       }
     }
 
     .post-button {
-      color: white;
-      background-color: blue;
+      color: $vivid-white;
+      background-color: $vivid-blue;
       text-align: center;
       padding: 1em;
       margin-right: 1em;
 
       &:hover {
         background-color: transparent;
-        color: black;
+        color: $vivid-black;
         border: 1px solid blue;
       }
     }
@@ -169,7 +189,7 @@ $desktop-width: 1024px;
     }
   }
 
-  @media (min-width: $tablet-width) {
+  @media (min-width: 769px) {
     &-mobile-control,
     &-list__mobile {
       display: none;
@@ -177,102 +197,104 @@ $desktop-width: 1024px;
   }
 }
 
-.hero-container {
-  overflow: hidden;
-}
-
+// Hero Styles
 .hero {
   background: url('./images/hero.jpg') center no-repeat;
   background-size: cover;
   height: 30vh;
   width: 100vw;
   position: relative;
-}
 
-.hero-overlay {
-  background-color: rgba(25, 25, 112, 0.4);
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
-.hero-content-container {
-  font-weight: 500;
-  position: absolute;
-  //text-align: center;
-  top: 50%;
-  left: 50%;
-  min-width: 80%;
-  transform: translate(-50%, -50%);
-  color: rgb(255, 255, 255);
-  z-index: 50;
-  font-size: 0.9em;
-}
-
-.hero-content-headliner {
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
-.hero-content-year {
-  display: inline-block;
-  margin-left: 0.3em;
-}
-
-@media (min-width: 768px) {
-  .hero-content-container {
-    min-width: 60%;
+  &-container {
+    overflow: hidden;
   }
 
-  .hero-content-headliner {
-    text-align: center;
+  &-overlay {
+    background-color: rgba(25, 25, 112, 0.4);
+    position: absolute;
+    height: 100%;
+    width: 100%;
   }
-}
 
-@media (min-width: 1024px) {
-  .hero {
+  &-content-container {
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 80%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    z-index: 50;
+    font-size: 0.9em;
+
+    @media (min-width: $tablet-width) {
+      min-width: 60%;
+    }
+
+    @media (min-width: $desktop-width) {
+      min-width: 40%;
+    }
+  }
+
+  &-content-headliner {
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    @media (min-width: $tablet-width) {
+      text-align: center;
+    }
+  }
+
+  input[type='search'] {
+    padding-left: 2em;
+    height: 60px;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    width: 100%;
+    background-color: whitesmoke;
+    font-size: 1rem;
+  }
+
+  .search-svg {
+    position: absolute;
+    z-index: 5000;
+    font-size: 1.2rem;
+    color: $vivid-grey;
+    left: 10px;
+    top: 5em;
+
+    @media (min-width: $tablet-width) {
+      top: 4em;
+    }
+  }
+
+  @media (min-width: 1024px) {
     height: 60vh;
   }
-
-  .hero-content-container {
-    min-width: 40%;
-  }
 }
 
-/******************
-*
-**********************/
+// Generic Layout Styles for containers, wrappers ect.
 .container {
   max-width: 90%;
   margin: 0rem auto;
   position: relative;
-}
+  padding: 2em 0;
+  margin-bottom: 4em;
 
-@media (min-width: 650px) {
-  .container {
+  @media (min-width: 650px) {
     max-width: 80%;
   }
-}
 
-.container {
-  padding-top: 2em;
-}
-
-@media (min-width: 2500px) {
-  .container {
+  @media (min-width: 2500px) {
     max-width: 50%;
-    margin: 0 auto;
   }
 }
-/*************************
-* Sign up Form
-* Login Form
-*/
 
+// Sign Up and LogIn Form Styles
 .form-primary {
   input[type='text'] {
     margin: 0 auto;
-    opacity: 50%;
     margin-top: 10px;
     max-width: 527px;
   }
@@ -284,7 +306,7 @@ $desktop-width: 1024px;
   }
 
   i:hover {
-    color: grey;
+    color: $vivid-grey;
     cursor: pointer;
   }
 
@@ -297,6 +319,19 @@ $desktop-width: 1024px;
     font-size: 22px;
     margin-bottom: 14px;
     cursor: pointer;
+  }
+
+  input[type='text'],
+  input[type='password'],
+  input[type='email'] {
+    opacity: 50%;
+  }
+
+  button {
+    border: 1px solid $vivid-grey;
+    border-radius: 1px;
+    outline: none;
+    background: transparent;
   }
 
   input[type='radio'] {
@@ -312,6 +347,7 @@ $desktop-width: 1024px;
     width: 100%;
     padding: 1em;
     font-size: 22px;
+    opacity: 50%;
   }
 
   label {
@@ -320,32 +356,36 @@ $desktop-width: 1024px;
 
   button:hover {
     color: white;
-    background-color: royalblue;
+    background-color: $vivid-blue;
     border: transparent;
     border-radius: 1px;
   }
-  .step-wrapper {
-    border: 1px solid lightgrey;
-    margin: 0.5em;
+
+  .step {
+    &-wrapper {
+      border: 1px solid lightgrey;
+      margin: 0.5em;
+    }
+
+    &-headliner {
+      padding: 0.3em;
+      border-bottom: 1px solid lightgrey;
+    }
+
+    &-contents {
+      padding: 0 0.5em;
+    }
+
+    &-details-wrapper {
+      margin-bottom: 1em;
+    }
   }
 
-  .step-headliner {
-    padding: 0.3em;
-    border-bottom: 1px solid lightgrey;
-  }
-
-  .step-contents {
-    padding: 0 0.5em;
-  }
-
-  .details-wrapper {
-    margin-bottom: 1em;
-  }
-  .button-primary {
+  /*  .button-primary {
     width: 200px;
     margin-top: 1em;
     margin-left: 5px;
-  }
+  } */
 }
 
 .auth-form {
@@ -384,10 +424,12 @@ $desktop-width: 1024px;
       display: flex;
     }
   }
+
   .fail {
-    background-color: pink;
-    color: red;
+    background-color: $alert-background;
+    color: $alert-color;
   }
+
   .success {
     padding: 0.5em;
     background-color: $success-background;
@@ -410,20 +452,62 @@ $desktop-width: 1024px;
   }
 }
 
-//Form Alert Modal
-
+/***Form Alert Modal***/
 .form-modal-container {
   height: 5em;
   width: 100%;
   padding: 1em;
+
+  button{
+    border: none;
+    padding: 0;
+    color: $vivid-black;
+    font-weight: 500;
+    border-bottom: 3px solid $vivid-blue;
+    outline: none;
+
+  }
 }
 
-//  Post and Edit Ads Form
+/***Post and Edit Ads Form***/
 .hook-error {
   color: red;
 }
 
-///// Upload
+/*** Upload ***/
+.preview {
+  display: flex;
+
+  &-svg {
+    font-size: 2rem;
+    color: $vivid-white;
+  }
+
+  &-image-wrapper {
+    img {
+      height: 6em;
+      width: 6em;
+      margin-right: 0.3em;
+    }
+
+    .loader-wrapper {
+      position: relative;
+      z-index: 1000;
+      top: -50%;
+      left: 2em;
+    }
+  }
+
+  .mask {
+    background-color: rgba(208, 208, 214, 0.5);
+    position: relative;
+    z-index: 800;
+    top: -100%;
+    height: calc(100% - 2em);
+    width: calc(100% - 0.3em);
+  }
+}
+
 .upload-images {
   display: flex;
 
@@ -433,16 +517,8 @@ $desktop-width: 1024px;
     color: lightgrey;
   }
 }
-.mask {
-  background-color: rgba(208, 208, 214, 0.5);
-  position: relative;
-  z-index: 800;
-  top: -100%;
-  height: calc(100% - 2em);
-  width: calc(100% - 0.3em);
-}
-/////Home////////////////////////
 
+//Home Styles//
 .main {
   &-list-item {
     list-style: none;
@@ -462,7 +538,6 @@ $desktop-width: 1024px;
 
 .short-property {
   display: grid;
-  cursor: default;
 
   img {
     display: block;
@@ -472,6 +547,11 @@ $desktop-width: 1024px;
     height: 250px;
     width: 100%;
     margin: 0;
+
+    @media (min-width: 1024px) {
+      width: 400px;
+      margin: 0;
+    }
   }
 
   &-title {
@@ -481,37 +561,50 @@ $desktop-width: 1024px;
 
   &-description {
     display: none;
+
+    @media (min-width: 600px) {
+      display: block;
+      font-size: 0.9em;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 1em;
+      line-height: 1.2em;
+    }
+  }
+
+  &-right {
+    @media (min-width: 600px) {
+      display: grid;
+      grid-template-rows: 2em 2fr 1fr;
+      padding: 1em 0 0 0.4em;
+    }
   }
 
   .property-id {
     padding: 0;
     margin-top: 0;
   }
-}
 
-@media (min-width: 600px) {
-  .short-property {
+  @media (min-width: 600px) {
     grid-template-columns: 1fr 1fr;
   }
 
-  .short-property-right {
-    display: grid;
-    grid-template-rows: 2em 2fr 1fr;
-    padding: 1em 0 0 0.4em;
-  }
-
-  .short-property-description {
-    display: block;
-    font-size: 0.9em;
-  }
-}
-
-@media (min-width: 1024px) {
-  .short-property {
+  @media (min-width: 1024px) {
     grid-template-columns: 1fr 2fr;
   }
 }
 
+/**Pointer Styles**/
+.custom-pointer {
+  cursor: pointer;
+}
+
+.default-pointer {
+  cursor: default;
+}
+
+/**Icon Styles**/
 .icon-container {
   position: relative;
   z-index: 3;
@@ -524,18 +617,6 @@ $desktop-width: 1024px;
   }
 }
 
-@media (min-width: 1024px) {
-  .short-property-image {
-    width: 400px;
-    margin: 0;
-  }
-
-  .short-property-description {
-    font-size: 1em;
-    line-height: 1.2em;
-  }
-}
-
 .property-icons {
   display: flex;
   margin-top: 1em;
@@ -544,39 +625,55 @@ $desktop-width: 1024px;
   align-items: center;
 
   &-svg {
-    color: darkgray;
+    color: $vivid-grey;
     margin-right: 1em;
   }
 
   &-text {
     display: inline-block;
     margin-right: 0.6em;
-    color: darkgray;
+    color: $vivid-grey;
   }
+  /**Confirm Delete**/
+  .confirm-delete-modal {
+    position: absolute;
+    background-color: whitesmoke;
+    z-index: 1000;
+    box-shadow: 0 1px 5px rgba(50, 50, 50, 0.6);
+    width: 200px;
+    height: 100px;
+    border-radius: 2px;
+    padding: 1em;
+    right: 30px;
 
-  //Edit Form
+    .wrapper {
+      @include align;
+      margin-top: 0.5em;
 
+      button {
+        padding: 0.5em;
+
+        &:hover {
+          color: $vivid-blue !important;
+        }
+      }
+    }
+  }
+  /***Edit Form***/
   .edit-icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include align();
 
     svg:hover {
-      color: blue;
+      color: $vivid-blue;
     }
 
     button {
-      border: none;
-      outline: none;
-      cursor: pointer;
-      background-color: transparent;
+      @include button-hidden();
     }
   }
 
   .details-icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include align();
 
     svg {
       cursor: none;
@@ -591,21 +688,7 @@ $desktop-width: 1024px;
   }
 }
 
-.hide {
-  display: none;
-  height: 0rem;
-}
-
-.show {
-  display: block;
-}
-
-/********************
-* Property Styling
-*
-*********************/
-
-//     style={{ height: '500px', width: '450px' }}
+// Property Component Styles//
 
 .show-property-gallery {
   display: flex;
@@ -654,7 +737,15 @@ $desktop-width: 1024px;
   }
 }
 
-/// My Properties
+/// My Properties //
 .my-properties {
   cursor: none;
+}
+
+.read-more-button{
+  font-weight: 500;
+  cursor: pointer;
+  :hover{
+    color: $vivid-blue;
+  }
 }
