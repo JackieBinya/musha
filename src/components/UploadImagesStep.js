@@ -55,12 +55,12 @@ export const UploadImagesSection = ({
         return;
       }
 
+      setIsImageLoading(true);
+
       setPreviewUrls(() => [
         ...previewUrls,
         { path: URL.createObjectURL(image), id: generatePushId() },
       ]);
-
-      setIsImageLoading(true);
 
       const uploadTask = storage.ref().child(`images/${image.name}`).put(image);
 
