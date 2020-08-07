@@ -6,7 +6,6 @@ import { ShortProperty } from '../components/ShortProperty';
 import { Hero } from '../components/Hero';
 import { Loader } from '../components/Loader';
 import { PropertyIconsHome } from '../components/PropertyIconsHome';
-import { useEffect } from 'react';
 
 export const Home = () => {
   const { properties } = useProperties();

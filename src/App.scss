@@ -458,14 +458,13 @@ $generic-border: 1px solid lightgrey;
   width: 100%;
   padding: 1em;
 
-  button{
+  button {
     border: none;
     padding: 0;
     color: $vivid-black;
     font-weight: 500;
     border-bottom: 3px solid $vivid-blue;
     outline: none;
-
   }
 }
 
@@ -742,10 +741,10 @@ $generic-border: 1px solid lightgrey;
   cursor: none;
 }
 
-.read-more-button{
+.read-more-button {
   font-weight: 500;
   cursor: pointer;
-  :hover{
+  :hover {
     color: $vivid-blue;
   }
 }
