@@ -1,5 +1,5 @@
 import React from 'react';
-import { MemoryRouter, useRouteMatch  } from 'react-router-dom';
+import { MemoryRouter, useRouteMatch } from 'react-router-dom';
 import {
   render,
   screen,
@@ -12,21 +12,22 @@ import {
 import { PropertyIcons } from '../components/PropertyIcons';
 import { firebase } from '../firebase';
 
-jest.mock('../firebase', () =>{
+jest.mock('../firebase', () => {
   const properties = {};
-  const id = 1
-  
-  return{
-  firebase: {
-    firestore: jest.fn(() => ({
-      collection: jest.fn((properties) => ({
-        doc: jest.fn((id) => ({
-          delete: jest.fn().mockResolvedValue('Deleted')
-        }))
-      }))
-    }))
-  }
-}})
+  const id = 1;
+
+  return {
+    firebase: {
+      firestore: jest.fn(() => ({
+        collection: jest.fn((properties) => ({
+          doc: jest.fn((id) => ({
+            delete: jest.fn().mockResolvedValue('Deleted'),
+          })),
+        })),
+      })),
+    },
+  };
+});
 
 beforeEach(cleanup);
 
@@ -88,7 +89,7 @@ describe('<PropertyIcons/>', () => {
   });
   ``;
   it('When a user clicks delete button the confirm delete modal is closed', async () => {
-   useRouteMatch.mockReturnValue({ url: '/my-properties' });
+    useRouteMatch.mockReturnValue({ url: '/my-properties' });
 
     const { queryByTestId } = render(
       <MemoryRouter>
@@ -104,16 +105,18 @@ describe('<PropertyIcons/>', () => {
     const trashIconButton = screen.queryByTestId('trash-icon-button');
 
     act(() => {
-    fireEvent.click(trashIconButton, { target: { value: '' } });
+      fireEvent.click(trashIconButton, { target: { value: '' } });
     });
 
     const deleteButton = screen.queryByTestId('delete-button');
 
     act(() => {
-      fireEvent.click(deleteButton, { target: { value: '' } })
-    })
+      fireEvent.click(deleteButton, { target: { value: '' } });
+    });
 
-   await waitForElementToBeRemoved(() => queryByTestId('confirm-delete-modal'))
+    await waitForElementToBeRemoved(() =>
+      queryByTestId('confirm-delete-modal')
+    );
 
     expect(screen.queryByTestId('confirm-delete-modal')).toBeNull();
   });

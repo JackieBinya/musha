@@ -65,9 +65,7 @@ export const PropertyIcons = ({
                   <button
                     type="button"
                     data-testid="delete-button"
-                    onClick={(e) => {
-                      handleDelete(e)
-                    }}
+                    onClick={(e) => handleDelete(e)}
                   >
                     Yes
                   </button>
