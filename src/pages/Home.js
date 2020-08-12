@@ -17,10 +17,10 @@ export const Home = () => {
 
   const fuse = new Fuse(properties, {
     keys: ['location', 'city'],
-    includeScore: true,
   });
 
   const results = fuse.search(query);
+
   const propertiesResults = query
     ? results.map((result) => result.item)
     : properties;
@@ -31,7 +31,7 @@ export const Home = () => {
       <main>
         <div className="main container">
           {propertiesResults.length === 0 ? (
-            <p>Ooops!!!No results found.</p>
+            <p>Ooops!!!No properties found.</p>
           ) : propertiesResults ? (
             propertiesResults.map(
               ({

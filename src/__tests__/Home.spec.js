@@ -1,37 +1,109 @@
 import React from 'react';
-import {
-  render,
-  screen,
-  fireEvent,
-  cleanup,
-  act,
-} from '@testing-library/react';
+import { MemoryRouter, useRouteMatch } from 'react-router-dom';
+import { render, screen, cleanup, act, fireEvent } from '@testing-library/react';
 import { Home } from '../pages/Home';
 import { useProperties } from '../hooks';
-import { properties } from '../fixtures';
+import Fuse from 'fuse.js';
 
-jest.mock('../hooks');
+jest.mock('../hooks', () => ({
+  useProperties: jest.fn(),
+}));
 
-afterEach(cleanup);
+jest.mock('fuse.js', () => jest.fn(() => ({ search : jest.fn(() => [])})))
 
-describe.skip('<Home>', () => {
-  it('Try', async () => {
-    useProperties = mockImplementation(() => Promise.resolve(properties));
+beforeEach(cleanup);
 
-    act((async) => {});
-    const { findByPlaceholderText } = render(<Home />);
-
-    screen.debug();
+describe('<Home/>', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  describe('<Hero/>', () => {
-    it('Search', () => {
-      const { queryByPlaceholderText } = render(<Home />);
-      const searchInput = queryByPlaceholderText('Search by location');
+  it('If properties is equal to null the loader component is rendered', () => {
+    useProperties.mockImplementation(() => ({ properties: null }));
+    const { queryByText } = render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+    expect(screen.queryByText('Loading...')).toBeTruthy();
+  });
 
-      fireEvent.change(searchInput, { target: { value: 'test' } });
+  it('If properties array is empty...', async () => {
+    useProperties.mockImplementation(() => ({ properties: [] }));
 
-      expect(searchInput.value).toBe('test');
-    });
+    const { queryByText } = render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+
+    expect(screen.queryByText('Ooops!!!No properties found.')).toBeTruthy();
+  });
+});
+
+describe('<Home/>', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('If properties exist...', async () => {
+    useRouteMatch.mockReturnValue({ url: '/' });
+    useProperties.mockImplementation(() => ({
+      properties: [
+        {
+          title: 'Cozy room to rent',
+          location: 'Gwabalanda',
+          city: 'Bulawayo',
+          description: 'Spacious room with plenty of storage',
+          mobileNumber: '0786578900',
+          availableTo: 'rent',
+          imageUrls: ['https//:dummy-image.com'],
+          numberOfBedrooms: '1',
+          numberOfBathrooms: 'shared',
+          id: '1',
+        },
+      ],
+    }));
+  
+    const { queryByText } = render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+    expect(queryByText('Gwabalanda')).toBeTruthy();
+    expect(queryByText('Residential sales and rentals for free!')).toBeTruthy();
+  });
+
+  it('Search is able to accept queries', async () => {
+    useRouteMatch.mockReturnValue({ url: '/' });
+    useProperties.mockImplementation(() => ({
+      properties: [
+        {
+          title: 'Cozy room to rent',
+          location: 'Gwabalanda',
+          city: 'Bulawayo',
+          description: 'Spacious room with plenty of storage',
+          mobileNumber: '0786578900',
+          availableTo: 'rent',
+          imageUrls: ['https//:dummy-image.com'],
+          numberOfBedrooms: '1',
+          numberOfBathrooms: 'shared',
+          id: '1',
+        },
+      ],
+    }));
+  
+    const { queryByText, queryByPlaceholderText } = render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+
+    const searchInput = screen.queryByPlaceholderText('Search by location');
+
+    fireEvent.change(searchInput, { target: { value: 'test' } })
+
+    expect(screen.queryByText('Ooops!!!No properties found.')).toBeTruthy();
+
   });
 });
