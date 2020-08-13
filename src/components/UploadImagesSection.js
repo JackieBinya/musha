@@ -19,8 +19,8 @@ export const UploadImagesSection = ({
   const imgInput = useRef(null);
 
   const handleImg = () => {
-   if(imageUrls.length === 3 || isImageLoading) return;
-   imgInput.current.click();  
+    if (imageUrls.length === 3 || isImageLoading) return;
+    imgInput.current.click();
   };
 
   const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
@@ -75,11 +75,10 @@ export const UploadImagesSection = ({
     <section className={`step-wrapper  ${isEditing ? 'hide' : 'show'} `}>
       <h3 className="step-headliner">Upload Images</h3>
       <div className="step-contents">
-        <div className="preview">
+        <div className="preview" data-testid="preview-images-wrapper">
           {previewUrls &&
             previewUrls.map((imgPre, index, array) => (
               <div className="preview-image-wrapper" key={imgPre.id}>
-                
                 <img src={imgPre.path} alt="property" />
                 <div
                   className={`loader-wrapper ${
@@ -109,6 +108,7 @@ export const UploadImagesSection = ({
           <div className="upload-images">
             <div
               role="button"
+              data-testid="upload-action"
               onClick={handleImg}
               onKeyDown={handleImg}
               className={`upload-images-container show`}
@@ -120,6 +120,7 @@ export const UploadImagesSection = ({
           <input
             type="file"
             name="image"
+            data-testid="upload-input"
             onChange={(e) => setImage(e.target.files[0])}
             ref={imgInput}
             style={{ display: 'none' }}
