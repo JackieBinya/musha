@@ -1,11 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { firebase } from '../firebase';
 import { yupResolver } from '@hookform/resolvers';
 
 import { AuthContext } from '../context/auth-context';
-import { UploadImagesSection } from '../components/UploadImagesStep';
+import { UploadImagesSection } from '../components/UploadImagesSection';
 import { FirstSection } from '../components/FirstSection';
 import { LocationSection } from '../components/LocationSection';
 import { PropertyDetailsSection } from '../components/PropertyDetailsSection';
@@ -19,8 +19,6 @@ export const PostPropertyAd = ({ history }) => {
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(PROPERTY_SCHEMA),
   });
-
-  console.log({ errors });
 
   const [imageUrls, setImageUrls] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);

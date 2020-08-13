@@ -14,29 +14,13 @@ export const UploadImagesSection = ({
   const [isImageLoading, setIsImageLoading] = useState(false);
   const [image, setImage] = useState(null);
   const [previewUrls, setPreviewUrls] = useState('');
-  const [isVisible, setIsVisible] = useState(true);
-  const [isBtn1Visible, setBtn1IsVisible] = useState(false);
-  const [isBtn2Visible, setBtn2IsVisible] = useState(false);
   const [error, setError] = useState('');
 
   const imgInput = useRef(null);
-  const img1Input = useRef(null);
-  const img2Input = useRef(null);
 
   const handleImg = () => {
-    imgInput.current.click();
-    setIsVisible(false);
-    setBtn1IsVisible(true);
-  };
-
-  const handleImg1 = () => {
-    img1Input.current.click();
-    setBtn1IsVisible(false);
-    setBtn2IsVisible(true);
-  };
-
-  const handleImg2 = () => {
-    img2Input.current.click();
+   if(imageUrls.length === 3 || isImageLoading) return;
+   imgInput.current.click();  
   };
 
   const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
@@ -84,8 +68,6 @@ export const UploadImagesSection = ({
     if (hasSubmitted) {
       setPreviewUrls([]);
       setImage(null);
-      setIsVisible(true, setBtn1IsVisible(false));
-      setBtn2IsVisible(false);
     }
   }, [hasSubmitted]);
 
@@ -97,6 +79,7 @@ export const UploadImagesSection = ({
           {previewUrls &&
             previewUrls.map((imgPre, index, array) => (
               <div className="preview-image-wrapper" key={imgPre.id}>
+                
                 <img src={imgPre.path} alt="property" />
                 <div
                   className={`loader-wrapper ${
@@ -127,31 +110,8 @@ export const UploadImagesSection = ({
             <div
               role="button"
               onClick={handleImg}
-              className={`upload-images-container ${
-                isVisible ? 'show' : 'hide'
-              }`}
-            >
-              <FontAwesomeIcon icon={faImage} />
-            </div>
-
-            <div
-              role="button"
-              disabled={isImageLoading ? true : false}
-              onClick={handleImg1}
-              className={`upload-images-container ${
-                isBtn1Visible ? 'show' : 'hide'
-              }`}
-            >
-              <FontAwesomeIcon icon={faImage} />
-            </div>
-
-            <div
-              role="button"
-              onClick={handleImg2}
-              className={`upload-images-container ${
-                isBtn2Visible ? 'show' : 'hide'
-              }`}
-              disabled={imageUrls.length === 3 || isImageLoading ? true : false}
+              onKeyDown={handleImg}
+              className={`upload-images-container show`}
             >
               <FontAwesomeIcon icon={faImage} />
             </div>
@@ -162,20 +122,6 @@ export const UploadImagesSection = ({
             name="image"
             onChange={(e) => setImage(e.target.files[0])}
             ref={imgInput}
-            style={{ display: 'none' }}
-          />
-          <input
-            type="file"
-            name="image1"
-            onChange={(e) => setImage(e.target.files[0])}
-            ref={img1Input}
-            style={{ display: 'none' }}
-          />
-          <input
-            type="file"
-            name="image2"
-            onChange={(e) => setImage(e.target.files[0])}
-            ref={img2Input}
             style={{ display: 'none' }}
           />
         </div>

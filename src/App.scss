@@ -483,6 +483,8 @@ $generic-border: 1px solid lightgrey;
   }
 
   &-image-wrapper {
+    height: 6em;
+
     img {
       height: 6em;
       width: 6em;
@@ -492,7 +494,7 @@ $generic-border: 1px solid lightgrey;
     .loader-wrapper {
       position: relative;
       z-index: 1000;
-      top: -50%;
+      top: -62px;
       left: 2em;
     }
   }
@@ -501,8 +503,8 @@ $generic-border: 1px solid lightgrey;
     background-color: rgba(208, 208, 214, 0.5);
     position: relative;
     z-index: 800;
-    top: -100%;
-    height: calc(100% - 2em);
+    top: -134%;
+    height: 6.1em;
     width: calc(100% - 0.3em);
   }
 }
