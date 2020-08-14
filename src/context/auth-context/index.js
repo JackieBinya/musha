@@ -15,10 +15,10 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if(currentUser === null){
+    if (currentUser === null) {
       localStorage.removeItem('currentUser');
     }
-    if(currentUser){
+    if (currentUser) {
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
     }
   }, [currentUser]);
