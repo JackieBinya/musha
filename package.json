@@ -7,12 +7,13 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@hookform/resolvers": "0.0.6",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
+    "@testing-library/react": "^10.4.8",
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.15.5",
     "firebase-admin": "^8.13.0",
     "fuse.js": "^6.4.1",
+    "history": "^5.0.0",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-context-devtool": "^2.0.0",
@@ -26,9 +27,30 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "prettier": "npx prettier --write ."
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js",
+      "!src/firebase.prod.js",
+      "!src/hooks/*.js",
+      "!src/context/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": [
+      "html",
+      "text"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,6 +68,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.3",
     "eslint-config-prettier": "^6.11.0",
     "prettier": "2.0.5"
   }

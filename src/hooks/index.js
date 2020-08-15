@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { firebase } from '../firebase';
 
 export const useProperties = () => {
-  const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState(null);
 
   useEffect(() => {
     firebase

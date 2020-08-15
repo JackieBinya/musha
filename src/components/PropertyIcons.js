@@ -28,7 +28,6 @@ export const PropertyIcons = ({
       .doc(id)
       .delete()
       .then(() => {
-        console.log(`Property with id ${id} is successfully deleted.`);
         setShowModal(false);
       })
       .catch((error) => console.log(error));
@@ -53,35 +52,51 @@ export const PropertyIcons = ({
         </div>
       </div>
 
-      <div className={`${url === '/my-properties' ? 'edit-icons' : 'hide'}`}>
-        <div>
-          <div
-            className={`confirm-delete-modal ${showModal ? 'show' : 'hide'}`}
-          >
-            <span>Are you sure you want to delete?</span>
-            <div className="wrapper">
-              <button type="button" onClick={(e) => handleDelete(e)}>
-                Yes
+      {url === '/my-properties' ? (
+        <div className="edit-icons" data-testid="edit-icons">
+          <div>
+            {showModal ? (
+              <div
+                className="confirm-delete-modal"
+                data-testid="confirm-delete-modal"
+              >
+                <span>Are you sure you want to delete?</span>
+                <div className="wrapper">
+                  <button
+                    type="button"
+                    data-testid="delete-button"
+                    onClick={(e) => handleDelete(e)}
+                  >
+                    Yes
+                  </button>
+                  <button
+                    type="button"
+                    data-testid="cancel-button"
+                    onClick={() => setShowModal(false)}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+                data-testid="trash-icon-button"
+                type="button"
+                onClick={() => setShowModal(true)}
+              >
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  className="property-icons-svg"
+                />
               </button>
-              <button type="button" onClick={() => setShowModal(false)}>
-                Cancel
-              </button>
-            </div>
+            )}
           </div>
 
-          <button
-            className={` ${showModal ? 'hide' : 'show'}`}
-            type="button"
-            onClick={() => setShowModal(true)}
-          >
-            <FontAwesomeIcon icon={faTrash} className="property-icons-svg" />
-          </button>
+          <Link to={`${path}/edit/${id}`} data-testid="edit-link">
+            <FontAwesomeIcon icon={faPen} className="property-icons-svg" />
+          </Link>
         </div>
-
-        <Link to={`${path}/edit/${id}`}>
-          <FontAwesomeIcon icon={faPen} className="property-icons-svg" />
-        </Link>
-      </div>
+      ) : null}
     </section>
   );
 };

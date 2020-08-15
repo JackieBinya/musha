@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { useRouteMatch } from 'react-router-dom';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBath, faBed, faMapMarker } from '@fortawesome/free-solid-svg-icons';
-import { firebase } from '../firebase';
 
 export const PropertyIconsHome = ({
   location,
