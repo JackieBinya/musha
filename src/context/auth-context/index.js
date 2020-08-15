@@ -24,7 +24,6 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ currentUser }}>
-      <ContextDevTool context={AuthContext} id="0" displayName="AuthContext" />
       {children}
     </AuthContext.Provider>
   );

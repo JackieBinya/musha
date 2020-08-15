@@ -10,6 +10,7 @@ const NavBar = ({ history }) => {
   const { currentUser } = useContext(AuthContext);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
+  //Given that mobile menu is open, when a user clicks a menu item and is redirected to a new page the code below closes the menu
   useEffect(() => {
     if (isMenuVisible) {
       setIsMenuVisible(false);
@@ -34,6 +35,7 @@ const NavBar = ({ history }) => {
           <button
             type="button"
             className={`menu-button ${!isMenuVisible ? 'show' : 'hide'}`}
+            data-testid="open-menu-action"
             onClick={() => setIsMenuVisible(true)}
           >
             <FontAwesomeIcon icon={faBars} />
@@ -42,6 +44,7 @@ const NavBar = ({ history }) => {
           <button
             type="button"
             className={`menu-button ${!isMenuVisible ? 'hide' : 'show'}`}
+            data-testid="close-menu-action"
             onClick={() => setIsMenuVisible(false)}
           >
             <FontAwesomeIcon icon={faTimes} />
@@ -82,6 +85,7 @@ const NavBar = ({ history }) => {
           <li>
             <button
               onClick={handleLogOut}
+              data-testid="logout-action"
               className={`logout-button ${currentUser ? 'show' : 'hide'}`}
               type="button"
             >
@@ -91,7 +95,10 @@ const NavBar = ({ history }) => {
         </ul>
       </div>
 
-      <ul className={`menu-list__mobile ${isMenuVisible ? 'show' : 'hide'}`}>
+      <ul
+        data-testid="mobile-menu-list"
+        className={`menu-list__mobile ${isMenuVisible ? 'show' : 'hide'}`}
+      >
         <li>
           <Link
             to="/my-properties/post"
