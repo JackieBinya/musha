@@ -5,7 +5,7 @@ export const EmailInput = ({ email, setEmail }) => (
     <label htmlFor="email">Email:</label>
     <input
       type="email"
-      name="email"
+      id="email"
       value={email}
       onChange={(e) => setEmail(e.target.value)}
     />
