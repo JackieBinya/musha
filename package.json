@@ -35,9 +35,11 @@
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/index.js",
-      "!src/firebase.prod.js",
+      "!src/firebase.js",
+      "!src/jest.config.js",
+      "!src/serviceWorker.js",
       "!src/hooks/*.js",
-      "!src/context/*.js"
+      "!src/context/auth-context/*.js"
     ],
     "coverageThreshold": {
       "global": {
