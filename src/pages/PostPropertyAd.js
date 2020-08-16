@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useRouteMatch } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { firebase } from '../firebase';
 import { yupResolver } from '@hookform/resolvers';

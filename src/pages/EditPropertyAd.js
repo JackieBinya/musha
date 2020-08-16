@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { useProperty } from '../hooks';
-import { UploadImagesSection } from '../components/UploadImagesSection';
 import { FirstSection } from '../components/FirstSection';
 import { LocationSection } from '../components/LocationSection';
 import { Loader } from '../components/Loader';

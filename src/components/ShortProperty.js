@@ -21,7 +21,7 @@ export const ShortProperty = ({
         <div className="short-property-image-container">
           <img
             src={imageUrls[0].url}
-            alt="Main picture of the property"
+            alt="property"
             className="short-property-image"
           />
           <div className="icon-container">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SectionWrapper } from '../components/SectionWrapper';
 
 export const LocationSection = ({

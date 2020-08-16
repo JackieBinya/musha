@@ -12,11 +12,12 @@ export const PasswordInput = ({ setPassword, password }) => {
       <label htmlFor="password">Password:</label>
       <input
         type={showPassword ? 'text' : 'password'}
-        name="password"
+        id="password"
         className="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+
       <i onClick={() => setShowPassword(!showPassword)}>{eye}</i>
     </div>
   );
