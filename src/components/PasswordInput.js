@@ -18,7 +18,15 @@ export const PasswordInput = ({ setPassword, password }) => {
         onChange={(e) => setPassword(e.target.value)}
       />
 
-      <i onClick={() => setShowPassword(!showPassword)}>{eye}</i>
+      <i
+        data-testid="svg-icon"
+        onMouseEnter={() => setShowPassword(true)}
+        onMouseLeave={() => setShowPassword(false)}
+        onTouchStart={() => setShowPassword(true)}
+        onTouchEnd={() => setShowPassword(false)}
+      >
+        {eye}
+      </i>
     </div>
   );
 };

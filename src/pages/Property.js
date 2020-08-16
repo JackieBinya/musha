@@ -44,7 +44,7 @@ export const Property = () => {
           <div className="show-property-gallery">
             <div>
               <img
-              alt="property"
+                alt="property"
                 src={property.imageUrls ? property.imageUrls[index].url : ''}
               />
               <button
