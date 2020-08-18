@@ -38,6 +38,7 @@ export const Login = ({ history }) => {
       }
     }
   };
+
   return (
     <div className="container">
       <div className="form-container">
@@ -51,7 +52,9 @@ export const Login = ({ history }) => {
         <form className="form-primary auth-form" onSubmit={handleLogin}>
           <EmailInput email={email} setEmail={setEmail} />
           <PasswordInput setPassword={setPassword} password={password} />
-          <button type="submit">Continue</button>
+          <button data-testid="submit-action" type="submit">
+            Continue
+          </button>
         </form>
         <Link to="/password-reset">Have you forgotten your password?</Link>
       </div>
