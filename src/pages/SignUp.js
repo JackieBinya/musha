@@ -20,7 +20,6 @@ export const SignUp = ({ history }) => {
       setTimeout(() => history.push('/my-properties'), 3000);
     } catch (error) {
       setIsAuthenticated(false);
-
       if (error.code === 'auth/email-already-in-use') {
         setMessage('Email is already taken!');
       }
@@ -48,7 +47,9 @@ export const SignUp = ({ history }) => {
         <form onSubmit={handleSubmit} className="form-primary auth-form">
           <EmailInput email={email} setEmail={setEmail} />
           <PasswordInput setPassword={setPassword} password={password} />
-          <button type="submit">Create your account</button>
+          <button type="submit" data-testid="submit-action">
+            Create your account
+          </button>
         </form>
       </div>
     </div>
