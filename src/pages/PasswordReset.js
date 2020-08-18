@@ -46,7 +46,7 @@ export const PasswordReset = ({ history }) => {
         <h1>Password Reset</h1>
         <form onSubmit={handleSubmit} className="form-primary">
           <EmailInput email={email} setEmail={setEmail} />
-          <button type="submit">Reset my password</button>
+          <button data-testid="submit-action" type="submit">Reset my password</button>
         </form>
       </div>
     </div>
