@@ -3,17 +3,11 @@ import {
   render,
   cleanup,
   fireEvent,
-  screen,
   act,
   waitFor,
-  queryByText,
 } from '@testing-library/react';
 import { SignUp } from '../pages/SignUp';
-import { toHaveClass } from '@testing-library/jest-dom/matchers';
-import { PasswordInput } from '../components/PasswordInput';
 import { signUpHelper } from '../helpers';
-
-expect.extend({ toHaveClass });
 
 jest.mock('../helpers', () => {
   return {
@@ -77,7 +71,7 @@ describe('<SignUp/>', () => {
     });
   });
 
-  describe('Form can capture errors', () => {
+  describe('Form can capture submission errors', () => {
     afterEach(() => {
       jest.clearAllMocks();
     });
