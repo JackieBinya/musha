@@ -37,15 +37,19 @@ describe('<PasswordReset/>', () => {
   });
 
   it('Component renders successfully', () => {
-    const { queryByText, queryByLabelText, queryByTestId } = render(<PasswordReset/>);
-   
-    expect(queryByText('Password Reset')).toBeTruthy()
+    const { queryByText, queryByLabelText, queryByTestId } = render(
+      <PasswordReset />
+    );
+
+    expect(queryByText('Password Reset')).toBeTruthy();
     expect(queryByLabelText('Email:', { selector: 'input' })).toBeTruthy();
     expect(queryByTestId('submit-action')).toBeTruthy();
   });
 
   it('Successful form submission', async () => {
-    const { queryByText, queryByLabelText, queryByTestId, debug } = render(<PasswordReset/>);
+    const { queryByText, queryByLabelText, queryByTestId, debug } = render(
+      <PasswordReset />
+    );
 
     const emailInput = queryByLabelText('Email:', { selector: 'input' });
     const submitAction = queryByTestId('submit-action');
@@ -58,15 +62,19 @@ describe('<PasswordReset/>', () => {
 
     await waitFor(() =>
       expect(
-        queryByText('Check your inbox for further instructions on how to reset your password!')
+        queryByText(
+          'Check your inbox for further instructions on how to reset your password!'
+        )
       ).toBeTruthy()
     );
-  })
+  });
 });
 
 describe('Form captures submission errors', () => {
-  it('Invalid email', async() => {
-    const { queryByText, queryByLabelText, queryByTestId, debug } = render(<PasswordReset/>);
+  it('Invalid email', async () => {
+    const { queryByText, queryByLabelText, queryByTestId, debug } = render(
+      <PasswordReset />
+    );
 
     const emailInput = queryByLabelText('Email:', { selector: 'input' });
     const submitAction = queryByTestId('submit-action');
@@ -77,15 +85,13 @@ describe('Form captures submission errors', () => {
 
     fireEvent.submit(submitAction);
 
-    await waitFor(() =>
-      expect(
-        queryByText('Email invalid')
-      ).toBeTruthy()
-    );
-  })
+    await waitFor(() => expect(queryByText('Email invalid')).toBeTruthy());
+  });
 
-  it('User not found', async() => {
-    const { queryByText, queryByLabelText, queryByTestId, debug } = render(<PasswordReset/>);
+  it('User not found', async () => {
+    const { queryByText, queryByLabelText, queryByTestId, debug } = render(
+      <PasswordReset />
+    );
 
     const emailInput = queryByLabelText('Email:', { selector: 'input' });
     const submitAction = queryByTestId('submit-action');
@@ -98,8 +104,10 @@ describe('Form captures submission errors', () => {
 
     await waitFor(() =>
       expect(
-        queryByText('An account associated with the provided email does not exist!')
+        queryByText(
+          'An account associated with the provided email does not exist!'
+        )
       ).toBeTruthy()
     );
-  })
-})
+  });
+});

@@ -14,6 +14,7 @@ export const LocationSection = ({
         <input
           type="text"
           name="city"
+          id="city"
           defaultValue={defaultCity ? defaultCity : ''}
           ref={register}
         />
@@ -25,6 +26,7 @@ export const LocationSection = ({
         <input
           type="text"
           name="location"
+          id="location"
           defaultValue={defaultLocation ? defaultLocation : ''}
           ref={register}
         />

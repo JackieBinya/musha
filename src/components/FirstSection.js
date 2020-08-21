@@ -45,6 +45,7 @@ export const FirstSection = ({
         <label htmlFor="title">*Ad title:</label>
         <input
           type="text"
+          id="title"
           name="title"
           defaultValue={defaultTitle}
           ref={register}
@@ -53,9 +54,10 @@ export const FirstSection = ({
       </div>
 
       <div>
-        <label htmlFor="mobileNumber">*Your mobile Number:</label>
+        <label htmlFor="mobileNumber">*Your mobile number:</label>
         <input
           type="text"
+          id="mobileNumber"
           name="mobileNumber"
           defaultValue={defaultMobileNumber}
           ref={register}
