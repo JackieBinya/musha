@@ -168,7 +168,11 @@ export const EditPropertyAds = ({ history }) => {
           <p
             className={isModalVisible ? 'show' : 'hide'}
           >{`Property ID:${propertyId} is successfully updated`}</p>
-          <button data-testid="go-to-my-properties-action" type="button" onClick={() => history.goBack()}>
+          <button
+            data-testid="go-to-my-properties-action"
+            type="button"
+            onClick={() => history.goBack()}
+          >
             {' '}
             Go to my properties
           </button>
@@ -178,8 +182,15 @@ export const EditPropertyAds = ({ history }) => {
         {!property ? (
           <Loader />
         ) : (
-          <div data-testid="edit-form" className={isModalVisible ? 'hide' : 'show'}>
-            <button data-testid="back-button" type="button" onClick={() => history.goBack()}>
+          <div
+            data-testid="edit-form"
+            className={isModalVisible ? 'hide' : 'show'}
+          >
+            <button
+              data-testid="back-button"
+              type="button"
+              onClick={() => history.goBack()}
+            >
               <FontAwesomeIcon
                 icon={faChevronLeft}
                 className="property-icons-svg"
@@ -189,10 +200,7 @@ export const EditPropertyAds = ({ history }) => {
 
             <h1>Edit property ad</h1>
 
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="form-primary"
-            >
+            <form onSubmit={handleSubmit(onSubmit)} className="form-primary">
               <FirstSection
                 defaultMobileNumber={property.mobileNumber}
                 defaultTitle={property.title}
