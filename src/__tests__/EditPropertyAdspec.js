@@ -127,24 +127,7 @@ describe('The user can update a property ad', () => {
       <EditPropertyAds />
     );
 
-    const availableForRent = queryByLabelText('Rent');
-    const titleInput = queryByLabelText('*Ad title:', { selector: 'input' });
-    const mobileNumberInput = queryByLabelText('*Your mobile number:', {
-      selector: 'input',
-    });
     const cityInput = queryByLabelText('*City:', { selector: 'input' });
-    const locationInput = queryByLabelText('*Location/Suburb:', {
-      selector: 'input',
-    });
-    const selectBedrooms = queryByLabelText(
-      'Choose the number of bedrooms in your property:'
-    );
-    const selectBathrooms = queryByLabelText(
-      'Choose the number of bathrooms in your property:'
-    );
-    const description = queryByLabelText('*Description:', {
-      selector: 'textarea',
-    });
 
     const submitAction = queryByTestId('submit-action');
 
@@ -166,25 +149,10 @@ describe('The user can update a property ad', () => {
       <EditPropertyAds />
     );
 
-    const availableForRent = queryByLabelText('Rent');
-    const titleInput = queryByLabelText('*Ad title:', { selector: 'input' });
-    const mobileNumberInput = queryByLabelText('*Your mobile number:', {
-      selector: 'input',
-    });
-    const cityInput = queryByLabelText('*City:', { selector: 'input' });
     const locationInput = queryByLabelText('*Location/Suburb:', {
       selector: 'input',
     });
-    const selectBedrooms = queryByLabelText(
-      'Choose the number of bedrooms in your property:'
-    );
-    const selectBathrooms = queryByLabelText(
-      'Choose the number of bathrooms in your property:'
-    );
-    const description = queryByLabelText('*Description:', {
-      selector: 'textarea',
-    });
-
+    
     const submitAction = queryByTestId('submit-action');
 
     act(() => {
@@ -204,25 +172,10 @@ describe('The user can update a property ad', () => {
       <EditPropertyAds />
     );
 
-    const availableForRent = queryByLabelText('Rent');
-    const titleInput = queryByLabelText('*Ad title:', { selector: 'input' });
     const mobileNumberInput = queryByLabelText('*Your mobile number:', {
       selector: 'input',
     });
-    const cityInput = queryByLabelText('*City:', { selector: 'input' });
-    const locationInput = queryByLabelText('*Location/Suburb:', {
-      selector: 'input',
-    });
-    const selectBedrooms = queryByLabelText(
-      'Choose the number of bedrooms in your property:'
-    );
-    const selectBathrooms = queryByLabelText(
-      'Choose the number of bathrooms in your property:'
-    );
-    const description = queryByLabelText('*Description:', {
-      selector: 'textarea',
-    });
-
+   
     const submitAction = queryByTestId('submit-action');
 
     act(() => {
@@ -243,23 +196,6 @@ describe('The user can update a property ad', () => {
     );
 
     const availableForSale = queryByLabelText('Sale');
-    const titleInput = queryByLabelText('*Ad title:', { selector: 'input' });
-    const mobileNumberInput = queryByLabelText('*Your mobile number:', {
-      selector: 'input',
-    });
-    const cityInput = queryByLabelText('*City:', { selector: 'input' });
-    const locationInput = queryByLabelText('*Location/Suburb:', {
-      selector: 'input',
-    });
-    const selectBedrooms = queryByLabelText(
-      'Choose the number of bedrooms in your property:'
-    );
-    const selectBathrooms = queryByLabelText(
-      'Choose the number of bathrooms in your property:'
-    );
-    const description = queryByLabelText('*Description:', {
-      selector: 'textarea',
-    });
 
     const submitAction = queryByTestId('submit-action');
 
@@ -275,30 +211,15 @@ describe('The user can update a property ad', () => {
     });
   });
 
-  it('User can update the title', async () => {
+  it('User can update the mobile number', async () => {
     const { queryByText, queryByLabelText, queryByTestId } = render(
       <EditPropertyAds />
     );
 
-    const availableForRent = queryByLabelText('Rent');
-    const titleInput = queryByLabelText('*Ad title:', { selector: 'input' });
     const mobileNumberInput = queryByLabelText('*Your mobile number:', {
       selector: 'input',
     });
-    const cityInput = queryByLabelText('*City:', { selector: 'input' });
-    const locationInput = queryByLabelText('*Location/Suburb:', {
-      selector: 'input',
-    });
-    const selectBedrooms = queryByLabelText(
-      'Choose the number of bedrooms in your property:'
-    );
-    const selectBathrooms = queryByLabelText(
-      'Choose the number of bathrooms in your property:'
-    );
-    const description = queryByLabelText('*Description:', {
-      selector: 'textarea',
-    });
-
+    
     const submitAction = queryByTestId('submit-action');
 
     act(() => {
@@ -318,25 +239,10 @@ describe('The user can update a property ad', () => {
       <EditPropertyAds />
     );
 
-    const availableForRent = queryByLabelText('Rent');
-    const titleInput = queryByLabelText('*Ad title:', { selector: 'input' });
-    const mobileNumberInput = queryByLabelText('*Your mobile number:', {
-      selector: 'input',
-    });
-    const cityInput = queryByLabelText('*City:', { selector: 'input' });
-    const locationInput = queryByLabelText('*Location/Suburb:', {
-      selector: 'input',
-    });
-    const selectBedrooms = queryByLabelText(
-      'Choose the number of bedrooms in your property:'
-    );
     const selectBathrooms = queryByLabelText(
       'Choose the number of bathrooms in your property:'
     );
-    const description = queryByLabelText('*Description:', {
-      selector: 'textarea',
-    });
-
+    
     const submitAction = queryByTestId('submit-action');
 
     act(() => {
@@ -351,12 +257,12 @@ describe('The user can update a property ad', () => {
     });
   });
 
-  it('User can update the number of bedrooms and the go-to-my-properties-action is captured.', async () => {
+  it('User can update the number of bedrooms and the go-to-my-properties-action can be captured.', async () => {
     const history = {
         goBack : jest.fn(),
     };
 
-    const { queryByText, queryByLabelText, queryByTestId, debug } = render(
+    const { queryByText, queryByLabelText, queryByTestId } = render(
       <EditPropertyAds history={history} />
     );
 
