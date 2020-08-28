@@ -12,5 +12,5 @@ export const PROPERTY_SCHEMA = yup.object().shape({
   description: yup
     .string()
     .max(700, 'The description is too long!')
-    .required('The location field is required!'),
+    .required('The property description is required!'),
 });

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SectionWrapper } from '../components/SectionWrapper';
 
 export const LocationSection = ({
@@ -14,6 +14,7 @@ export const LocationSection = ({
         <input
           type="text"
           name="city"
+          id="city"
           defaultValue={defaultCity ? defaultCity : ''}
           ref={register}
         />
@@ -25,6 +26,7 @@ export const LocationSection = ({
         <input
           type="text"
           name="location"
+          id="location"
           defaultValue={defaultLocation ? defaultLocation : ''}
           ref={register}
         />

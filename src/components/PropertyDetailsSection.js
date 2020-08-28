@@ -50,6 +50,7 @@ export const PropertyDetailsSection = ({
         <label htmlFor="description">*Description:</label>
         <textarea
           name="description"
+          id="description"
           defaultValue={defaultDescription ? defaultDescription : ''}
           ref={register}
           placeholder="Type your description here..."

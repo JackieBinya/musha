@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PostPropertyAd/> Component is successfully rendered 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="form-modal-container hide"
+      data-testid="alert-message"
+    >
+      <p>
+        Congrats! You have successfully created a property ad.
+      </p>
+      <button
+        type="button"
+      >
+        Go to my properties
+      </button>
+    </div>
+    <div
+      class="show"
+    >
+      <h1>
+        Create a property ad
+      </h1>
+      <h2>
+        Fill in the form below as accurately as possible.
+      </h2>
+      <div
+        class="property-form-container"
+      >
+        <form
+          class="form-primary"
+        >
+          <section
+            class="step-wrapper"
+          >
+            <h3
+              class="step-headliner"
+            >
+              Miscellaneous Details
+            </h3>
+            <div
+              class="step-contents"
+            >
+              <p>
+                *The property is available for :
+              </p>
+              <div
+                class="radio-wrapper"
+              >
+                <div>
+                  <label>
+                    <input
+                      name="availableTo"
+                      type="radio"
+                      value="rent"
+                    />
+                    Rent
+                  </label>
+                </div>
+                <div>
+                  <label>
+                    <input
+                      name="availableTo"
+                      type="radio"
+                      value="sale"
+                    />
+                    Sale
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label
+                  for="title"
+                >
+                  *Ad title:
+                </label>
+                <input
+                  id="title"
+                  name="title"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div>
+                <label
+                  for="mobileNumber"
+                >
+                  *Your mobile number:
+                </label>
+                <input
+                  id="mobileNumber"
+                  name="mobileNumber"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </section>
+          <section
+            class="step-wrapper"
+          >
+            <h3
+              class="step-headliner"
+            >
+              Location
+            </h3>
+            <div
+              class="step-contents"
+            >
+              <div>
+                <label
+                  for="city"
+                >
+                  *City:
+                </label>
+                <input
+                  id="city"
+                  name="city"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div>
+                <label
+                  for="location"
+                >
+                  *Location/Suburb:
+                </label>
+                <input
+                  id="location"
+                  name="location"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </section>
+          <section
+            class="step-wrapper  show "
+          >
+            <h3
+              class="step-headliner"
+            >
+              Upload Images
+            </h3>
+            <div
+              class="step-contents"
+            >
+              <div
+                class="preview"
+                data-testid="preview-images-wrapper"
+              />
+              <div>
+                <div
+                  class="upload-images"
+                >
+                  <div
+                    class="upload-images-container show"
+                    data-testid="upload-action"
+                    role="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="svg-inline--fa fa-image fa-w-16 "
+                      data-icon="image"
+                      data-prefix="fas"
+                      focusable="false"
+                      role="img"
+                      viewBox="0 0 512 512"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <input
+                  data-testid="upload-input"
+                  name="image"
+                  style="display: none;"
+                  type="file"
+                />
+              </div>
+              <p>
+                Upload up to 3 clear images of your property.
+              </p>
+            </div>
+          </section>
+          <section
+            class="step-wrapper"
+          >
+            <h3
+              class="step-headliner"
+            >
+              Property Details
+            </h3>
+            <div
+              class="step-contents"
+            >
+              <div
+                class="step-details-wrapper"
+              >
+                <label>
+                  Choose the number of bedrooms in your property:
+                  <select
+                    name="numberOfBedrooms"
+                  >
+                    <option
+                      value="studio"
+                    >
+                      Studio
+                    </option>
+                    <option
+                      value="1"
+                    >
+                      1 bedroom
+                    </option>
+                    <option
+                      value="2"
+                    >
+                      2 bedrooms
+                    </option>
+                    <option
+                      value="3"
+                    >
+                      3+ bedrooms
+                    </option>
+                  </select>
+                </label>
+              </div>
+              <div
+                class="step-details-wrapper"
+              >
+                <label>
+                  Choose the number of bathrooms in your property:
+                  <select
+                    name="numberOfBathrooms"
+                  >
+                    <option
+                      value="shared"
+                    >
+                      shared bathroom
+                    </option>
+                    <option
+                      value="1"
+                    >
+                      1 bathroom
+                    </option>
+                    <option
+                      value="2"
+                    >
+                      2 bathrooms
+                    </option>
+                    <option
+                      value="3"
+                    >
+                      3+ bathrooms
+                    </option>
+                  </select>
+                </label>
+              </div>
+              <div
+                class="step-details-wrapper"
+              >
+                <label
+                  for="description"
+                >
+                  *Description:
+                </label>
+                <textarea
+                  id="description"
+                  name="description"
+                  placeholder="Type your description here..."
+                />
+              </div>
+            </div>
+          </section>
+          <button
+            data-testid="submit-action"
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

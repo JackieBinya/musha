@@ -1,8 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import ReadMoreReact from 'read-more-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { usePropertiesByUserID } from '../hooks';
 import { AuthContext } from '../context/auth-context';
 import { Loader } from '../components/Loader';
@@ -19,8 +17,6 @@ export const Properties = ({ history }) => {
   const { path } = useRouteMatch();
   const { currentUser } = useContext(AuthContext);
   const { userProperties } = usePropertiesByUserID(currentUser.uid);
-
-  const [showFullDescription, setShowFullDescription] = useState(false);
 
   return (
     <div className="container" style={{ marginBottom: '6em' }}>

@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useRouteMatch } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { firebase } from '../firebase';
 import { yupResolver } from '@hookform/resolvers';
@@ -61,7 +60,10 @@ export const PostPropertyAd = ({ history }) => {
 
   return (
     <div className="container">
-      <div className={`form-modal-container ${hasSubmitted ? 'show' : 'hide'}`}>
+      <div
+        data-testid="alert-message"
+        className={`form-modal-container ${hasSubmitted ? 'show' : 'hide'}`}
+      >
         <p>Congrats! You have successfully created a property ad.</p>
         <button type="button" onClick={() => history.goBack()}>
           Go to my properties
@@ -87,7 +89,9 @@ export const PostPropertyAd = ({ history }) => {
 
             <PropertyDetailsSection register={register} errors={errors} />
 
-            <button type="submit">Submit</button>
+            <button data-testid="submit-action" type="submit">
+              Submit
+            </button>
           </form>
         </div>
       </div>

@@ -393,6 +393,10 @@ $generic-border: 1px solid lightgrey;
     position: relative;
     margin-bottom: 14px;
   }
+
+  input[type='password'] {
+    outline: none;
+  }
 }
 
 .alert-container {

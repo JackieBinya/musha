@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { firebase } from '../firebase';
 import { EmailInput } from '../components/EmailInput';
 import { AlertMessage } from '../components/AlertMessage';
@@ -46,7 +46,9 @@ export const PasswordReset = ({ history }) => {
         <h1>Password Reset</h1>
         <form onSubmit={handleSubmit} className="form-primary">
           <EmailInput email={email} setEmail={setEmail} />
-          <button type="submit">Reset my password</button>
+          <button data-testid="submit-action" type="submit">
+            Reset my password
+          </button>
         </form>
       </div>
     </div>

@@ -3,15 +3,7 @@ import { firebase } from '../firebase';
 import { Router, useLocation, MemoryRouter } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import NavBar from '../components/NavBar';
-import {
-  render,
-  screen,
-  cleanup,
-  act,
-  fireEvent,
-  waitFor,
-} from '@testing-library/react';
-import { AuthContext } from '../context/auth-context';
+import { render, cleanup, fireEvent, waitFor } from '@testing-library/react';
 import { toHaveClass } from '@testing-library/jest-dom/matchers';
 
 expect.extend({ toHaveClass });

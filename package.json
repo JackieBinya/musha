@@ -39,7 +39,8 @@
       "!src/jest.config.js",
       "!src/serviceWorker.js",
       "!src/hooks/*.js",
-      "!src/context/auth-context/*.js"
+      "!src/context/auth-context/*.js",
+      "!src/components/PrivateRoute.js"
     ],
     "coverageThreshold": {
       "global": {
