@@ -126,8 +126,6 @@ export const EditPropertyAds = ({ history }) => {
         .then(() => setIsNumberOfBathroomsUpdated(true))
         .catch((error) => console.log(error));
     }
-
-    e.target.reset();
   };
 
   useEffect(() => {
@@ -170,7 +168,7 @@ export const EditPropertyAds = ({ history }) => {
           <p
             className={isModalVisible ? 'show' : 'hide'}
           >{`Property ID:${propertyId} is successfully updated`}</p>
-          <button type="button" onClick={() => history.goBack()}>
+          <button data-testid="go-to-my-properties-action" type="button" onClick={() => history.goBack()}>
             {' '}
             Go to my properties
           </button>
@@ -180,8 +178,8 @@ export const EditPropertyAds = ({ history }) => {
         {!property ? (
           <Loader />
         ) : (
-          <div>
-            <button type="button" onClick={() => history.goBack()}>
+          <div data-testid="edit-form" className={isModalVisible ? 'hide' : 'show'}>
+            <button data-testid="back-button" type="button" onClick={() => history.goBack()}>
               <FontAwesomeIcon
                 icon={faChevronLeft}
                 className="property-icons-svg"
@@ -193,7 +191,7 @@ export const EditPropertyAds = ({ history }) => {
 
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className={`form-primary ${isModalVisible ? 'hide' : 'show'}`}
+              className="form-primary"
             >
               <FirstSection
                 defaultMobileNumber={property.mobileNumber}
@@ -223,7 +221,9 @@ export const EditPropertyAds = ({ history }) => {
                 errors={errors}
               />
 
-              <button type="submit">Save</button>
+              <button data-testid="submit-action" type="submit">
+                Save
+              </button>
             </form>
           </div>
         )}
