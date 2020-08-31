@@ -68,7 +68,7 @@ describe('<EditPropertyAd', () => {
       },
     });
 
-    const { asFragment } = render(<EditPropertyAds/>);
+    const { asFragment } = render(<EditPropertyAds />);
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -88,11 +88,11 @@ describe('<EditPropertyAd', () => {
       },
     });
 
-   const history= {
-        goBack : jest.fn(),
-    }
+    const history = {
+      goBack: jest.fn(),
+    };
 
-    const { queryByTestId } = render(<EditPropertyAds history={history}/>);
+    const { queryByTestId } = render(<EditPropertyAds history={history} />);
 
     const backButton = queryByTestId('back-button');
 
@@ -100,7 +100,6 @@ describe('<EditPropertyAd', () => {
 
     expect(history.goBack).toBeCalledTimes(1);
   });
-
 });
 
 describe('The user can update a property ad', () => {
@@ -132,17 +131,16 @@ describe('The user can update a property ad', () => {
     const submitAction = queryByTestId('submit-action');
 
     act(() => {
-        fireEvent.change(cityInput, { target: { value: 'Updated City' } });
+      fireEvent.change(cityInput, { target: { value: 'Updated City' } });
     });
 
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-        expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
-        expect(queryByTestId('edit-form')).toHaveClass('hide')
+      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
   });
-
 
   it('User can update the location', async () => {
     const { queryByText, queryByLabelText, queryByTestId } = render(
@@ -152,18 +150,20 @@ describe('The user can update a property ad', () => {
     const locationInput = queryByLabelText('*Location/Suburb:', {
       selector: 'input',
     });
-    
+
     const submitAction = queryByTestId('submit-action');
 
     act(() => {
-        fireEvent.change(locationInput, { target: { value: 'Updated Location' } });
+      fireEvent.change(locationInput, {
+        target: { value: 'Updated Location' },
+      });
     });
 
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-        expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
-        expect(queryByTestId('edit-form')).toHaveClass('hide')
+      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
   });
 
@@ -175,18 +175,18 @@ describe('The user can update a property ad', () => {
     const mobileNumberInput = queryByLabelText('*Your mobile number:', {
       selector: 'input',
     });
-   
+
     const submitAction = queryByTestId('submit-action');
 
     act(() => {
-        fireEvent.change(mobileNumberInput, { target: { value: '000111' } });
+      fireEvent.change(mobileNumberInput, { target: { value: '000111' } });
     });
 
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-        expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
-        expect(queryByTestId('edit-form')).toHaveClass('hide')
+      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
   });
 
@@ -200,14 +200,14 @@ describe('The user can update a property ad', () => {
     const submitAction = queryByTestId('submit-action');
 
     act(() => {
-        fireEvent.click(availableForSale);
+      fireEvent.click(availableForSale);
     });
 
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-        expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
-        expect(queryByTestId('edit-form')).toHaveClass('hide')
+      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
   });
 
@@ -219,18 +219,20 @@ describe('The user can update a property ad', () => {
     const mobileNumberInput = queryByLabelText('*Your mobile number:', {
       selector: 'input',
     });
-    
+
     const submitAction = queryByTestId('submit-action');
 
     act(() => {
-        fireEvent.change(mobileNumberInput, { target: { value: 'Updated Title' } });
+      fireEvent.change(mobileNumberInput, {
+        target: { value: 'Updated Title' },
+      });
     });
 
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-        expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
-        expect(queryByTestId('edit-form')).toHaveClass('hide')
+      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
   });
 
@@ -242,24 +244,24 @@ describe('The user can update a property ad', () => {
     const selectBathrooms = queryByLabelText(
       'Choose the number of bathrooms in your property:'
     );
-    
+
     const submitAction = queryByTestId('submit-action');
 
     act(() => {
-        fireEvent.change(selectBathrooms, { target: { value: 'studio' } });
+      fireEvent.change(selectBathrooms, { target: { value: 'studio' } });
     });
 
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-        expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
-        expect(queryByTestId('edit-form')).toHaveClass('hide')
+      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
   });
 
   it('User can update the number of bedrooms and the go-to-my-properties-action can be captured.', async () => {
     const history = {
-        goBack : jest.fn(),
+      goBack: jest.fn(),
     };
 
     const { queryByText, queryByLabelText, queryByTestId } = render(
@@ -269,24 +271,24 @@ describe('The user can update a property ad', () => {
     const selectBedrooms = queryByLabelText(
       'Choose the number of bedrooms in your property:'
     );
-   
+
     const submitAction = queryByTestId('submit-action');
 
     act(() => {
-        fireEvent.change(selectBedrooms, { target: { value: 'shared' } });
+      fireEvent.change(selectBedrooms, { target: { value: 'shared' } });
     });
 
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-        expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
-        expect(queryByTestId('edit-form')).toHaveClass('hide')
+      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
 
     const goToMyPropertiesAction = queryByTestId('go-to-my-properties-action');
 
     fireEvent.click(goToMyPropertiesAction);
 
-    expect(history.goBack).toBeCalledTimes(1); 
+    expect(history.goBack).toBeCalledTimes(1);
   });
 });
