@@ -10,6 +10,7 @@ export const signUpHelper = (email, password) => {
   });
 };
 
+
 // Helper function to generate random ids
 export const generatePushId = (() => {
   const PUSH_CHARS =
