@@ -30,7 +30,7 @@ jobs:
       with:
         fail-ci-if-error: true
     - name: Build
-      run: npm run build
+      run: CI=false npm run build
     - name: GitHub Action for Firebase
       uses: w9jds/firebase-action@v1.5.0
       
