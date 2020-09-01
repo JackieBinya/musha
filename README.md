@@ -6,10 +6,11 @@
 
 ## Tech Stack
 
-- Reactjs: Create React App and React Hooks.
-- React Testing Library
-- Firebase Hosting, Storage and Authentication
-- GitHub Actions
+- [Reactjs](https://reactjs.org/): Create React App and React Hooks.
+- [React Testing Library](https://testing-library.com/)
+- [Firebase](https://firebase.google.com/): Firestore, Hosting, Storage and Authentication
+- [GitHub Actions](https://github.com/features/actions) : continuos integration and deployment.
+- [Code Climate](https://docs.codeclimate.com/): coverage and maintainability reporting.
 
 ## Installation
 
@@ -47,4 +48,4 @@ npm test -- --coverage --watchAll=false
 
 ## External Links
 
-- UI Template for the application can be found here [link](https://musha-000.firebaseapp.com/)
+- The application's url is found here [link](https://musha-000.firebaseapp.com/)
