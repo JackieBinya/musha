@@ -24,9 +24,13 @@ jobs:
     - name: Installation
       run: npm install
     - name: Testing
-      run: npm test -- --coverage
-    - name: Codecov
-      uses: codecov/codecov-action@v1.0.13
+      run: npm test
+    - name: Test & publish code coverage
+      uses: paambaati/codeclimate-action@v2.6.0
+      env:
+        CC_TEST_REPORTER_ID: caf391a8e84d285ef0cd83011a2ff82a6c67e08dd015a7dac360ba2e7d30e57c
+      with:
+        coverageCommand: npm test -- --coverage --watchAll=false
     - name: Build
       run: CI=false npm run build
     - name: Deploy to firebase
