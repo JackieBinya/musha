@@ -162,79 +162,81 @@ export const EditPropertyAds = ({ history }) => {
   ]);
 
   return (
-    <div style={{ marginBottom: '2em' }}>
-      {property && isModalVisible && (
-        <div className="form-modal-container">
-          <p
-            className={isModalVisible ? 'show' : 'hide'}
-          >{`Property ID:${propertyId} is successfully updated`}</p>
-          <button
-            data-testid="go-to-my-properties-action"
-            type="button"
-            onClick={() => history.goBack()}
-          >
-            {' '}
-            Go to my properties
-          </button>
-        </div>
-      )}
-      <div className="property-form-container">
-        {!property ? (
-          <Loader />
-        ) : (
-          <div
-            data-testid="edit-form"
-            className={isModalVisible ? 'hide' : 'show'}
-          >
+    <div className="container">
+      <div style={{ marginBottom: '2em' }}>
+        {property && isModalVisible && (
+          <div className="form-modal-container">
+            <p
+              className={isModalVisible ? 'show' : 'hide'}
+            >{`Property ID:${propertyId} is successfully updated`}</p>
             <button
-              data-testid="back-button"
+              data-testid="go-to-my-properties-action"
               type="button"
               onClick={() => history.goBack()}
             >
-              <FontAwesomeIcon
-                icon={faChevronLeft}
-                className="property-icons-svg"
-              />
-              Back
+              {' '}
+              Go to my properties
             </button>
+          </div>
+        )}
+        <div className="property-form-container">
+          {!property ? (
+            <Loader />
+          ) : (
+            <div
+              data-testid="edit-form"
+              className={isModalVisible ? 'hide' : 'show'}
+            >
+              <button
+                data-testid="back-button"
+                type="button"
+                onClick={() => history.goBack()}
+              >
+                <FontAwesomeIcon
+                  icon={faChevronLeft}
+                  className="property-icons-svg"
+                />
+                Back
+              </button>
 
-            <h1>Edit property ad</h1>
+              <h1>Edit property ad</h1>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="form-primary">
-              <FirstSection
-                defaultMobileNumber={property.mobileNumber}
-                defaultTitle={property.title}
-                defaultAvailableTo={property.availableTo}
-                register={register}
-                errors={errors}
-              />
+              <form onSubmit={handleSubmit(onSubmit)} className="form-primary">
+                <FirstSection
+                  defaultMobileNumber={property.mobileNumber}
+                  defaultTitle={property.title}
+                  defaultAvailableTo={property.availableTo}
+                  register={register}
+                  errors={errors}
+                />
 
-              <LocationSection
-                defaultCity={property.city}
-                defaultLocation={property.location}
-                register={register}
-                errors={errors}
-              />
+                <LocationSection
+                  defaultCity={property.city}
+                  defaultLocation={property.location}
+                  register={register}
+                  errors={errors}
+                />
 
-              {/* <UploadImagesSection
+                {/* <UploadImagesSection
                   defaultImageUrls={property.imageUrls}
                   setImageUrls={setImageUrls}
                 /> */}
 
-              <PropertyDetailsSection
-                defaultNumberOfBathrooms={property.numberOfBathrooms}
-                defaultNumberOfBedrooms={property.numberOfBedrooms}
-                defaultDescription={property.description}
-                register={register}
-                errors={errors}
-              />
+                <PropertyDetailsSection
+                  defaultNumberOfBathrooms={property.numberOfBathrooms}
+                  defaultNumberOfBedrooms={property.numberOfBedrooms}
+                  defaultDescription={property.description}
+                  register={register}
+                  errors={errors}
+                />
 
-              <button data-testid="submit-action" type="submit">
-                Save
-              </button>
-            </form>
-          </div>
-        )}
+                <button data-testid="submit-action" type="submit">
+                  Save
+                </button>
+              </form>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

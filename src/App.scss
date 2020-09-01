@@ -111,8 +111,13 @@ $generic-border: 1px solid lightgrey;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 4em;
+    height: 4.6em;
     box-shadow: $generic-box-shadow;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: $vivid-white;
   }
 
   &-list__mobile {
@@ -281,6 +286,7 @@ $generic-border: 1px solid lightgrey;
   position: relative;
   padding: 2em 0;
   margin-bottom: 4em;
+  margin-top: 4em;
 
   @media (min-width: 650px) {
     max-width: 80%;

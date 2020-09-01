@@ -3,6 +3,7 @@ import { Link, useLocation, withRouter } from 'react-router-dom';
 import { AuthContext } from '../context/auth-context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import logo from '../musha-logo-svg.svg';
 import { firebase } from '../firebase';
 
 const NavBar = ({ history }) => {
@@ -27,7 +28,7 @@ const NavBar = ({ history }) => {
       <div className="menu-container">
         <div>
           <Link className="menu-logo" to="/">
-            mushaa
+            <img src={logo} alt="logo" />
           </Link>
         </div>
 
