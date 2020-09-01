@@ -33,6 +33,7 @@ export const Property = () => {
 
   return (
     <div className=" container show-property">
+      <div className="container-inner">
       {!property ? (
         <Loader />
       ) : (
@@ -90,6 +91,7 @@ export const Property = () => {
           </div>
         </>
       )}
+      </div>
     </div>
   );
 };

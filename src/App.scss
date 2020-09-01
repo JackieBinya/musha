@@ -126,6 +126,7 @@ $generic-border: 1px solid lightgrey;
     background-color: $vivid-royal-blue;
     font-weight: 500;
     position: relative;
+    z-index: 100;
     top: 4.7em;
 
     a {
@@ -302,7 +303,7 @@ $generic-border: 1px solid lightgrey;
   }
 }
 
-.form-wrapper {
+.container-inner {
   margin-top: 4em;
 }
 
@@ -336,12 +337,12 @@ $generic-border: 1px solid lightgrey;
     cursor: pointer;
   }
 
-  input[type='text'],
+ /*  input[type='text'],
   input[type='password'],
   input[type='email'] {
     opacity: 50%;
   }
-
+ */
   button {
     border: 1px solid $vivid-grey;
     border-radius: 1px;

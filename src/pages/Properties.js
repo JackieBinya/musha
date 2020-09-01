@@ -20,6 +20,7 @@ export const Properties = ({ history }) => {
 
   return (
     <div className="container" style={{ marginBottom: '6em' }}>
+      <div className="container-inner">
       <h1>Properties</h1>
       {userProperties === null ? (
         <Loader />
@@ -72,6 +73,7 @@ export const Properties = ({ history }) => {
       ) : (
         ''
       )}
+      </div>
     </div>
   );
 };
