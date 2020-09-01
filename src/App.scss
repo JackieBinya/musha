@@ -208,14 +208,10 @@ $generic-border: 1px solid lightgrey;
 .hero {
   background: url('./images/hero.jpg') center no-repeat;
   background-size: cover;
-  height: 70vh;
+  height: 50vh;
   width: 100vw;
   position: relative;
   top: 4em;
-
-  @media (min-width: $tablet-width) {
-    height: 50vh;
-  }
 
   &-container {
     overflow: hidden;
