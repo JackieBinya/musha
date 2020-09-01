@@ -36,21 +36,23 @@ export const SignUp = ({ history }) => {
 
   return (
     <div className="container">
-      <div className="form-container">
-        <AlertMessage
-          isAuthenticated={isAuthenticated}
-          message={message}
-          setMessage={setMessage}
-          setIsAuthenticated={setIsAuthenticated}
-        />
-        <h1>Sign up</h1>
-        <form onSubmit={handleSubmit} className="form-primary auth-form">
-          <EmailInput email={email} setEmail={setEmail} />
-          <PasswordInput setPassword={setPassword} password={password} />
-          <button type="submit" data-testid="submit-action">
-            Create your account
-          </button>
-        </form>
+      <div className="form-wrapper">
+        <div className="form-container">
+          <AlertMessage
+            isAuthenticated={isAuthenticated}
+            message={message}
+            setMessage={setMessage}
+            setIsAuthenticated={setIsAuthenticated}
+          />
+          <h1>Sign up</h1>
+          <form onSubmit={handleSubmit} className="form-primary auth-form">
+            <EmailInput email={email} setEmail={setEmail} />
+            <PasswordInput setPassword={setPassword} password={password} />
+            <button type="submit" data-testid="submit-action">
+              Create your account
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

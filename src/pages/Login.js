@@ -41,22 +41,24 @@ export const Login = ({ history }) => {
 
   return (
     <div className="container">
-      <div className="form-container">
-        <AlertMessage
-          isAuthenticated={isAuthenticated}
-          setIsAuthenticated={setIsAuthenticated}
-          message={message}
-          setMessage={setMessage}
-        />
-        <h1>Login</h1>
-        <form className="form-primary auth-form" onSubmit={handleLogin}>
-          <EmailInput email={email} setEmail={setEmail} />
-          <PasswordInput setPassword={setPassword} password={password} />
-          <button data-testid="submit-action" type="submit">
-            Continue
-          </button>
-        </form>
-        <Link to="/password-reset">Have you forgotten your password?</Link>
+      <div className="form-wrapper">
+        <div className="form-container">
+          <AlertMessage
+            isAuthenticated={isAuthenticated}
+            setIsAuthenticated={setIsAuthenticated}
+            message={message}
+            setMessage={setMessage}
+          />
+          <h1>Login</h1>
+          <form className="form-primary auth-form" onSubmit={handleLogin}>
+            <EmailInput email={email} setEmail={setEmail} />
+            <PasswordInput setPassword={setPassword} password={password} />
+            <button data-testid="submit-action" type="submit">
+              Continue
+            </button>
+          </form>
+          <Link to="/password-reset">Have you forgotten your password?</Link>
+        </div>
       </div>
     </div>
   );
