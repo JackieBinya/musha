@@ -6,7 +6,7 @@ exports[`<PostPropertyAd/> Component is successfully rendered 1`] = `
     class="container"
   >
     <div
-      class="form-wrapper"
+      class="container-inner"
     >
       <div
         class="form-modal-container hide"

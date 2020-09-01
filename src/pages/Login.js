@@ -41,7 +41,7 @@ export const Login = ({ history }) => {
 
   return (
     <div className="container">
-      <div className="form-wrapper">
+      <div className="container-inner">
         <div className="form-container">
           <AlertMessage
             isAuthenticated={isAuthenticated}

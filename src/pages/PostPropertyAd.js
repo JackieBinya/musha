@@ -60,7 +60,7 @@ export const PostPropertyAd = ({ history }) => {
 
   return (
     <div className="container">
-      <div className="form-wrapper">
+      <div className="container-inner">
         <div
           data-testid="alert-message"
           className={`form-modal-container ${hasSubmitted ? 'show' : 'hide'}`}
