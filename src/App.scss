@@ -125,6 +125,8 @@ $generic-border: 1px solid lightgrey;
     height: 100%;
     background-color: $vivid-royal-blue;
     font-weight: 500;
+    position: relative;
+    top: 4em;
 
     a {
       padding-right: 1.5em;
@@ -206,9 +208,14 @@ $generic-border: 1px solid lightgrey;
 .hero {
   background: url('./images/hero.jpg') center no-repeat;
   background-size: cover;
-  height: 30vh;
+  height: 70vh;
   width: 100vw;
   position: relative;
+  top: 4em;
+
+  @media (min-width: $tablet-width) {
+    height: 50vh;
+  }
 
   &-container {
     overflow: hidden;
@@ -219,6 +226,8 @@ $generic-border: 1px solid lightgrey;
     position: absolute;
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
   }
 
   &-content-container {
@@ -227,10 +236,11 @@ $generic-border: 1px solid lightgrey;
     top: 50%;
     left: 50%;
     min-width: 80%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -100%);
     color: rgb(255, 255, 255);
     z-index: 50;
     font-size: 0.9em;
+    text-align: center;
 
     @media (min-width: $tablet-width) {
       min-width: 60%;
@@ -286,7 +296,6 @@ $generic-border: 1px solid lightgrey;
   position: relative;
   padding: 2em 0;
   margin-bottom: 4em;
-  margin-top: 4em;
 
   @media (min-width: 650px) {
     max-width: 80%;
@@ -295,6 +304,10 @@ $generic-border: 1px solid lightgrey;
   @media (min-width: 2500px) {
     max-width: 50%;
   }
+}
+
+.form-wrapper {
+  margin-top: 4em;
 }
 
 // Sign Up and LogIn Form Styles
