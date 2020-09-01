@@ -51,8 +51,8 @@
       }
     },
     "coverageReporters": [
-      "html",
-      "text"
+      "text",
+      "lcov"
     ]
   },
   "eslintConfig": {
