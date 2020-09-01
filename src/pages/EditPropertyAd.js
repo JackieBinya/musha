@@ -128,6 +128,7 @@ export const EditPropertyAds = ({ history }) => {
     }
   };
 
+  
   useEffect(() => {
     if (
       isTitleUpdated ||
