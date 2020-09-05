@@ -12,6 +12,12 @@
 - [GitHub Actions](https://github.com/features/actions) : continuos integration and deployment.
 - [Code Climate](https://docs.codeclimate.com/): coverage and maintainability reporting.
 
+
+## TODOS
+
+- [Issues](https://github.com/JackieBinya/musha/issues): I am using the issue tracker to document bugs and features I am yet to implement.Feel free to make suggestions in the issue tracker.
+
+
 ## Installation
 
 1.  To clone this repository use the command:
