@@ -3,6 +3,7 @@ import { signUpHelper } from '../helpers';
 import { AlertMessage } from '../components/AlertMessage';
 import { PasswordInput } from '../components/PasswordInput';
 import { EmailInput } from '../components/EmailInput';
+import { Footer } from '../components/Footer';
 
 export const SignUp = ({ history }) => {
   const [email, setEmail] = useState('');
@@ -35,25 +36,28 @@ export const SignUp = ({ history }) => {
   };
 
   return (
-    <div className="container">
-      <div className="container-inner">
-        <div className="form-container">
-          <AlertMessage
-            isAuthenticated={isAuthenticated}
-            message={message}
-            setMessage={setMessage}
-            setIsAuthenticated={setIsAuthenticated}
-          />
-          <h1>Sign up</h1>
-          <form onSubmit={handleSubmit} className="form-primary auth-form">
-            <EmailInput email={email} setEmail={setEmail} />
-            <PasswordInput setPassword={setPassword} password={password} />
-            <button type="submit" data-testid="submit-action">
-              Create your account
-            </button>
-          </form>
+    <>
+      <main className="container">
+        <div className="container-inner">
+          <div className="form-container">
+            <AlertMessage
+              isAuthenticated={isAuthenticated}
+              message={message}
+              setMessage={setMessage}
+              setIsAuthenticated={setIsAuthenticated}
+            />
+            <h1>Sign up</h1>
+            <form onSubmit={handleSubmit} className="form-primary auth-form">
+              <EmailInput email={email} setEmail={setEmail} />
+              <PasswordInput setPassword={setPassword} password={password} />
+              <button type="submit" data-testid="submit-action">
+                Create your account
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
-    </div>
+      </main>
+      <Footer />
+    </>
   );
 };

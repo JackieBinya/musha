@@ -13,6 +13,7 @@ import { LocationSection } from '../components/LocationSection';
 import { Loader } from '../components/Loader';
 import { PropertyDetailsSection } from '../components/PropertyDetailsSection';
 import { PROPERTY_SCHEMA } from '../constants/validations';
+import { Footer } from '../components/Footer';
 
 export const EditPropertyAds = ({ history }) => {
   const { propertyId } = useParams();
@@ -128,7 +129,6 @@ export const EditPropertyAds = ({ history }) => {
     }
   };
 
-  
   useEffect(() => {
     if (
       isTitleUpdated ||
@@ -163,87 +163,90 @@ export const EditPropertyAds = ({ history }) => {
   ]);
 
   return (
-    <div className="container">
-      <div className="form-wrapper">
-        <div style={{ marginBottom: '2em' }}>
-          {property && isModalVisible && (
-            <div className="form-modal-container">
-              <p
-                className={isModalVisible ? 'show' : 'hide'}
-              >{`Property ID:${propertyId} is successfully updated`}</p>
-              <button
-                data-testid="go-to-my-properties-action"
-                type="button"
-                onClick={() => history.goBack()}
-              >
-                {' '}
-                Go to my properties
-              </button>
-            </div>
-          )}
-          <div className="property-form-container">
-            {!property ? (
-              <Loader />
-            ) : (
-              <div
-                data-testid="edit-form"
-                className={isModalVisible ? 'hide' : 'show'}
-              >
+    <>
+      <main className="container">
+        <div className="form-wrapper">
+          <div style={{ marginBottom: '2em' }}>
+            {property && isModalVisible && (
+              <div className="form-modal-container">
+                <p
+                  className={isModalVisible ? 'show' : 'hide'}
+                >{`Property ID:${propertyId} is successfully updated`}</p>
                 <button
-                  data-testid="back-button"
+                  data-testid="go-to-my-properties-action"
                   type="button"
                   onClick={() => history.goBack()}
                 >
-                  <FontAwesomeIcon
-                    icon={faChevronLeft}
-                    className="property-icons-svg"
-                  />
-                  Back
+                  {' '}
+                  Go to my properties
                 </button>
-
-                <h1>Edit property ad</h1>
-
-                <form
-                  onSubmit={handleSubmit(onSubmit)}
-                  className="form-primary"
+              </div>
+            )}
+            <div className="property-form-container">
+              {!property ? (
+                <Loader />
+              ) : (
+                <div
+                  data-testid="edit-form"
+                  className={isModalVisible ? 'hide' : 'show'}
                 >
-                  <FirstSection
-                    defaultMobileNumber={property.mobileNumber}
-                    defaultTitle={property.title}
-                    defaultAvailableTo={property.availableTo}
-                    register={register}
-                    errors={errors}
-                  />
+                  <button
+                    data-testid="back-button"
+                    type="button"
+                    onClick={() => history.goBack()}
+                  >
+                    <FontAwesomeIcon
+                      icon={faChevronLeft}
+                      className="property-icons-svg"
+                    />
+                    Back
+                  </button>
 
-                  <LocationSection
-                    defaultCity={property.city}
-                    defaultLocation={property.location}
-                    register={register}
-                    errors={errors}
-                  />
+                  <h1>Edit property ad</h1>
 
-                  {/* <UploadImagesSection
+                  <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="form-primary"
+                  >
+                    <FirstSection
+                      defaultMobileNumber={property.mobileNumber}
+                      defaultTitle={property.title}
+                      defaultAvailableTo={property.availableTo}
+                      register={register}
+                      errors={errors}
+                    />
+
+                    <LocationSection
+                      defaultCity={property.city}
+                      defaultLocation={property.location}
+                      register={register}
+                      errors={errors}
+                    />
+
+                    {/* <UploadImagesSection
                   defaultImageUrls={property.imageUrls}
                   setImageUrls={setImageUrls}
                 /> */}
 
-                  <PropertyDetailsSection
-                    defaultNumberOfBathrooms={property.numberOfBathrooms}
-                    defaultNumberOfBedrooms={property.numberOfBedrooms}
-                    defaultDescription={property.description}
-                    register={register}
-                    errors={errors}
-                  />
+                    <PropertyDetailsSection
+                      defaultNumberOfBathrooms={property.numberOfBathrooms}
+                      defaultNumberOfBedrooms={property.numberOfBedrooms}
+                      defaultDescription={property.description}
+                      register={register}
+                      errors={errors}
+                    />
 
-                  <button data-testid="submit-action" type="submit">
-                    Save
-                  </button>
-                </form>
-              </div>
-            )}
+                    <button data-testid="submit-action" type="submit">
+                      Save
+                    </button>
+                  </form>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </main>
+      <Footer />
+    </>
   );
 };

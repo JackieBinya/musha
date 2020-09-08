@@ -9,6 +9,7 @@ import { FirstSection } from '../components/FirstSection';
 import { LocationSection } from '../components/LocationSection';
 import { PropertyDetailsSection } from '../components/PropertyDetailsSection';
 import { PROPERTY_SCHEMA } from '../constants/validations';
+import { Footer } from '../components/Footer';
 
 export const PostPropertyAd = ({ history }) => {
   const {
@@ -59,44 +60,47 @@ export const PostPropertyAd = ({ history }) => {
   };
 
   return (
-    <div className="container">
-      <div className="container-inner">
-        <div
-          data-testid="alert-message"
-          className={`form-modal-container ${hasSubmitted ? 'show' : 'hide'}`}
-        >
-          <p>Congrats! You have successfully created a property ad.</p>
-          <button type="button" onClick={() => history.goBack()}>
-            Go to my properties
-          </button>
-        </div>
+    <>
+      <main className="container">
+        <div className="container-inner">
+          <div
+            data-testid="alert-message"
+            className={`form-modal-container ${hasSubmitted ? 'show' : 'hide'}`}
+          >
+            <p>Congrats! You have successfully created a property ad.</p>
+            <button type="button" onClick={() => history.goBack()}>
+              Go to my properties
+            </button>
+          </div>
 
-        <div className={hasSubmitted ? 'hide' : 'show'}>
-          <h1>Create a property ad</h1>
+          <div className={hasSubmitted ? 'hide' : 'show'}>
+            <h1>Create a property ad</h1>
 
-          <h2>Fill in the form below as accurately as possible.</h2>
+            <h2>Fill in the form below as accurately as possible.</h2>
 
-          <div className="property-form-container">
-            <form onSubmit={handleSubmit(onSubmit)} className="form-primary">
-              <FirstSection register={register} errors={errors} />
+            <div className="property-form-container">
+              <form onSubmit={handleSubmit(onSubmit)} className="form-primary">
+                <FirstSection register={register} errors={errors} />
 
-              <LocationSection register={register} errors={errors} />
+                <LocationSection register={register} errors={errors} />
 
-              <UploadImagesSection
-                imageUrls={imageUrls}
-                setImageUrls={setImageUrls}
-                hasSubmitted={hasSubmitted}
-              />
+                <UploadImagesSection
+                  imageUrls={imageUrls}
+                  setImageUrls={setImageUrls}
+                  hasSubmitted={hasSubmitted}
+                />
 
-              <PropertyDetailsSection register={register} errors={errors} />
+                <PropertyDetailsSection register={register} errors={errors} />
 
-              <button data-testid="submit-action" type="submit">
-                Submit
-              </button>
-            </form>
+                <button data-testid="submit-action" type="submit">
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </main>
+      <Footer />
+    </>
   );
 };

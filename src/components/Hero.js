@@ -4,7 +4,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 export const Hero = ({ query, setQuery }) => {
   return (
-    <div className="hero-container">
+    <section className="hero-container">
       <div className="hero">
         <div className="hero-overlay">
           <div className="hero-content-container">
@@ -23,6 +23,6 @@ export const Hero = ({ query, setQuery }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

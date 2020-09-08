@@ -24,7 +24,7 @@ const NavBar = ({ history }) => {
   };
 
   return (
-    <nav className="menu">
+    <header className="menu">
       <div className="menu-container">
         <div>
           <Link className="menu-logo" to="/">
@@ -138,7 +138,7 @@ const NavBar = ({ history }) => {
           </button>
         </li>
       </ul>
-    </nav>
+    </header>
   );
 };
 export default withRouter(NavBar);

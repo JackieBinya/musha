@@ -21,58 +21,60 @@ export const Properties = ({ history }) => {
   return (
     <div className="container" style={{ marginBottom: '6em' }}>
       <div className="container-inner">
-      <h1>Properties</h1>
-      {userProperties === null ? (
-        <Loader />
-      ) : userProperties.length === 0 ? (
-        <p>Ooops! No properties found, start posting property ads for free.</p>
-      ) : userProperties.length > 0 ? (
-        <div>
+        <h1>Properties</h1>
+        {userProperties === null ? (
+          <Loader />
+        ) : userProperties.length === 0 ? (
+          <p>
+            Ooops! No properties found, start posting property ads for free.
+          </p>
+        ) : userProperties.length > 0 ? (
           <div>
-            {userProperties.map(
-              ({
-                city,
-                location,
-                imageUrls,
-                numberOfBathrooms,
-                numberOfBedrooms,
-                title,
-                description,
-                id,
-              }) => (
-                <div key={id} className="my-properties">
-                  <h2>{title ? title : `New property in ${location}`}</h2>
-                  <ShortProperty imageUrls={imageUrls}>
-                    <h3 className="property-id">Property ID: {id}</h3>
+            <div>
+              {userProperties.map(
+                ({
+                  city,
+                  location,
+                  imageUrls,
+                  numberOfBathrooms,
+                  numberOfBedrooms,
+                  title,
+                  description,
+                  id,
+                }) => (
+                  <div key={id} className="my-properties">
+                    <h2>{title ? title : `New property in ${location}`}</h2>
+                    <ShortProperty imageUrls={imageUrls}>
+                      <h3 className="property-id">Property ID: {id}</h3>
 
-                    <div style={{ padding: '1em' }}>
-                      {/* The wrapper div is temp style the imported component using classes */}
-                      <ReadMoreReact
-                        text={description}
-                        min={55}
-                        ideal={80}
-                        max={300}
-                        readMoreText="Read more"
+                      <div style={{ padding: '1em' }}>
+                        {/* The wrapper div is temp style the imported component using classes */}
+                        <ReadMoreReact
+                          text={description}
+                          min={55}
+                          ideal={80}
+                          max={300}
+                          readMoreText="Read more"
+                        />
+                      </div>
+                      <PropertyIcons
+                        id={id}
+                        city={city}
+                        location={location}
+                        numberOfBathrooms={numberOfBathrooms}
+                        numberOfBedrooms={numberOfBedrooms}
+                        user={currentUser}
+                        path={path}
                       />
-                    </div>
-                    <PropertyIcons
-                      id={id}
-                      city={city}
-                      location={location}
-                      numberOfBathrooms={numberOfBathrooms}
-                      numberOfBedrooms={numberOfBedrooms}
-                      user={currentUser}
-                      path={path}
-                    />
-                  </ShortProperty>
-                </div>
-              )
-            )}
+                    </ShortProperty>
+                  </div>
+                )
+              )}
+            </div>
           </div>
-        </div>
-      ) : (
-        ''
-      )}
+        ) : (
+          ''
+        )}
       </div>
     </div>
   );

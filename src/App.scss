@@ -337,7 +337,7 @@ $generic-border: 1px solid lightgrey;
     cursor: pointer;
   }
 
- /*  input[type='text'],
+  /*  input[type='text'],
   input[type='password'],
   input[type='email'] {
     opacity: 50%;
@@ -769,4 +769,11 @@ $generic-border: 1px solid lightgrey;
   :hover {
     color: $vivid-blue;
   }
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }

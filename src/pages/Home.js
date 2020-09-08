@@ -6,6 +6,7 @@ import { ShortProperty } from '../components/ShortProperty';
 import { Hero } from '../components/Hero';
 import { Loader } from '../components/Loader';
 import { PropertyIconsHome } from '../components/PropertyIconsHome';
+import { Footer } from '../components/Footer';
 
 export const Home = () => {
   const { properties } = useProperties();
@@ -69,6 +70,8 @@ export const Home = () => {
           )}
         </div>
       </main>
+
+      <Footer />
     </>
   );
 };
