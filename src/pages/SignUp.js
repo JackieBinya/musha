@@ -57,7 +57,7 @@ export const SignUp = ({ history }) => {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer lock="lock" />
     </>
   );
 };

@@ -45,6 +45,7 @@ export const PasswordReset = ({ history }) => {
               isAuthenticated={isEmailSent}
               message={message}
               setMessage={setMessage}
+              setIsAuthenticated={setIsEmailSent}
             />
             <h1>Password Reset</h1>
             <form onSubmit={handleSubmit} className="form-primary">
@@ -56,7 +57,7 @@ export const PasswordReset = ({ history }) => {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer lock="lock" />
     </>
   );
 };

@@ -63,7 +63,7 @@ export const Login = ({ history }) => {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer lock="lock" />
     </>
   );
 };

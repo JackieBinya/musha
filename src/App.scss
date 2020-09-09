@@ -4,6 +4,7 @@
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  height: 100%;
 }
 *,
 *:before,
@@ -292,7 +293,8 @@ $generic-border: 1px solid lightgrey;
   margin: 0rem auto;
   position: relative;
   padding: 2em 0;
-  margin-bottom: 4em;
+  // margin-bottom: 4em;
+
 
   @media (min-width: 650px) {
     max-width: 80%;
@@ -305,6 +307,7 @@ $generic-border: 1px solid lightgrey;
 
 .container-inner {
   margin-top: 4em;
+  width: 100%;
 }
 
 // Sign Up and LogIn Form Styles
@@ -457,20 +460,20 @@ $generic-border: 1px solid lightgrey;
   }
 }
 
-@media (min-width: 786px) {
-  .form-container,
+/* @media (min-width: 786px) {
   .property-form-container {
     max-width: 60%;
     margin: 0 auto;
   }
 }
+*/
 
 @media (min-width: 786px) {
   .form-container {
     max-width: 40%;
     margin: 0 auto;
   }
-}
+} 
 
 /***Form Alert Modal***/
 .form-modal-container {
@@ -771,9 +774,30 @@ $generic-border: 1px solid lightgrey;
   }
 }
 
-footer{
+.container-wrapper {
+  display: grid;
+  width: 100%;
+  min-height: 100%;
+  grid-template-rows: 1fr 60px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  color: #fff;
+  background-color: rgb(6, 6, 32);
+  font-weight: 500;
+}
+
+
+.lock {
   position: fixed;
   bottom: 0;
   width: 100%;
-  text-align: center;
+}
+
+.footer-svg{
+  color: $vivid-grey;
 }
