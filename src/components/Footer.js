@@ -2,9 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 
-export const Footer = ({ lock = ''}) => {
+export const Footer = () => {
   return (
-    <footer className={lock}>
+    <footer>
       <p>
         mushaa
         <span>

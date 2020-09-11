@@ -27,7 +27,7 @@ export const Home = () => {
     : properties;
 
   return (
-    <>
+    <div className="home-page-wrapper">
       <Hero query={query} setQuery={setQuery} />
       <main>
         <div className="main container">
@@ -72,6 +72,6 @@ export const Home = () => {
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 };

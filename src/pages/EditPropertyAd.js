@@ -163,15 +163,22 @@ export const EditPropertyAds = ({ history }) => {
   ]);
 
   return (
-    <>
+    <div className="generic-wrapper">
+      {!property && (
+        <div style={{ marginTop: '4em' }}>
+          <Loader />
+        </div>
+      )}
       <main className="container">
-        <div className="form-wrapper">
-          <div style={{ marginBottom: '2em' }}>
+        <div className="container-inner">
+          <div>
             {property && isModalVisible && (
-              <div className="form-modal-container">
-                <p
-                  className={isModalVisible ? 'show' : 'hide'}
-                >{`Property ID:${propertyId} is successfully updated`}</p>
+              <div
+                className={`form-modal-container ${
+                  isModalVisible ? 'show' : 'hide'
+                }`}
+              >
+                <p>{`Property ID:${propertyId} is successfully updated.`}</p>
                 <button
                   data-testid="go-to-my-properties-action"
                   type="button"
@@ -182,71 +189,71 @@ export const EditPropertyAds = ({ history }) => {
                 </button>
               </div>
             )}
-            <div className="property-form-container">
-              {!property ? (
-                <Loader />
-              ) : (
-                <div
-                  data-testid="edit-form"
-                  className={isModalVisible ? 'hide' : 'show'}
+          </div>
+          <>
+            {property ? (
+              <div
+                data-testid="edit-form"
+                className={isModalVisible ? 'hide' : 'show'}
+              >
+                <button
+                  data-testid="back-button"
+                  type="button"
+                  onClick={() => history.goBack()}
                 >
-                  <button
-                    data-testid="back-button"
-                    type="button"
-                    onClick={() => history.goBack()}
-                  >
-                    <FontAwesomeIcon
-                      icon={faChevronLeft}
-                      className="property-icons-svg"
-                    />
-                    Back
-                  </button>
+                  <FontAwesomeIcon
+                    icon={faChevronLeft}
+                    className="property-icons-svg"
+                  />
+                  Back
+                </button>
 
-                  <h1>Edit property ad</h1>
+                <h1>Edit property ad</h1>
 
-                  <form
-                    onSubmit={handleSubmit(onSubmit)}
-                    className="form-primary"
-                  >
-                    <FirstSection
-                      defaultMobileNumber={property.mobileNumber}
-                      defaultTitle={property.title}
-                      defaultAvailableTo={property.availableTo}
-                      register={register}
-                      errors={errors}
-                    />
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="form-primary"
+                >
+                  <FirstSection
+                    defaultMobileNumber={property.mobileNumber}
+                    defaultTitle={property.title}
+                    defaultAvailableTo={property.availableTo}
+                    register={register}
+                    errors={errors}
+                  />
 
-                    <LocationSection
-                      defaultCity={property.city}
-                      defaultLocation={property.location}
-                      register={register}
-                      errors={errors}
-                    />
+                  <LocationSection
+                    defaultCity={property.city}
+                    defaultLocation={property.location}
+                    register={register}
+                    errors={errors}
+                  />
 
-                    {/* <UploadImagesSection
+                  {/* <UploadImagesSection
                   defaultImageUrls={property.imageUrls}
                   setImageUrls={setImageUrls}
                 /> */}
 
-                    <PropertyDetailsSection
-                      defaultNumberOfBathrooms={property.numberOfBathrooms}
-                      defaultNumberOfBedrooms={property.numberOfBedrooms}
-                      defaultDescription={property.description}
-                      register={register}
-                      errors={errors}
-                    />
+                  <PropertyDetailsSection
+                    defaultNumberOfBathrooms={property.numberOfBathrooms}
+                    defaultNumberOfBedrooms={property.numberOfBedrooms}
+                    defaultDescription={property.description}
+                    register={register}
+                    errors={errors}
+                  />
 
-                    <button data-testid="submit-action" type="submit">
-                      Save
-                    </button>
-                  </form>
-                </div>
-              )}
-            </div>
-          </div>
+                  <button data-testid="submit-action" type="submit">
+                    Save
+                  </button>
+                </form>
+              </div>
+            ) : (
+              ''
+            )}
+          </>
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 };

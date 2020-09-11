@@ -36,7 +36,7 @@ export const SignUp = ({ history }) => {
   };
 
   return (
-    <>
+    <div className="generic-wrapper">
       <main className="container">
         <div className="container-inner">
           <div className="form-container">
@@ -57,7 +57,7 @@ export const SignUp = ({ history }) => {
           </div>
         </div>
       </main>
-      <Footer lock="lock" />
-    </>
+      <Footer />
+    </div>
   );
 };

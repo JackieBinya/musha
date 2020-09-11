@@ -37,7 +37,7 @@ export const PasswordReset = ({ history }) => {
   };
 
   return (
-    <>
+    <div className="generic-wrapper">
       <main className="container">
         <div className="container-inner">
           <div className="form-container">
@@ -57,7 +57,7 @@ export const PasswordReset = ({ history }) => {
           </div>
         </div>
       </main>
-      <Footer lock="lock" />
-    </>
+      <Footer />
+    </div>
   );
 };

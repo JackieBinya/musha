@@ -294,9 +294,7 @@ exports[`<PostPropertyAd/> Component is successfully rendered 1`] = `
       </div>
     </div>
   </main>
-  <footer
-    class=""
-  >
+  <footer>
     <p>
       mushaa
       <span>

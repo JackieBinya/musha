@@ -137,7 +137,7 @@ describe('The user can update a property ad', () => {
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByText('Property ID:1 is successfully updated.')).toBeTruthy();
       expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
   });
@@ -162,7 +162,7 @@ describe('The user can update a property ad', () => {
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByText('Property ID:1 is successfully updated.')).toBeTruthy();
       expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
   });
@@ -185,7 +185,7 @@ describe('The user can update a property ad', () => {
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByText('Property ID:1 is successfully updated.')).toBeTruthy();
       expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
   });
@@ -206,7 +206,7 @@ describe('The user can update a property ad', () => {
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByText('Property ID:1 is successfully updated.')).toBeTruthy();
       expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
   });
@@ -231,7 +231,7 @@ describe('The user can update a property ad', () => {
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByText('Property ID:1 is successfully updated.')).toBeTruthy();
       expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
   });
@@ -254,7 +254,7 @@ describe('The user can update a property ad', () => {
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByText('Property ID:1 is successfully updated.')).toBeTruthy();
       expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
   });
@@ -281,7 +281,7 @@ describe('The user can update a property ad', () => {
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-      expect(queryByText('Property ID:1 is successfully updated')).toBeTruthy();
+      expect(queryByText('Property ID:1 is successfully updated.')).toBeTruthy();
       expect(queryByTestId('edit-form')).toHaveClass('hide');
     });
 

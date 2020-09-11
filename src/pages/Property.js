@@ -33,7 +33,7 @@ export const Property = () => {
   };
 
   return (
-    <>
+    <div className="generic-wrapper">
       <main className=" container show-property">
         <div className="container-inner">
           {!property ? (
@@ -102,6 +102,6 @@ export const Property = () => {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 };

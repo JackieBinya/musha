@@ -20,7 +20,7 @@ export const Properties = ({ history }) => {
   const { userProperties } = usePropertiesByUserID(currentUser.uid);
 
   return (
-    <>
+    <div className="generic-wrapper">
       <main className="container" style={{ marginBottom: '6em' }}>
         <div className="container-inner">
           <h1>Properties</h1>
@@ -79,7 +79,11 @@ export const Properties = ({ history }) => {
           )}
         </div>
       </main>
-      <Footer lock={ userProperties === null || userProperties.length === 0 ? 'lock' : ''}/>
-    </>
+      <Footer
+        lock={
+          userProperties === null || userProperties.length === 0 ? 'lock' : ''
+        }
+      />
+    </div>
   );
 };

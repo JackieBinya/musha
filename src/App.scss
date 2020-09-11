@@ -289,19 +289,18 @@ $generic-border: 1px solid lightgrey;
 
 // Generic Layout Styles for containers, wrappers ect.
 .container {
-  max-width: 90%;
+  width: 80%;
   margin: 0rem auto;
   position: relative;
   padding: 2em 0;
   // margin-bottom: 4em;
 
-
   @media (min-width: 650px) {
-    max-width: 80%;
+    width: 80%;
   }
 
   @media (min-width: 2500px) {
-    max-width: 50%;
+    width: 50%;
   }
 }
 
@@ -473,7 +472,7 @@ $generic-border: 1px solid lightgrey;
     max-width: 40%;
     margin: 0 auto;
   }
-} 
+}
 
 /***Form Alert Modal***/
 .form-modal-container {
@@ -781,6 +780,18 @@ $generic-border: 1px solid lightgrey;
   grid-template-rows: 1fr 60px;
 }
 
+.generic-wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 60px;
+}
+
+.home-page-wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr 60px;
+}
+
 footer {
   display: flex;
   align-items: center;
@@ -789,15 +800,9 @@ footer {
   color: #fff;
   background-color: rgb(6, 6, 32);
   font-weight: 500;
+  margin-top: auto;
 }
 
-
-.lock {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-.footer-svg{
+.footer-svg {
   color: $vivid-grey;
 }
