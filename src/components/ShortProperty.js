@@ -17,7 +17,7 @@ export const ShortProperty = ({
         url === '/' ? 'custom-pointer' : 'default-pointer'
       }`}
     >
-      {imageUrls && (
+      {imageUrls.length && (
         <div className="short-property-image-container">
           <img
             src={imageUrls[0].url}
