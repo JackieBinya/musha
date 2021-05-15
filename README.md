@@ -9,8 +9,8 @@
 - [Reactjs](https://reactjs.org/): Create React App and React Hooks.
 - [React Testing Library](https://testing-library.com/)
 - [Firebase](https://firebase.google.com/): Firestore, Hosting, Storage and Authentication
-- [GitHub Actions](https://github.com/features/actions) : continuos integration and deployment.
-- [Code Climate](https://docs.codeclimate.com/): coverage and maintainability reporting.
+- [GitHub Actions](https://github.com/features/actions) : Continuous integration and deployment.
+- [Code Climate](https://docs.codeclimate.com/): Coverage and maintainability reporting.
 
 ## Todos
 
