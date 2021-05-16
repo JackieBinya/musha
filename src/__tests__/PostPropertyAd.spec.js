@@ -104,12 +104,15 @@ describe('<PostPropertyAd/>', () => {
 });
 
 describe('Form handles submission errors', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   it('AvailableTo is a required field', async () => {
-    const { queryByText, queryByLabelText, queryByTestId } = render(
+    const { debug, queryByText, queryByLabelText, queryByTestId } = render(
       <PostPropertyAd />
     );
     const availableForRent = queryByLabelText('Rent');
@@ -149,7 +152,7 @@ describe('Form handles submission errors', () => {
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
-      '';
+      debug()
       expect(queryByText('Required!')).toBeTruthy();
     });
   });
