@@ -149,6 +149,7 @@ describe('Form handles submission errors', () => {
     fireEvent.submit(submitAction);
 
     await waitFor(() => {
+      '';
       expect(queryByText('Required!')).toBeTruthy();
     });
   });
